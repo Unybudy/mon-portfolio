@@ -6,15 +6,15 @@
 
 body {
     font-family: 'Courier New', monospace;
-    background: #0a0e27;
-    color: #00ff00;
+    background: #0a0420;
+    color: #00d4ff;
     overflow: hidden;
 }
 
 /* Desktop */
 .desktop {
     height: 100vh;
-    background: linear-gradient(135deg, #0a0e27 0%, #1a1e3f 100%);
+    background: linear-gradient(135deg, #0a0420 0%, #1a0a3f 50%, #0d1b4a 100%);
     position: relative;
     padding: 20px;
 }
@@ -26,8 +26,8 @@ body {
     left: 0;
     right: 0;
     height: 50px;
-    background: rgba(10, 14, 39, 0.95);
-    border-top: 2px solid #00ff00;
+    background: rgba(10, 4, 32, 0.95);
+    border-top: 2px solid #00d4ff;
     display: flex;
     align-items: center;
     padding: 0 20px;
@@ -36,8 +36,8 @@ body {
 }
 
 .start-btn {
-    background: #00ff00;
-    color: #0a0e27;
+    background: linear-gradient(135deg, #00d4ff 0%, #a855f7 100%);
+    color: #0a0420;
     border: none;
     padding: 8px 20px;
     font-family: 'Courier New', monospace;
@@ -47,7 +47,7 @@ body {
 }
 
 .start-btn:hover {
-    background: #00cc00;
+    background: linear-gradient(135deg, #00b8e6 0%, #9333ea 100%);
     transform: scale(1.05);
 }
 
@@ -72,7 +72,7 @@ body {
 .icon-img {
     width: 50px;
     height: 50px;
-    background: #00ff00;
+    background: linear-gradient(135deg, #00d4ff 0%, #a855f7 100%);
     margin: 0 auto 8px;
     border-radius: 8px;
     display: flex;
@@ -83,23 +83,23 @@ body {
 
 .icon-label {
     font-size: 12px;
-    color: #00ff00;
+    color: #00d4ff;
 }
 
 /* Windows */
 .window {
     position: absolute;
-    background: rgba(10, 14, 39, 0.98);
-    border: 2px solid #00ff00;
+    background: rgba(10, 4, 32, 0.98);
+    border: 2px solid #00d4ff;
     border-radius: 8px;
     min-width: 400px;
     max-width: 800px;
-    box-shadow: 0 10px 50px rgba(0, 255, 0, 0.3);
+    box-shadow: 0 10px 50px rgba(0, 212, 255, 0.3);
 }
 
 .window-header {
-    background: #00ff00;
-    color: #0a0e27;
+    background: linear-gradient(135deg, #00d4ff 0%, #a855f7 100%);
+    color: #0a0420;
     padding: 10px 15px;
     display: flex;
     justify-content: space-between;
@@ -135,11 +135,11 @@ body {
 }
 
 .maximize {
-    background: #00ff00;
+    background: #00d4ff;
 }
 
 .close {
-    background: #ff0000;
+    background: #ff0066;
     color: white;
 }
 
@@ -171,11 +171,11 @@ body {
 }
 
 .prompt {
-    color: #00ff00;
+    color: #00d4ff;
 }
 
 .command {
-    color: #00ccff;
+    color: #a855f7;
 }
 
 .output {
@@ -185,31 +185,31 @@ body {
 
 /* Skills */
 .skill-bar {
-    background: rgba(0, 255, 0, 0.1);
+    background: rgba(0, 212, 255, 0.1);
     height: 20px;
     margin: 10px 0;
-    border: 1px solid #00ff00;
+    border: 1px solid #00d4ff;
     border-radius: 4px;
     overflow: hidden;
     position: relative;
 }
 
 .skill-fill {
-    background: linear-gradient(90deg, #00ff00, #00cc00);
+    background: linear-gradient(90deg, #00d4ff, #a855f7);
     height: 100%;
     transition: width 1s ease;
     display: flex;
     align-items: center;
     padding-left: 10px;
     font-size: 12px;
-    color: #0a0e27;
+    color: #0a0420;
     font-weight: bold;
 }
 
 /* Projects */
 .project-card {
-    background: rgba(0, 255, 0, 0.05);
-    border: 1px solid #00ff00;
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid #00d4ff;
     border-radius: 6px;
     padding: 15px;
     margin: 15px 0;
@@ -217,12 +217,13 @@ body {
 }
 
 .project-card:hover {
-    background: rgba(0, 255, 0, 0.1);
+    background: rgba(168, 85, 247, 0.1);
     transform: translateX(10px);
+    border-color: #a855f7;
 }
 
 .project-title {
-    color: #00ff00;
+    color: #00d4ff;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 8px;
@@ -236,12 +237,13 @@ body {
 
 .tech-tag {
     display: inline-block;
-    background: rgba(0, 255, 0, 0.2);
-    border: 1px solid #00ff00;
+    background: rgba(168, 85, 247, 0.2);
+    border: 1px solid #a855f7;
     padding: 4px 10px;
     margin: 5px 5px 0 0;
     border-radius: 4px;
     font-size: 12px;
+    color: #00d4ff;
 }
 
 /* Animations */
@@ -264,10 +266,10 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(0, 255, 0, 0.1);
+    background: rgba(0, 212, 255, 0.1);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #00ff00;
+    background: linear-gradient(180deg, #00d4ff, #a855f7);
     border-radius: 5px;
 }
