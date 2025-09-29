@@ -1,85 +1,295 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<title>Jef LY – Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Portfolio de Jef LY : projets design & développement.">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<meta property="og:title" content="Jef LY – Portfolio">
-<meta property="og:description" content="Projets, études de cas et contact.">
-<meta property="og:image" content="https://tonpseudo.github.io/img/og.jpg">
-<meta property="og:type" content="website">
-<style>
-:root{--accent:#0ea5e9;--text:#111;--muted:#666;--bg:#fff}
-*{box-sizing:border-box} body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;color:var(--text);background:var(--bg)}
-a{color:inherit} header,section,footer{padding:64px 20px;max-width:1000px;margin:auto}
-h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:0 0 12px} h2{font-size:clamp(22px,3vw,28px);margin:0 0 16px}
-.lead{color:var(--muted);max-width:60ch} .btn{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;margin-top:16px}
-.grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
-.card{border:1px solid #eee;border-radius:16px;padding:16px;background:#fff}
-img{max-width:100%;height:auto;border-radius:12px}
-nav{display:flex;gap:16px;margin-top:12px} nav a{padding:8px 12px;border-radius:8px;border:1px solid #eee;text-decoration:none}
-footer{color:#888}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOS - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>👋 Salut, je suis <strong>Jef LY</strong></h1>
-  <p class="lead">Je conçois et développe des expériences web modernes. Voici une sélection de projets.</p>
-  <nav>
-    <a href="#projets">Projets</a>
-    <a href="#a-propos">À propos</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+    <div class="desktop">
+        <div class="desktop-icon" onclick="openWindow('about')">
+            <div class="icon-img">👤</div>
+            <div class="icon-label">about.exe</div>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('skills')">
+            <div class="icon-img">⚡</div>
+            <div class="icon-label">skills.sys</div>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('projects')">
+            <div class="icon-img">💻</div>
+            <div class="icon-label">projects.app</div>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('contact')">
+            <div class="icon-img">📧</div>
+            <div class="icon-label">contact.bat</div>
+        </div>
 
-<section id="projets">
-  <h2>🎨 Projets</h2>
-  <div class="grid">
-    <article class="card">
-      <img src="img/projet1.webp" alt="Capture projet 1" loading="lazy">
-      <h3>Projet 1</h3>
-      <p>Refonte landing page — +35% conversion.</p>
-      <p><a href="https://livedemo.example" target="_blank" rel="noopener">Démo</a> · <a href="https://github.com/tonpseudo/projet1" target="_blank" rel="noopener">Code</a></p>
-    </article>
-    <article class="card">
-      <img src="img/projet2.webp" alt="Capture projet 2" loading="lazy">
-      <h3>Projet 2</h3>
-      <p>App web React — temps de chargement ÷2.</p>
-      <p><a href="#" target="_blank" rel="noopener">Étude de cas</a></p>
-    </article>
-  </div>
-</section>
+        <!-- About Window -->
+        <div id="about-window" class="window" style="top: 100px; left: 150px; display: none;">
+            <div class="window-header" onmousedown="dragStart(event, 'about-window')">
+                <div class="window-title">
+                    <span>📁</span> about.exe
+                </div>
+                <div class="window-controls">
+                    <button class="window-btn minimize" onclick="minimizeWindow('about-window')">_</button>
+                    <button class="window-btn close" onclick="closeWindow('about-window')">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="terminal-line">
+                    <span class="prompt">root@portfolio:~$</span> <span class="command">cat about.txt</span>
+                </div>
+                <div class="terminal-line output">
+                    > Initialisation du profil...<br>
+                    > Chargement des données...
+                </div>
+                <div class="terminal-line output">
+                    ╔══════════════════════════════════╗<br>
+                    ║   DÉVELOPPEUR WEB FULL-STACK    ║<br>
+                    ╚══════════════════════════════════╝
+                </div>
+                <div class="terminal-line output">
+                    Salut ! Je suis un développeur passionné par la création<br>
+                    d'expériences web innovantes et performantes.<br><br>
+                    
+                    💡 Spécialités:<br>
+                    - Développement Frontend & Backend<br>
+                    - Design UX/UI moderne<br>
+                    - Optimisation de performances<br>
+                    - Architecture logicielle
+                </div>
+                <div class="terminal-line">
+                    <span class="prompt">root@portfolio:~$</span> <span class="blink">█</span>
+                </div>
+            </div>
+        </div>
 
-<section id="a-propos">
-  <h2>👤 À propos</h2>
-  <p>Je m’intéresse aux interfaces minimalistes, aux performances web et à l’accessibilité.</p>
-  <ul>
-    <li>Compétences : UX/UI, HTML/CSS/JS, React</li>
-    <li>Outils : Figma, GitHub, VS Code</li>
-  </ul>
-</section>
+        <!-- Skills Window -->
+        <div id="skills-window" class="window" style="top: 120px; left: 200px; display: none;">
+            <div class="window-header" onmousedown="dragStart(event, 'skills-window')">
+                <div class="window-title">
+                    <span>⚙️</span> skills.sys
+                </div>
+                <div class="window-controls">
+                    <button class="window-btn minimize" onclick="minimizeWindow('skills-window')">_</button>
+                    <button class="window-btn close" onclick="closeWindow('skills-window')">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="terminal-line">
+                    <span class="prompt">root@portfolio:~$</span> <span class="command">./load_skills.sh</span>
+                </div>
+                <div class="terminal-line output">
+                    > Analyse des compétences en cours...
+                </div>
+                <div class="terminal-line output">
+                    <strong>JavaScript</strong>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 90%">90%</div>
+                    </div>
+                    
+                    <strong>React.js</strong>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 85%">85%</div>
+                    </div>
+                    
+                    <strong>Node.js</strong>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 80%">80%</div>
+                    </div>
+                    
+                    <strong>HTML/CSS</strong>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 95%">95%</div>
+                    </div>
+                    
+                    <strong>Python</strong>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 75%">75%</div>
+                    </div>
+                    
+                    <strong>Git/GitHub</strong>
+                    <div class="skill-bar">
+                        <div class="skill-fill" style="width: 88%">88%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<section id="contact">
-  <h2>📩 Contact</h2>
-  <p>Écris-moi : <a href="mailto:prenom@exemple.com">prenom@exemple.com</a></p>
-  <!-- Formulaire gratuit via Google Forms ou Tally -->
-  <!-- Exemple Tally (crée un formulaire et colle le script d'intégration) -->
-  <!-- <iframe src="https://tally.so/r/FORM_ID?transparentBackground=1" width="100%" height="320" frameborder="0" marginheight="0" marginwidth="0" title="Contact"></iframe> -->
-  <p>
-    <a class="btn" href="https://www.linkedin.com/in/tonprofil" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-    <a class="btn" href="https://github.com/tonpseudo" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
-  </p>
-</section>
+        <!-- Projects Window -->
+        <div id="projects-window" class="window" style="top: 140px; left: 250px; display: none; max-width: 700px;">
+            <div class="window-header" onmousedown="dragStart(event, 'projects-window')">
+                <div class="window-title">
+                    <span>💼</span> projects.app
+                </div>
+                <div class="window-controls">
+                    <button class="window-btn minimize" onclick="minimizeWindow('projects-window')">_</button>
+                    <button class="window-btn close" onclick="closeWindow('projects-window')">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="terminal-line">
+                    <span class="prompt">root@portfolio:~$</span> <span class="command">ls projects/</span>
+                </div>
+                <div class="terminal-line output">
+                    > 3 projets trouvés
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">🚀 Application E-commerce</div>
+                    <div class="project-desc">
+                        Plateforme e-commerce complète avec panier, paiement et gestion des stocks.
+                        Interface moderne et responsive.
+                    </div>
+                    <div>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                </div>
 
-<footer>
-  © <span id="y"></span> Ton Nom — <a href="#">Mentions</a>
-</footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+                <div class="project-card">
+                    <div class="project-title">🎮 Dashboard Analytics</div>
+                    <div class="project-desc">
+                        Tableau de bord interactif pour visualiser des données en temps réel.
+                        Graphiques dynamiques et filtres avancés.
+                    </div>
+                    <div>
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">Chart.js</span>
+                        <span class="tech-tag">API REST</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">🌐 Portfolio Interactif</div>
+                    <div class="project-desc">
+                        Site portfolio avec animations 3D et design unique.
+                        Optimisé pour les performances.
+                    </div>
+                    <div>
+                        <span class="tech-tag">Three.js</span>
+                        <span class="tech-tag">GSAP</span>
+                        <span class="tech-tag">Tailwind</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Window -->
+        <div id="contact-window" class="window" style="top: 160px; left: 300px; display: none;">
+            <div class="window-header" onmousedown="dragStart(event, 'contact-window')">
+                <div class="window-title">
+                    <span>📬</span> contact.bat
+                </div>
+                <div class="window-controls">
+                    <button class="window-btn minimize" onclick="minimizeWindow('contact-window')">_</button>
+                    <button class="window-btn close" onclick="closeWindow('contact-window')">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="terminal-line">
+                    <span class="prompt">root@portfolio:~$</span> <span class="command">./contact.sh</span>
+                </div>
+                <div class="terminal-line output">
+                    > Chargement des informations de contact...
+                </div>
+                <div class="terminal-line output">
+                    ╔════════════════════════════════════╗<br>
+                    ║      RESTONS EN CONTACT !         ║<br>
+                    ╚════════════════════════════════════╝<br><br>
+                    
+                    📧 Email: dev@portfolio.com<br>
+                    🐙 GitHub: github.com/votreusername<br>
+                    💼 LinkedIn: linkedin.com/in/votreprofil<br>
+                    🐦 Twitter: @votrehandle<br><br>
+                    
+                    > Disponible pour des projets freelance<br>
+                    > Ouvert aux opportunités CDI<br>
+                    > Temps de réponse: ~24h
+                </div>
+                <div class="terminal-line">
+                    <span class="prompt">root@portfolio:~$</span> <span class="blink">█</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <button class="start-btn" onclick="showMenu()">▶ START</button>
+        <div class="time" id="clock"></div>
+    </div>
+
+    <script>
+        // Clock
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent = now.toLocaleTimeString('fr-FR');
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Window management
+        let activeWindow = null;
+        let isDragging = false;
+        let currentX;
+        let currentY;
+        let initialX;
+        let initialY;
+
+        function openWindow(windowName) {
+            const win = document.getElementById(windowName + '-window');
+            win.style.display = 'block';
+            bringToFront(win);
+        }
+
+        function closeWindow(windowId) {
+            document.getElementById(windowId).style.display = 'none';
+        }
+
+        function minimizeWindow(windowId) {
+            document.getElementById(windowId).style.display = 'none';
+        }
+
+        function bringToFront(element) {
+            const windows = document.querySelectorAll('.window');
+            windows.forEach(w => w.style.zIndex = 1);
+            element.style.zIndex = 10;
+        }
+
+        function dragStart(e, windowId) {
+            activeWindow = document.getElementById(windowId);
+            bringToFront(activeWindow);
+            
+            initialX = e.clientX - activeWindow.offsetLeft;
+            initialY = e.clientY - activeWindow.offsetTop;
+            
+            isDragging = true;
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging && activeWindow) {
+                e.preventDefault();
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+                
+                activeWindow.style.left = currentX + 'px';
+                activeWindow.style.top = currentY + 'px';
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        function showMenu() {
+            alert('💾 Menu START\n\n→ Cliquez sur les icônes pour ouvrir les fenêtres!\n\n✨ Astuce: Vous pouvez déplacer les fenêtres!');
+        }
+
+        // Auto-open about window on load
+        setTimeout(() => openWindow('about'), 500);
+    </script>
 </body>
 </html>
-
-
