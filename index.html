@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Ton Nom – Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfolio de Ton Nom : projets design & développement.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta property="og:title" content="Ton Nom – Portfolio">
+<meta property="og:description" content="Projets, études de cas et contact.">
+<meta property="og:image" content="https://tonpseudo.github.io/img/og.jpg">
+<meta property="og:type" content="website">
+<style>
+:root{--accent:#0ea5e9;--text:#111;--muted:#666;--bg:#fff}
+*{box-sizing:border-box} body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:0;color:var(--text);background:var(--bg)}
+a{color:inherit} header,section,footer{padding:64px 20px;max-width:1000px;margin:auto}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:0 0 12px} h2{font-size:clamp(22px,3vw,28px);margin:0 0 16px}
+.lead{color:var(--muted);max-width:60ch} .btn{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;margin-top:16px}
+.grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.card{border:1px solid #eee;border-radius:16px;padding:16px;background:#fff}
+img{max-width:100%;height:auto;border-radius:12px}
+nav{display:flex;gap:16px;margin-top:12px} nav a{padding:8px 12px;border-radius:8px;border:1px solid #eee;text-decoration:none}
+footer{color:#888}
+</style>
+</head>
+<body>
+<header>
+  <h1>👋 Salut, je suis <strong>Ton Nom</strong></h1>
+  <p class="lead">Je conçois et développe des expériences web modernes. Voici une sélection de projets.</p>
+  <nav>
+    <a href="#projets">Projets</a>
+    <a href="#a-propos">À propos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="projets">
+  <h2>🎨 Projets</h2>
+  <div class="grid">
+    <article class="card">
+      <img src="img/projet1.webp" alt="Capture projet 1" loading="lazy">
+      <h3>Projet 1</h3>
+      <p>Refonte landing page — +35% conversion.</p>
+      <p><a href="https://livedemo.example" target="_blank" rel="noopener">Démo</a> · <a href="https://github.com/tonpseudo/projet1" target="_blank" rel="noopener">Code</a></p>
+    </article>
+    <article class="card">
+      <img src="img/projet2.webp" alt="Capture projet 2" loading="lazy">
+      <h3>Projet 2</h3>
+      <p>App web React — temps de chargement ÷2.</p>
+      <p><a href="#" target="_blank" rel="noopener">Étude de cas</a></p>
+    </article>
+  </div>
+</section>
+
+<section id="a-propos">
+  <h2>👤 À propos</h2>
+  <p>Je m’intéresse aux interfaces minimalistes, aux performances web et à l’accessibilité.</p>
+  <ul>
+    <li>Compétences : UX/UI, HTML/CSS/JS, React</li>
+    <li>Outils : Figma, GitHub, VS Code</li>
+  </ul>
+</section>
+
+<section id="contact">
+  <h2>📩 Contact</h2>
+  <p>Écris-moi : <a href="mailto:prenom@exemple.com">prenom@exemple.com</a></p>
+  <!-- Formulaire gratuit via Google Forms ou Tally -->
+  <!-- Exemple Tally (crée un formulaire et colle le script d'intégration) -->
+  <!-- <iframe src="https://tally.so/r/FORM_ID?transparentBackground=1" width="100%" height="320" frameborder="0" marginheight="0" marginwidth="0" title="Contact"></iframe> -->
+  <p>
+    <a class="btn" href="https://www.linkedin.com/in/tonprofil" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+    <a class="btn" href="https://github.com/tonpseudo" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+  </p>
+</section>
+
+<footer>
+  © <span id="y"></span> Ton Nom — <a href="#">Mentions</a>
+</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
