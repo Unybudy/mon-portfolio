@@ -25,15 +25,14 @@
             <div class="icon-label">contact.bat</div>
         </div>
 
-        <!-- About Window -->
         <div id="about-window" class="window" style="top: 100px; left: 150px; display: none;">
             <div class="window-header" onmousedown="dragStart(event, 'about-window')">
                 <div class="window-title">
                     <span>📁</span> about.exe
                 </div>
                 <div class="window-controls">
-                    <button class="window-btn minimize" onclick="minimizeWindow('about-window')">_</button>
-                    <button class="window-btn close" onclick="closeWindow('about-window')">×</button>
+                    <button class="window-btn minimize" onclick="minimizeWindow('about-window')">−</button>
+                    <button class="window-btn close" onclick="closeWindow('about-window')">✕</button>
                 </div>
             </div>
             <div class="window-content">
@@ -65,15 +64,14 @@
             </div>
         </div>
 
-        <!-- Skills Window -->
         <div id="skills-window" class="window" style="top: 120px; left: 200px; display: none;">
             <div class="window-header" onmousedown="dragStart(event, 'skills-window')">
                 <div class="window-title">
                     <span>⚙️</span> skills.sys
                 </div>
                 <div class="window-controls">
-                    <button class="window-btn minimize" onclick="minimizeWindow('skills-window')">_</button>
-                    <button class="window-btn close" onclick="closeWindow('skills-window')">×</button>
+                    <button class="window-btn minimize" onclick="minimizeWindow('skills-window')">−</button>
+                    <button class="window-btn close" onclick="closeWindow('skills-window')">✕</button>
                 </div>
             </div>
             <div class="window-content">
@@ -117,15 +115,14 @@
             </div>
         </div>
 
-        <!-- Projects Window -->
         <div id="projects-window" class="window" style="top: 140px; left: 250px; display: none; max-width: 700px;">
             <div class="window-header" onmousedown="dragStart(event, 'projects-window')">
                 <div class="window-title">
                     <span>💼</span> projects.app
                 </div>
                 <div class="window-controls">
-                    <button class="window-btn minimize" onclick="minimizeWindow('projects-window')">_</button>
-                    <button class="window-btn close" onclick="closeWindow('projects-window')">×</button>
+                    <button class="window-btn minimize" onclick="minimizeWindow('projects-window')">−</button>
+                    <button class="window-btn close" onclick="closeWindow('projects-window')">✕</button>
                 </div>
             </div>
             <div class="window-content">
@@ -177,15 +174,14 @@
             </div>
         </div>
 
-        <!-- Contact Window -->
         <div id="contact-window" class="window" style="top: 160px; left: 300px; display: none;">
             <div class="window-header" onmousedown="dragStart(event, 'contact-window')">
                 <div class="window-title">
                     <span>📬</span> contact.bat
                 </div>
                 <div class="window-controls">
-                    <button class="window-btn minimize" onclick="minimizeWindow('contact-window')">_</button>
-                    <button class="window-btn close" onclick="closeWindow('contact-window')">×</button>
+                    <button class="window-btn minimize" onclick="minimizeWindow('contact-window')">−</button>
+                    <button class="window-btn close" onclick="closeWindow('contact-window')">✕</button>
                 </div>
             </div>
             <div class="window-content">
@@ -216,80 +212,11 @@
         </div>
     </div>
 
-    <!-- Taskbar -->
     <div class="taskbar">
-        <button class="start-btn" onclick="showMenu()">▶ START</button>
+        <button class="start-btn" onclick="showMenu()">⊞ Démarrer</button>
         <div class="time" id="clock"></div>
     </div>
 
-    <script>
-        // Clock
-        function updateClock() {
-            const now = new Date();
-            document.getElementById('clock').textContent = now.toLocaleTimeString('fr-FR');
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
-
-        // Window management
-        let activeWindow = null;
-        let isDragging = false;
-        let currentX;
-        let currentY;
-        let initialX;
-        let initialY;
-
-        function openWindow(windowName) {
-            const win = document.getElementById(windowName + '-window');
-            win.style.display = 'block';
-            bringToFront(win);
-        }
-
-        function closeWindow(windowId) {
-            document.getElementById(windowId).style.display = 'none';
-        }
-
-        function minimizeWindow(windowId) {
-            document.getElementById(windowId).style.display = 'none';
-        }
-
-        function bringToFront(element) {
-            const windows = document.querySelectorAll('.window');
-            windows.forEach(w => w.style.zIndex = 1);
-            element.style.zIndex = 10;
-        }
-
-        function dragStart(e, windowId) {
-            activeWindow = document.getElementById(windowId);
-            bringToFront(activeWindow);
-            
-            initialX = e.clientX - activeWindow.offsetLeft;
-            initialY = e.clientY - activeWindow.offsetTop;
-            
-            isDragging = true;
-        }
-
-        document.addEventListener('mousemove', (e) => {
-            if (isDragging && activeWindow) {
-                e.preventDefault();
-                currentX = e.clientX - initialX;
-                currentY = e.clientY - initialY;
-                
-                activeWindow.style.left = currentX + 'px';
-                activeWindow.style.top = currentY + 'px';
-            }
-        });
-
-        document.addEventListener('mouseup', () => {
-            isDragging = false;
-        });
-
-        function showMenu() {
-            alert('💾 Menu START\n\n→ Cliquez sur les icônes pour ouvrir les fenêtres!\n\n✨ Astuce: Vous pouvez déplacer les fenêtres!');
-        }
-
-        // Auto-open about window on load
-        setTimeout(() => openWindow('about'), 500);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
