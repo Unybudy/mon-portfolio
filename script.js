@@ -1,155 +1,116 @@
-<!DOCTYPE html>
-<html lang="fr" data-theme="mac-dark">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio – Style macOS sombre</title>
-  <meta name="description" content="Portfolio minimal sombre façon macOS (menu bar, dock, fenêtres) – HTML/CSS/JS moderne." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Utilise la pile système (SF Pro) si dispo; pas d'appel réseau requis -->
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- MENU BAR -->
-  <div class="menubar" role="navigation" aria-label="Barre de menus">
-    <div class="apple" aria-hidden="true"></div>
-    <div class="menu-items">
-      <span class="item active">Portfolio</span>
-      <span class="item">Projets</span>
-      <span class="item">À propos</span>
-    </div>
-    <div class="menu-right">
-      <span class="status-dot" aria-hidden="true"></span>
-      <span id="clock" aria-live="polite"></span>
-    </div>
-  </div>
+// =======================================================
+// Interactions macOS-like (horloge, dock, navigation, drag)
+// Fichier: script.js
+// =======================================================
 
-  <!-- FENÊTRE PRINCIPALE -->
-  <div class="window" id="win" role="dialog" aria-label="Fenêtre Portfolio">
-    <div class="titlebar" id="drag">
-      <div class="traffic" aria-hidden="true">
-        <button class="light red" title="Fermer" aria-label="Fermer"></button>
-        <button class="light yellow" title="Minimiser" aria-label="Minimiser"></button>
-        <button class="light green" title="Agrandir" aria-label="Agrandir"></button>
-      </div>
-      <div class="title">Portfolio — Jef Ly</div>
-    </div>
-    <div class="content">
-      <aside class="sidebar">
-        <h3>Sections</h3>
-        <div class="navlist">
-          <button class="navbtn active" data-view="projets">📁 Projets</button>
-          <button class="navbtn" data-view="apropos">👤 À propos</button>
-          <button class="navbtn" data-view="contact">✉️ Contact</button>
-        </div>
-      </aside>
-      <main class="main">
-        <div class="toolbar">
-          <div class="seg" role="tablist" aria-label="Affichage">
-            <button class="active" data-tab="grid" role="tab" aria-selected="true">Grille</button>
-            <button data-tab="liste" role="tab" aria-selected="false">Liste</button>
-          </div>
-          <label class="search" aria-label="Recherche">
-            🔎 <input id="search" placeholder="Rechercher un projet…" />
-          </label>
-        </div>
+// Horloge façon macOS (HH:MM + jour abrégé)
+const clockEl = document.getElementById('clock');
+function fmt(n){ return n.toString().padStart(2,'0'); }
+function tick(){
+  const d = new Date();
+  const days = ['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'];
+  clockEl.textContent = `${days[d.getDay()]} ${fmt(d.getHours())}:${fmt(d.getMinutes())}`;
+}
+tick();
+setInterval(tick, 15000);
 
-        <!-- VUE PROJETS -->
-        <section id="view-projets">
-          <div class="grid" id="projects">
-            <article class="card" data-text="automation python sogecap incidents bts sio slam 2025">
-              <span class="tag">Python • 2025 • Sogécap</span>
-              <h4>Automatisation gestion d’incidents</h4>
-              <p>Scripts Python pour accélérer la prise en charge et le suivi des incidents.</p>
-            </article>
-            <article class="card" data-text="wordpress site web vitrine seo accessibilite 2024">
-              <span class="tag">WordPress • 2024</span>
-              <h4>Site vitrine WordPress</h4>
-              <p>Création d’un site avec thèmes & extensions, focus accessibilité & performance.</p>
-            </article>
-            <article class="card" data-text="cybersecurite php sql authentification rgpd 2024">
-              <span class="tag">PHP/SQL • 2024</span>
-              <h4>Gestion de site en cybersécurité</h4>
-              <p>Auth sécurisée, gestion des accès, bonnes pratiques SQL et RGPD.</p>
-            </article>
-            <article class="card" data-text="uml merise modelisation mini-projets 2024">
-              <span class="tag">UML/Merise • 2024</span>
-              <h4>Mini‑projets de modélisation</h4>
-              <p>Diagrammes et conception de schémas pour applications métiers.</p>
-            </article>
-            <article class="card" data-text="portfolio html css js 2024">
-              <span class="tag">Front‑end • 2024</span>
-              <h4>Portfolio web personnel</h4>
-              <p>Version « macOS » sombre minimaliste, interactions fluides.</p>
-            </article>
-            <article class="card" data-text="android application mobile planifiee 2025">
-              <span class="tag">Android • 2025 (prévu)</span>
-              <h4>Application Android</h4>
-              <p>Architecture, sécurité des données (hashage, auth).</p>
-            </article>
-          </div>
-        </section>
+// Accent toggle (couleur d'accent des contrôles)
+const accents = ['#3ea6ff','#7ad1c2','#c9a227','#9d7cff'];
+let ai = 0;
+document.getElementById('toggle-accent').addEventListener('click', ()=>{
+  ai = (ai+1)%accents.length;
+  document.documentElement.style.setProperty('--accent', accents[ai]);
+});
 
-        <!-- VUE A PROPOS -->
-        <section id="view-apropos" hidden>
-          <div class="about">
-            <div class="panel">
-              <h3>Profil</h3>
-              <p>Étudiant en <strong>BTS SIO – SLAM</strong>, passionné par le développement web & logiciel. Style soigné, hiérarchie claire et performance.</p>
-              <div class="kpi">
-                <div class="bubble"><h5>8</h5><p>compétences‑clés</p></div>
-                <div class="bubble"><h5>B1</h5><p>Anglais</p></div>
-                <div class="bubble"><h5>B1</h5><p>Espagnol</p></div>
-              </div>
-              <div class="skills">
-                <span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span>
-                <span class="chip">Java</span><span class="chip">MySQL/MariaDB/SQL Server</span>
-                <span class="chip">UML</span><span class="chip">Merise</span><span class="chip">WordPress</span>
-                <span class="chip">WooCommerce</span><span class="chip">Git/GitHub</span>
-                <span class="chip">SonarQube</span><span class="chip">Agile/Scrum</span>
-                <span class="chip">RGPD</span><span class="chip">Auth & hashage</span>
-              </div>
-            </div>
-            <div class="panel">
-              <h3>Expériences</h3>
-              <ul>
-                <li><strong>Sogécap</strong> — Stage BTS SIO SLAM (2025) : outils Python d’automatisation pour incidents.</li>
-                <li>Autres expériences en logistique & retail.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+// Vues (projets / à propos / contact)
+const views = {
+  projets: document.getElementById('view-projets'),
+  apropos: document.getElementById('view-apropos'),
+  contact: document.getElementById('view-contact')
+};
+function show(view){
+  for(const k in views){ views[k].hidden = k !== view; }
+  document.querySelectorAll('.navbtn').forEach(b => b.classList.toggle('active', b.dataset.view === view));
+}
+document.querySelectorAll('.navbtn').forEach(b => b.addEventListener('click', ()=> show(b.dataset.view)));
+document.querySelectorAll('.dock .icon[data-open], .dock .icon[data-open]').forEach(i => {
+  i.addEventListener('click', ()=> show(i.dataset.open));
+});
+document.querySelectorAll('.dock .icon[data-open]').forEach(i => i.addEventListener('click', ()=> show(i.dataset.open)));
 
-        <!-- VUE CONTACT (SANS DONNÉES PERSONNELLES) -->
-        <section id="view-contact" hidden>
-          <div class="panel">
-            <h3>Contact</h3>
-            <p>Utilise ce formulaire pour me laisser un message. (Aucun email/téléphone stocké ici.)</p>
-            <form id="contact-form">
-              <div class="grid grid-form">
-                <input class="input" placeholder="Votre nom" required />
-                <input class="input" type="email" placeholder="Votre email" required />
-                <textarea class="input" placeholder="Votre message" rows="6"></textarea>
-              </div>
-              <div class="actions">
-                <button class="btn" type="submit">Envoyer</button>
-              </div>
-            </form>
-          </div>
-        </section>
-      </main>
-    </div>
-  </div>
+// Recherche dans les projets
+const search = document.getElementById('search');
+const items = Array.from(document.querySelectorAll('#projects .card'));
+if (search){
+  search.addEventListener('input', ()=>{
+    const q = search.value.trim().toLowerCase();
+    items.forEach(it => {
+      const t = (it.dataset.text || '').toLowerCase();
+      it.style.display = t.includes(q) ? 'block' : 'none';
+    });
+  });
+}
 
-  <!-- DOCK -->
-  <div class="dock" role="navigation" aria-label="Dock">
-    <button class="icon" data-open="projets" title="Projets"><span>📁</span></button>
-    <button class="icon" data-open="apropos" title="À propos"><span>👤</span></button>
-    <button class="icon" data-open="contact" title="Contact"><span>✉️</span></button>
-    <button class="icon" id="toggle-accent" title="Accent"><span>💡</span></button>
-  </div>
+// Segmented control (grille / liste)
+const seg = document.querySelectorAll('.seg button');
+const grid = document.getElementById('projects');
+seg.forEach(b => b.addEventListener('click', ()=>{
+  seg.forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  if(b.dataset.tab === 'liste'){
+    grid.style.gridTemplateColumns = 'repeat(12, 1fr)';
+    grid.querySelectorAll('.card').forEach(c => c.style.gridColumn = 'span 12');
+  } else {
+    grid.style.gridTemplateColumns = 'repeat(12, 1fr)';
+    grid.querySelectorAll('.card').forEach(c => c.style.gridColumn = 'span 4');
+  }
+}));
 
-  <script src="script.js"></script>
-</body>
-</html>
+// Drag de la fenêtre (barre de titre)
+(function(){
+  const win = document.getElementById('win');
+  const drag = document.getElementById('drag');
+  let sx=0, sy=0, ox=0, oy=0, down=false;
+  const clamp = (v, min, max)=> Math.min(Math.max(v,min), max);
+  function onDown(e){
+    down = true;
+    sx = (e.touches?e.touches[0].clientX:e.clientX);
+    sy = (e.touches?e.touches[0].clientY:e.clientY);
+    const r = win.getBoundingClientRect();
+    ox = r.left; oy = r.top;
+  }
+  function onMove(e){
+    if(!down) return;
+    const x = (e.touches?e.touches[0].clientX:e.clientX);
+    const y = (e.touches?e.touches[0].clientY:e.clientY);
+    let nx = ox + (x - sx);
+    let ny = oy + (y - sy);
+    const W = window.innerWidth;
+    const H = window.innerHeight;
+    const rect = win.getBoundingClientRect();
+    nx = clamp(nx, 8, W - rect.width - 8);
+    ny = clamp(ny, 40, H - rect.height - 80);
+    win.style.left = nx + 'px';
+    win.style.top = ny + 'px';
+  }
+  function onUp(){ down = false; }
+  drag.addEventListener('mousedown', onDown);
+  window.addEventListener('mousemove', onMove);
+  window.addEventListener('mouseup', onUp);
+  drag.addEventListener('touchstart', onDown, {passive:true});
+  window.addEventListener('touchmove', onMove, {passive:false});
+  window.addEventListener('touchend', onUp);
+})();
+
+// Soumission du formulaire (pas d'infos perso stockées)
+const form = document.getElementById('contact-form');
+if (form){
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    alert('Message envoyé (démo) — Aucune donnée n\'est conservée.');
+    form.reset();
+  });
+}
+
+// Par défaut, afficher Projets
+show('projets');
