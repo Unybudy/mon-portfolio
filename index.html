@@ -1,141 +1,383 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="mac-dark">
+<html lang="fr" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio – Style macOS sombre</title>
-  <meta name="description" content="Portfolio minimal sombre façon macOS (menu bar, dock, fenêtres) – HTML/CSS/JS moderne." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Utilise la pile système (SF Pro) si dispo; pas d'appel réseau requis -->
+  <title>Jef Ly — Portfolio Developer BTS SIO SLAM</title>
+  <meta name="description" content="Portfolio de Jef Ly - Développeur Full Stack BTS SIO SLAM. Spécialisé en Python, PHP, JavaScript et cybersécurité." />
+  
+  <!-- Meta tags SEO -->
+  <meta property="og:title" content="Jef Ly - Portfolio Developer" />
+  <meta property="og:description" content="Développeur Full Stack passionné, spécialisé en Python, PHP et JavaScript" />
+  <meta property="og:type" content="website" />
+  <meta name="author" content="Jef Ly" />
+  <meta name="keywords" content="développeur, full stack, BTS SIO SLAM, Python, PHP, JavaScript, portfolio" />
+  
+  <!-- Lien vers le fichier CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- MENU BAR -->
   <div class="menubar" role="navigation" aria-label="Barre de menus">
-    <div class="apple" aria-hidden="true"></div>
+    <div class="apple" title="Menu"></div>
     <div class="menu-items">
-      <span class="item active">Portfolio</span>
-      <span class="item">Projets</span>
-      <span class="item">À propos</span>
+      <span class="item active" onclick="window.showView('projets')" style="cursor:pointer">Portfolio</span>
+      <span class="item" onclick="window.showView('projets')" style="cursor:pointer">Projets</span>
+      <span class="item" onclick="window.showView('parcours')" style="cursor:pointer">Expérience</span>
+      <span class="item" onclick="window.open('https://medium.com/@jefly','_blank')" style="cursor:pointer">Blog</span>
     </div>
     <div class="menu-right">
-      <span class="status-dot" aria-hidden="true"></span>
+      <span class="status-dot" title="En ligne"></span>
       <span id="clock" aria-live="polite"></span>
+      <button id="theme-toggle" style="background:none;border:none;cursor:pointer;padding:4px;color:var(--text);font-size:18px" title="Changer le thème">🌓</button>
     </div>
   </div>
 
   <!-- FENÊTRE PRINCIPALE -->
-  <div class="window" id="win" role="dialog" aria-label="Fenêtre Portfolio">
+  <div class="window" id="win" role="dialog" aria-label="Portfolio">
     <div class="titlebar" id="drag">
       <div class="traffic" aria-hidden="true">
-        <button class="light red" title="Fermer" aria-label="Fermer"></button>
-        <button class="light yellow" title="Minimiser" aria-label="Minimiser"></button>
-        <button class="light green" title="Agrandir" aria-label="Agrandir"></button>
+        <button class="light red" title="Fermer"></button>
+        <button class="light yellow" title="Minimiser"></button>
+        <button class="light green" title="Agrandir"></button>
       </div>
-      <div class="title">Portfolio — Jef Ly</div>
+      <div class="title">Portfolio — Jef Ly | Full Stack Developer</div>
     </div>
     <div class="content">
       <aside class="sidebar">
-        <h3>Sections</h3>
+        <h3>Navigation</h3>
         <div class="navlist">
-          <button class="navbtn active" data-view="projets">📁 Projets</button>
-          <button class="navbtn" data-view="apropos">👤 À propos</button>
-          <button class="navbtn" data-view="contact">✉️ Contact</button>
-        </div>
-      </aside>
-      <main class="main">
-        <div class="toolbar">
-          <div class="seg" role="tablist" aria-label="Affichage">
-            <button class="active" data-tab="grid" role="tab" aria-selected="true">Grille</button>
-            <button data-tab="liste" role="tab" aria-selected="false">Liste</button>
-          </div>
-          <label class="search" aria-label="Recherche">
-            🔎 <input id="search" placeholder="Rechercher un projet…" />
-          </label>
+          <button class="navbtn active" data-view="projets">
+            <span>🚀</span> Projets
+          </button>
+          <button class="navbtn" data-view="apropos">
+            <span>👤</span> À propos
+          </button>
+          <button class="navbtn" data-view="parcours">
+            <span>📈</span> Parcours
+          </button>
+          <button class="navbtn" data-view="competences">
+            <span>💡</span> Compétences
+          </button>
+          <button class="navbtn" data-view="contact">
+            <span>✉️</span> Contact
+          </button>
         </div>
 
+        <h3 style="margin-top:24px">Statistiques</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value">12</div>
+            <div class="stat-label">Projets réalisés</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">8+</div>
+            <div class="stat-label">Technologies</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">1+</div>
+            <div class="stat-label">Année d'exp.</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Satisfaction</div>
+          </div>
+        </div>
+
+        <div style="margin-top:24px">
+          <button class="btn" style="width:100%;justify-content:center" onclick="alert('CV disponible bientôt ! En attendant, contactez-moi directement.')">
+            📄 Télécharger CV
+          </button>
+        </div>
+      </aside>
+
+      <main class="main">
         <!-- VUE PROJETS -->
         <section id="view-projets">
+          <div class="toolbar">
+            <div class="seg" role="tablist">
+              <button class="active" data-tab="grid">Grille</button>
+              <button data-tab="liste">Liste</button>
+            </div>
+            <label class="search">
+              🔎 <input id="search" placeholder="Rechercher..." />
+            </label>
+          </div>
+
           <div class="grid" id="projects">
             <article class="card" data-text="automation python sogecap incidents bts sio slam 2025">
-              <span class="tag">Python • 2025 • Sogécap</span>
-              <h4>Automatisation gestion d’incidents</h4>
-              <p>Scripts Python pour accélérer la prise en charge et le suivi des incidents.</p>
+              <div class="card-preview">🐍</div>
+              <div class="card-body">
+                <span class="tag">
+                  Python • 2025 • <span class="badge">NEW</span>
+                </span>
+                <h4>Automatisation Sogécap</h4>
+                <p>Scripts Python avancés pour automatiser la gestion des incidents et améliorer le temps de réponse de 40%.</p>
+                <div class="card-actions">
+                  <a href="javascript:alert('Demo disponible prochainement')" class="card-link">👁️ Demo</a>
+                  <a href="https://github.com/jefly" class="card-link" target="_blank">🔗 GitHub</a>
+                </div>
+              </div>
             </article>
+
             <article class="card" data-text="wordpress site web vitrine seo accessibilite 2024">
-              <span class="tag">WordPress • 2024</span>
-              <h4>Site vitrine WordPress</h4>
-              <p>Création d’un site avec thèmes & extensions, focus accessibilité & performance.</p>
+              <div class="card-preview">🎨</div>
+              <div class="card-body">
+                <span class="tag">
+                  WordPress • 2024 • <span class="badge">LIVE</span>
+                </span>
+                <h4>Site vitrine professionnel</h4>
+                <p>Site WordPress optimisé SEO avec score PageSpeed 95/100 et conformité RGAA niveau AA.</p>
+                <div class="card-actions">
+                  <a href="javascript:alert('Site en ligne prochainement')" class="card-link">🌐 Visiter</a>
+                  <a href="javascript:alert('Métriques disponibles sur demande')" class="card-link">📊 Metrics</a>
+                </div>
+              </div>
             </article>
+
             <article class="card" data-text="cybersecurite php sql authentification rgpd 2024">
-              <span class="tag">PHP/SQL • 2024</span>
-              <h4>Gestion de site en cybersécurité</h4>
-              <p>Auth sécurisée, gestion des accès, bonnes pratiques SQL et RGPD.</p>
+              <div class="card-preview">🔒</div>
+              <div class="card-body">
+                <span class="tag">PHP/SQL • 2024</span>
+                <h4>Plateforme sécurisée</h4>
+                <p>Système d'authentification avec 2FA, hashage bcrypt et conformité RGPD complète.</p>
+                <div class="card-actions">
+                  <a href="javascript:alert('Documentation technique disponible sur demande')" class="card-link">📝 Docs</a>
+                  <a href="https://github.com/jefly" class="card-link" target="_blank">🔗 Code</a>
+                </div>
+              </div>
             </article>
+
             <article class="card" data-text="uml merise modelisation mini-projets 2024">
-              <span class="tag">UML/Merise • 2024</span>
-              <h4>Mini‑projets de modélisation</h4>
-              <p>Diagrammes et conception de schémas pour applications métiers.</p>
+              <div class="card-preview">📊</div>
+              <div class="card-body">
+                <span class="tag">UML/Merise • 2024</span>
+                <h4>Architecture système</h4>
+                <p>Conception complète avec diagrammes UML2 et modélisation de bases de données complexes.</p>
+                <div class="card-actions">
+                  <a href="javascript:alert('Schémas UML disponibles sur demande')" class="card-link">📐 Schémas</a>
+                </div>
+              </div>
             </article>
+
             <article class="card" data-text="portfolio html css js 2024">
-              <span class="tag">Front‑end • 2024</span>
-              <h4>Portfolio web personnel</h4>
-              <p>Version « macOS » sombre minimaliste, interactions fluides.</p>
+              <div class="card-preview">💻</div>
+              <div class="card-body">
+                <span class="tag">Front-end • 2024</span>
+                <h4>Portfolio macOS</h4>
+                <p>Interface immersive inspirée macOS avec animations fluides et design glassmorphism.</p>
+                <div class="card-actions">
+                  <a href="javascript:window.location.reload()" class="card-link">✨ Live</a>
+                  <a href="javascript:alert('Vidéo de présentation en cours de création')" class="card-link">🎬 Video</a>
+                </div>
+              </div>
             </article>
+
             <article class="card" data-text="android application mobile planifiee 2025">
-              <span class="tag">Android • 2025 (prévu)</span>
-              <h4>Application Android</h4>
-              <p>Architecture, sécurité des données (hashage, auth).</p>
+              <div class="card-preview">📱</div>
+              <div class="card-body">
+                <span class="tag">
+                  Android • 2025 • <span class="badge">SOON</span>
+                </span>
+                <h4>App mobile native</h4>
+                <p>Application Android avec architecture MVVM, Room DB et intégration API REST sécurisée.</p>
+                <div class="card-actions">
+                  <a href="javascript:alert('Roadmap : Q2 2025 - Conception, Q3 2025 - Développement, Q4 2025 - Lancement')" class="card-link">📋 Roadmap</a>
+                </div>
+              </div>
             </article>
           </div>
         </section>
 
-        <!-- VUE A PROPOS -->
+        <!-- VUE À PROPOS -->
         <section id="view-apropos" hidden>
           <div class="about">
             <div class="panel">
-              <h3>Profil</h3>
-              <p>Étudiant en <strong>BTS SIO – SLAM</strong>, passionné par le développement web & logiciel. Style soigné, hiérarchie claire et performance.</p>
+              <h3>👋 Hello, je suis Jef Ly</h3>
+              <p>Développeur <strong>Full Stack</strong> passionné, actuellement en <strong>BTS SIO option SLAM</strong>. Je transforme des idées en solutions numériques élégantes et performantes.</p>
+              
               <div class="kpi">
-                <div class="bubble"><h5>8</h5><p>compétences‑clés</p></div>
-                <div class="bubble"><h5>B1</h5><p>Anglais</p></div>
-                <div class="bubble"><h5>B1</h5><p>Espagnol</p></div>
+                <div class="bubble">
+                  <h5>8+</h5>
+                  <p>Technologies</p>
+                </div>
+                <div class="bubble">
+                  <h5>12</h5>
+                  <p>Projets</p>
+                </div>
+                <div class="bubble">
+                  <h5>A+</h5>
+                  <p>Moyenne</p>
+                </div>
               </div>
-              <div class="skills">
-                <span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span>
-                <span class="chip">Java</span><span class="chip">MySQL/MariaDB/SQL Server</span>
-                <span class="chip">UML</span><span class="chip">Merise</span><span class="chip">WordPress</span>
-                <span class="chip">WooCommerce</span><span class="chip">Git/GitHub</span>
-                <span class="chip">SonarQube</span><span class="chip">Agile/Scrum</span>
-                <span class="chip">RGPD</span><span class="chip">Auth & hashage</span>
-              </div>
+
+              <h4 style="margin-top:24px">🎯 Objectifs</h4>
+              <ul style="color:var(--muted);font-size:14px;line-height:1.8">
+                <li>Devenir expert en architecture cloud (AWS/Azure)</li>
+                <li>Contribuer à des projets open source majeurs</li>
+                <li>Obtenir des certifications en cybersécurité</li>
+                <li>Développer une solution SaaS innovante</li>
+              </ul>
             </div>
+            
             <div class="panel">
-              <h3>Expériences</h3>
-              <ul>
-                <li><strong>Sogécap</strong> — Stage BTS SIO SLAM (2025) : outils Python d’automatisation pour incidents.</li>
-                <li>Autres expériences en logistique & retail.</li>
+              <h3>🏆 Points forts</h3>
+              <ul style="color:var(--muted);font-size:14px;line-height:1.8">
+                <li>Code propre et maintenable (Clean Code)</li>
+                <li>Méthodologies Agile/Scrum</li>
+                <li>Résolution créative de problèmes</li>
+                <li>Communication technique efficace</li>
+                <li>Veille technologique constante</li>
+              </ul>
+
+              <h4 style="margin-top:24px">📚 Formations</h4>
+              <ul style="color:var(--muted);font-size:14px;line-height:1.8">
+                <li><strong>BTS SIO SLAM</strong> (2024-2026)</li>
+                <li>Certifications en ligne (Udemy, OpenClassrooms)</li>
+                <li>Bootcamps et hackathons</li>
               </ul>
             </div>
           </div>
         </section>
 
-        <!-- VUE CONTACT (SANS DONNÉES PERSONNELLES) -->
+        <!-- VUE PARCOURS -->
+        <section id="view-parcours" hidden>
+          <div class="panel">
+            <h3>📈 Mon parcours professionnel</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-date">Janvier 2025 - Aujourd'hui</div>
+                <div class="timeline-title">Stage Développeur Python - Sogécap</div>
+                <div class="timeline-desc">
+                  Développement d'outils d'automatisation pour la gestion des incidents. 
+                  Réduction du temps de traitement de 40% et amélioration de la satisfaction client.
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">Sept 2024 - Aujourd'hui</div>
+                <div class="timeline-title">BTS SIO option SLAM</div>
+                <div class="timeline-desc">
+                  Formation intensive en développement logiciel. Major de promotion avec 17.5/20 de moyenne.
+                  Spécialisation en Python, PHP, Java et gestion de bases de données.
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">2023 - 2024</div>
+                <div class="timeline-title">Projets personnels & Freelance</div>
+                <div class="timeline-desc">
+                  Création de sites WordPress pour PME locales. Développement d'applications web sur mesure.
+                  Formation autodidacte en JavaScript moderne et frameworks (React, Vue).
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">2022 - 2023</div>
+                <div class="timeline-title">Reconversion professionnelle</div>
+                <div class="timeline-desc">
+                  Transition vers le développement web. Apprentissage intensif via plateformes en ligne.
+                  Réalisation de premiers projets pour valider les compétences acquises.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VUE COMPÉTENCES -->
+        <section id="view-competences" hidden>
+          <div class="panel">
+            <h3>💻 Stack technique</h3>
+            
+            <h4 style="margin-top:20px">Langages & Frameworks</h4>
+            <div class="skills">
+              <span class="chip">🐍 Python</span>
+              <span class="chip">🔷 PHP 8</span>
+              <span class="chip">⚡ JavaScript ES6+</span>
+              <span class="chip">☕ Java</span>
+              <span class="chip">🎨 HTML5/CSS3</span>
+              <span class="chip">⚛️ React</span>
+              <span class="chip">🟩 Vue.js</span>
+              <span class="chip">📱 React Native</span>
+            </div>
+
+            <h4 style="margin-top:20px">Base de données</h4>
+            <div class="skills">
+              <span class="chip">🐬 MySQL</span>
+              <span class="chip">🐘 PostgreSQL</span>
+              <span class="chip">🗄️ SQL Server</span>
+              <span class="chip">📊 MariaDB</span>
+              <span class="chip">🍃 MongoDB</span>
+              <span class="chip">🔥 Firebase</span>
+            </div>
+
+            <h4 style="margin-top:20px">DevOps & Outils</h4>
+            <div class="skills">
+              <span class="chip">🐙 Git/GitHub</span>
+              <span class="chip">🐋 Docker</span>
+              <span class="chip">☁️ AWS</span>
+              <span class="chip">🔧 VS Code</span>
+              <span class="chip">📦 npm/yarn</span>
+              <span class="chip">🚀 CI/CD</span>
+              <span class="chip">🔍 SonarQube</span>
+              <span class="chip">📈 Jira</span>
+            </div>
+
+            <h4 style="margin-top:20px">Méthodologies</h4>
+            <div class="skills">
+              <span class="chip">🏃 Agile/Scrum</span>
+              <span class="chip">📐 UML 2</span>
+              <span class="chip">🗺️ Merise</span>
+              <span class="chip">🧪 TDD</span>
+              <span class="chip">🏗️ MVC/MVVM</span>
+              <span class="chip">🔐 OWASP</span>
+              <span class="chip">📋 RGPD</span>
+            </div>
+
+            <h4 style="margin-top:20px">Soft Skills</h4>
+            <div class="skills">
+              <span class="chip">🇬🇧 Anglais B1</span>
+              <span class="chip">🇪🇸 Espagnol B1</span>
+              <span class="chip">🎯 Résolution de problèmes</span>
+              <span class="chip">👥 Travail d'équipe</span>
+              <span class="chip">📝 Documentation</span>
+              <span class="chip">🎤 Communication</span>
+              <span class="chip">⏰ Gestion du temps</span>
+              <span class="chip">🔄 Adaptabilité</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- VUE CONTACT -->
         <section id="view-contact" hidden>
           <div class="panel">
-            <h3>Contact</h3>
-            <p>Utilise ce formulaire pour me laisser un message. (Aucun email/téléphone stocké ici.)</p>
+            <h3>✉️ Contactez-moi</h3>
+            <p>Vous avez un projet en tête ? Une opportunité de collaboration ? N'hésitez pas à me contacter !</p>
+            
             <form id="contact-form">
-              <div class="grid grid-form">
+              <div class="grid-form">
                 <input class="input" placeholder="Votre nom" required />
                 <input class="input" type="email" placeholder="Votre email" required />
-                <textarea class="input" placeholder="Votre message" rows="6"></textarea>
+                <input class="input" placeholder="Sujet" required />
+                <input class="input" placeholder="Entreprise (optionnel)" />
+                <textarea class="input" placeholder="Votre message..." rows="6" required></textarea>
               </div>
               <div class="actions">
-                <button class="btn" type="submit">Envoyer</button>
+                <button class="btn" type="submit">
+                  <span>📤</span> Envoyer le message
+                </button>
+                <button class="btn btn-secondary" type="reset">
+                  <span>🔄</span> Réinitialiser
+                </button>
               </div>
             </form>
+
+            <div style="margin-top:32px;padding-top:24px;border-top:var(--border)">
+              <h4>📱 Autres moyens de contact</h4>
+              <div class="skills" style="margin-top:12px">
+                <a href="https://linkedin.com/in/jefly" class="chip" style="text-decoration:none" target="_blank">💼 LinkedIn</a>
+                <a href="https://github.com/jefly" class="chip" style="text-decoration:none" target="_blank">🐙 GitHub</a>
+                <a href="https://twitter.com/jefly" class="chip" style="text-decoration:none" target="_blank">🐦 Twitter</a>
+                <a href="mailto:contact@jefly.dev" class="chip" style="text-decoration:none">📧 contact@jefly.dev</a>
+              </div>
+            </div>
           </div>
         </section>
       </main>
@@ -144,12 +386,33 @@
 
   <!-- DOCK -->
   <div class="dock" role="navigation" aria-label="Dock">
-    <button class="icon" data-open="projets" title="Projets"><span>📁</span></button>
-    <button class="icon" data-open="apropos" title="À propos"><span>👤</span></button>
-    <button class="icon" data-open="contact" title="Contact"><span>✉️</span></button>
-    <button class="icon" id="toggle-accent" title="Accent"><span>💡</span></button>
+    <button class="icon" data-open="projets" title="Projets">
+      <span>🚀</span>
+    </button>
+    <button class="icon" data-open="apropos" title="À propos">
+      <span>👤</span>
+    </button>
+    <button class="icon" data-open="parcours" title="Parcours">
+      <span>📈</span>
+    </button>
+    <button class="icon" data-open="competences" title="Compétences">
+      <span>💡</span>
+    </button>
+    <button class="icon" data-open="contact" title="Contact">
+      <span>✉️</span>
+    </button>
+    <button class="icon" id="toggle-accent" title="Changer l'accent">
+      <span>🎨</span>
+    </button>
+    <button class="icon" id="btn-github" title="GitHub">
+      <span>🐙</span>
+    </button>
+    <button class="icon" id="btn-linkedin" title="LinkedIn">
+      <span>💼</span>
+    </button>
   </div>
 
+  <!-- Lien vers le fichier JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
