@@ -3,16 +3,16 @@
 // Jef Ly - BTS SIO SLAM
 // ========================================
 
-// Initialisation sécurisée
+// Initialisation sÃ©curisÃ©e
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Portfolio Jef Ly - Chargement terminé ✓');
+  console.log('Portfolio Jef Ly - Chargement terminÃ© âœ“');
 });
 
 // ========================================
 // UTILITAIRES
 // ========================================
 
-// Fonction pour créer un effet de ripple
+// Fonction pour crÃ©er un effet de ripple
 function createRipple(e, element) {
   const ripple = document.createElement('span');
   const rect = element.getBoundingClientRect();
@@ -41,7 +41,7 @@ function createRipple(e, element) {
 }
 
 // ========================================
-// HORLOGE SYSTÈME
+// HORLOGE SYSTÃˆME
 // ========================================
 
 const clockEl = document.getElementById('clock');
@@ -127,17 +127,17 @@ window.showView = function(viewName) {
     }
   }
   
-  // Mettre à jour la navigation active
+  // Mettre Ã  jour la navigation active
   document.querySelectorAll('.navbtn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.view === viewName);
   });
   
-  // Mettre à jour le menu bar
+  // Mettre Ã  jour le menu bar
   document.querySelectorAll('.menu-items .item').forEach(item => {
     item.classList.remove('active');
   });
   
-  // Animation d'entrée
+  // Animation d'entrÃ©e
   const activeView = views[viewName];
   if (activeView) {
     activeView.style.animation = 'slideInUp 0.5s ease';
@@ -176,7 +176,7 @@ document.querySelectorAll('.dock .icon[data-open]').forEach(element => {
 });
 
 // ========================================
-// BOUTONS RÉSEAUX SOCIAUX
+// BOUTONS RÃ‰SEAUX SOCIAUX
 // ========================================
 
 const githubBtn = document.getElementById('btn-github');
@@ -184,7 +184,7 @@ const linkedinBtn = document.getElementById('btn-linkedin');
 
 if (githubBtn) {
   githubBtn.addEventListener('click', () => {
-    window.open('https://github.com/jefly', '_blank');
+    window.open('https://github.com/Unybudy', '_blank');
     githubBtn.style.animation = 'pulse 0.6s ease';
     setTimeout(() => {
       githubBtn.style.animation = '';
@@ -221,7 +221,7 @@ if (searchInput) {
       card.style.animation = matches ? 'slideInUp 0.3s ease' : '';
     });
     
-    // Message si aucun résultat
+    // Message si aucun rÃ©sultat
     const visibleCards = projectCards.filter(c => c.style.display !== 'none');
     if (visibleCards.length === 0 && query) {
       const existing = document.getElementById('no-results');
@@ -229,7 +229,7 @@ if (searchInput) {
         const noResults = document.createElement('div');
         noResults.className = 'panel';
         noResults.style.gridColumn = '1 / -1';
-        noResults.innerHTML = '<p style="text-align:center">Aucun projet trouvé pour cette recherche 🔍</p>';
+        noResults.innerHTML = '<p style="text-align:center">Aucun projet trouvÃ© pour cette recherche ðŸ”</p>';
         noResults.id = 'no-results';
         document.getElementById('projects').appendChild(noResults);
       }
@@ -286,7 +286,7 @@ if (redLight) {
       
       // Bouton pour rouvrir
       const reopenBtn = document.createElement('button');
-      reopenBtn.textContent = '🖥️ Rouvrir la fenêtre';
+      reopenBtn.textContent = 'ðŸ–¥ï¸ Rouvrir la fenÃªtre';
       reopenBtn.style.cssText = `
         position: fixed;
         top: 50%;
@@ -352,7 +352,7 @@ if (yellowLight) {
   });
 }
 
-// Bouton vert - Plein écran
+// Bouton vert - Plein Ã©cran
 if (greenLight) {
   greenLight.addEventListener('click', () => {
     const isFullscreen = win.classList.contains('fullscreen');
@@ -370,7 +370,7 @@ if (greenLight) {
       win.style.maxWidth = '';
       win.style.maxHeight = '';
     } else {
-      // Passer en plein écran
+      // Passer en plein Ã©cran
       win.classList.add('fullscreen');
       win.style.width = 'calc(100vw - 16px)';
       win.style.height = 'calc(100vh - 52px)';
@@ -384,7 +384,7 @@ if (greenLight) {
 }
 
 // ========================================
-// DRAG DE LA FENÊTRE
+// DRAG DE LA FENÃŠTRE
 // ========================================
 
 (function() {
@@ -458,7 +458,7 @@ if (contactForm) {
     // Animation du bouton
     const btn = contactForm.querySelector('button[type="submit"]');
     const originalText = btn.innerHTML;
-    btn.innerHTML = '<span>✅</span> Message envoyé !';
+    btn.innerHTML = '<span>âœ…</span> Message envoyÃ© !';
     btn.style.background = 'linear-gradient(135deg, #51cf66, #7ad1c2)';
     
     // Notification
@@ -476,10 +476,10 @@ if (contactForm) {
       animation: slideInUp 0.5s ease;
       font-weight: 600;
     `;
-    notification.textContent = '✨ Merci pour votre message ! Je vous répondrai rapidement.';
+    notification.textContent = 'âœ¨ Merci pour votre message ! Je vous rÃ©pondrai rapidement.';
     document.body.appendChild(notification);
     
-    // Reset après 3 secondes
+    // Reset aprÃ¨s 3 secondes
     setTimeout(() => {
       contactForm.reset();
       btn.innerHTML = originalText;
@@ -499,10 +499,10 @@ document.querySelectorAll('.chip').forEach(chip => {
     if (e.target.closest('.skills')) {
       const skill = chip.textContent.trim();
       
-      // Aller à la vue projets
+      // Aller Ã  la vue projets
       window.showView('projets');
       
-      // Filtrer par compétence
+      // Filtrer par compÃ©tence
       if (searchInput) {
         searchInput.value = skill;
         searchInput.dispatchEvent(new Event('input'));
@@ -529,13 +529,13 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observer les éléments
+// Observer les Ã©lÃ©ments
 document.querySelectorAll('.card, .panel').forEach(el => {
   observer.observe(el);
 });
 
 // ========================================
-// EFFET RIPPLE SUR LES ICÔNES DU DOCK
+// EFFET RIPPLE SUR LES ICÃ”NES DU DOCK
 // ========================================
 
 document.querySelectorAll('.dock .icon').forEach(icon => {
@@ -559,27 +559,27 @@ document.querySelectorAll('.dock .icon').forEach(icon => {
 
 window.addEventListener('load', () => {
   setTimeout(() => {
-    // Afficher la vue projets par défaut
+    // Afficher la vue projets par dÃ©faut
     window.showView('projets');
     
-    // Vérifier l'état des composants
+    // VÃ©rifier l'Ã©tat des composants
     const elementsCheck = {
-      'Fenêtre': document.getElementById('win'),
+      'FenÃªtre': document.getElementById('win'),
       'Dock': document.querySelector('.dock'),
       'Boutons traffic': document.querySelectorAll('.light').length,
-      'Icônes dock': document.querySelectorAll('.dock .icon').length,
+      'IcÃ´nes dock': document.querySelectorAll('.dock .icon').length,
       'Vues': Object.keys(views).length
     };
     
-    console.log('✓ Portfolio Jef Ly - État des composants:', elementsCheck);
+    console.log('âœ“ Portfolio Jef Ly - Ã‰tat des composants:', elementsCheck);
     
-    // Animation d'entrée du dock
+    // Animation d'entrÃ©e du dock
     const dock = document.querySelector('.dock');
     if (dock) {
       dock.style.animation = 'slideInUp 0.8s ease';
     }
     
-    console.log('✓ Tous les systèmes sont opérationnels!');
+    console.log('âœ“ Tous les systÃ¨mes sont opÃ©rationnels!');
   }, 100);
 });
 
@@ -597,7 +597,7 @@ document.addEventListener('keydown', (e) => {
   if (konamiCode.join(',') === konamiPattern.join(',')) {
     document.body.style.animation = 'glow 2s infinite';
     
-    // Message spécial
+    // Message spÃ©cial
     const easterEgg = document.createElement('div');
     easterEgg.style.cssText = `
       position: fixed;
@@ -613,7 +613,7 @@ document.addEventListener('keydown', (e) => {
       z-index: 9999;
       animation: pulse 1s infinite;
     `;
-    easterEgg.textContent = '🎮 Konami Code activé! Vous êtes un vrai gamer!';
+    easterEgg.textContent = 'ðŸŽ® Konami Code activÃ©! Vous Ãªtes un vrai gamer!';
     document.body.appendChild(easterEgg);
     
     setTimeout(() => {
@@ -646,7 +646,7 @@ if ('IntersectionObserver' in window) {
 // LOG DE BIENVENUE
 // ========================================
 
-console.log('%c🚀 Portfolio Jef Ly', 'font-size: 24px; font-weight: bold; color: #3ea6ff;');
-console.log('%cDéveloppeur Full Stack passionné', 'font-size: 14px; color: #7ad1c2;');
-console.log('%c📧 contact@jefly.dev', 'font-size: 12px; color: #b9c2cf;');
-console.log('%c🔗 github.com/jefly', 'font-size: 12px; color: #b9c2cf;');
+console.log('%cðŸš€ Portfolio Jef Ly', 'font-size: 24px; font-weight: bold; color: #3ea6ff;');
+console.log('%cDÃ©veloppeur Full Stack passionnÃ©', 'font-size: 14px; color: #7ad1c2;');
+console.log('%cðŸ“§ contact@jefly.dev', 'font-size: 12px; color: #b9c2cf;');
+console.log('%cðŸ”— github.com/Unybudy', 'font-size: 12px; color: #b9c2cf;');
