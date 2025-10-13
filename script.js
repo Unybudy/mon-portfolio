@@ -1,18 +1,30 @@
 // ========================================
 // PORTFOLIO MACOS - JAVASCRIPT
 // Jef Ly - BTS SIO SLAM
+// GitHub: https://github.com/Unybudy
 // ========================================
 
-// Initialisation sÃ©curisÃ©e
+// ========================================
+// CONFIGURATION RAPIDE
+// ========================================
+const CONFIG = {
+  github: 'https://github.com/Unybudy',
+  linkedin: 'https://www.linkedin.com/in/jenhsunhuang', // TODO: Remplacer par ton profil
+  twitter: 'https://twitter.com/Unybudy',
+  email: 'contact@Unybudy.dev',
+  medium: 'https://medium.com/@Unybudy'
+};
+
+// Initialisation sécurisée
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Portfolio Jef Ly - Chargement terminÃ© âœ“');
+  console.log('Portfolio Jef Ly - Chargement terminé ✓');
 });
 
 // ========================================
 // UTILITAIRES
 // ========================================
 
-// Fonction pour crÃ©er un effet de ripple
+// Fonction pour créer un effet de ripple
 function createRipple(e, element) {
   const ripple = document.createElement('span');
   const rect = element.getBoundingClientRect();
@@ -41,7 +53,7 @@ function createRipple(e, element) {
 }
 
 // ========================================
-// HORLOGE SYSTÃˆME
+// HORLOGE SYSTÈME
 // ========================================
 
 const clockEl = document.getElementById('clock');
@@ -127,17 +139,17 @@ window.showView = function(viewName) {
     }
   }
   
-  // Mettre Ã  jour la navigation active
+  // Mettre à jour la navigation active
   document.querySelectorAll('.navbtn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.view === viewName);
   });
   
-  // Mettre Ã  jour le menu bar
+  // Mettre à jour le menu bar
   document.querySelectorAll('.menu-items .item').forEach(item => {
     item.classList.remove('active');
   });
   
-  // Animation d'entrÃ©e
+  // Animation d'entrée
   const activeView = views[viewName];
   if (activeView) {
     activeView.style.animation = 'slideInUp 0.5s ease';
@@ -176,7 +188,7 @@ document.querySelectorAll('.dock .icon[data-open]').forEach(element => {
 });
 
 // ========================================
-// BOUTONS RÃ‰SEAUX SOCIAUX
+// BOUTONS RÉSEAUX SOCIAUX
 // ========================================
 
 const githubBtn = document.getElementById('btn-github');
@@ -184,7 +196,7 @@ const linkedinBtn = document.getElementById('btn-linkedin');
 
 if (githubBtn) {
   githubBtn.addEventListener('click', () => {
-    window.open('https://github.com/Unybudy', '_blank');
+    window.open(CONFIG.github, '_blank');
     githubBtn.style.animation = 'pulse 0.6s ease';
     setTimeout(() => {
       githubBtn.style.animation = '';
@@ -194,7 +206,7 @@ if (githubBtn) {
 
 if (linkedinBtn) {
   linkedinBtn.addEventListener('click', () => {
-    window.open('https://linkedin.com/in/jefly', '_blank');
+    window.open(CONFIG.linkedin, '_blank');
     linkedinBtn.style.animation = 'pulse 0.6s ease';
     setTimeout(() => {
       linkedinBtn.style.animation = '';
@@ -221,7 +233,7 @@ if (searchInput) {
       card.style.animation = matches ? 'slideInUp 0.3s ease' : '';
     });
     
-    // Message si aucun rÃ©sultat
+    // Message si aucun résultat
     const visibleCards = projectCards.filter(c => c.style.display !== 'none');
     if (visibleCards.length === 0 && query) {
       const existing = document.getElementById('no-results');
@@ -229,7 +241,7 @@ if (searchInput) {
         const noResults = document.createElement('div');
         noResults.className = 'panel';
         noResults.style.gridColumn = '1 / -1';
-        noResults.innerHTML = '<p style="text-align:center">Aucun projet trouvÃ© pour cette recherche ðŸ”</p>';
+        noResults.innerHTML = '<p style="text-align:center">Aucun projet trouvé pour cette recherche 🔍</p>';
         noResults.id = 'no-results';
         document.getElementById('projects').appendChild(noResults);
       }
@@ -286,7 +298,7 @@ if (redLight) {
       
       // Bouton pour rouvrir
       const reopenBtn = document.createElement('button');
-      reopenBtn.textContent = 'ðŸ–¥ï¸ Rouvrir la fenÃªtre';
+      reopenBtn.textContent = '🖥️ Rouvrir la fenêtre';
       reopenBtn.style.cssText = `
         position: fixed;
         top: 50%;
@@ -352,7 +364,7 @@ if (yellowLight) {
   });
 }
 
-// Bouton vert - Plein Ã©cran
+// Bouton vert - Plein écran
 if (greenLight) {
   greenLight.addEventListener('click', () => {
     const isFullscreen = win.classList.contains('fullscreen');
@@ -370,7 +382,7 @@ if (greenLight) {
       win.style.maxWidth = '';
       win.style.maxHeight = '';
     } else {
-      // Passer en plein Ã©cran
+      // Passer en plein écran
       win.classList.add('fullscreen');
       win.style.width = 'calc(100vw - 16px)';
       win.style.height = 'calc(100vh - 52px)';
@@ -384,7 +396,7 @@ if (greenLight) {
 }
 
 // ========================================
-// DRAG DE LA FENÃŠTRE
+// DRAG DE LA FENÊTRE
 // ========================================
 
 (function() {
@@ -458,7 +470,7 @@ if (contactForm) {
     // Animation du bouton
     const btn = contactForm.querySelector('button[type="submit"]');
     const originalText = btn.innerHTML;
-    btn.innerHTML = '<span>âœ…</span> Message envoyÃ© !';
+    btn.innerHTML = '<span>✅</span> Message envoyé !';
     btn.style.background = 'linear-gradient(135deg, #51cf66, #7ad1c2)';
     
     // Notification
@@ -476,10 +488,10 @@ if (contactForm) {
       animation: slideInUp 0.5s ease;
       font-weight: 600;
     `;
-    notification.textContent = 'âœ¨ Merci pour votre message ! Je vous rÃ©pondrai rapidement.';
+    notification.textContent = '✨ Merci pour votre message ! Je vous répondrai rapidement.';
     document.body.appendChild(notification);
     
-    // Reset aprÃ¨s 3 secondes
+    // Reset après 3 secondes
     setTimeout(() => {
       contactForm.reset();
       btn.innerHTML = originalText;
@@ -499,10 +511,10 @@ document.querySelectorAll('.chip').forEach(chip => {
     if (e.target.closest('.skills')) {
       const skill = chip.textContent.trim();
       
-      // Aller Ã  la vue projets
+      // Aller à la vue projets
       window.showView('projets');
       
-      // Filtrer par compÃ©tence
+      // Filtrer par compétence
       if (searchInput) {
         searchInput.value = skill;
         searchInput.dispatchEvent(new Event('input'));
@@ -529,13 +541,13 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Observer les Ã©lÃ©ments
+// Observer les éléments
 document.querySelectorAll('.card, .panel').forEach(el => {
   observer.observe(el);
 });
 
 // ========================================
-// EFFET RIPPLE SUR LES ICÃ”NES DU DOCK
+// EFFET RIPPLE SUR LES ICÔNES DU DOCK
 // ========================================
 
 document.querySelectorAll('.dock .icon').forEach(icon => {
@@ -559,27 +571,27 @@ document.querySelectorAll('.dock .icon').forEach(icon => {
 
 window.addEventListener('load', () => {
   setTimeout(() => {
-    // Afficher la vue projets par dÃ©faut
+    // Afficher la vue projets par défaut
     window.showView('projets');
     
-    // VÃ©rifier l'Ã©tat des composants
+    // Vérifier l'état des composants
     const elementsCheck = {
-      'FenÃªtre': document.getElementById('win'),
+      'Fenêtre': document.getElementById('win'),
       'Dock': document.querySelector('.dock'),
       'Boutons traffic': document.querySelectorAll('.light').length,
-      'IcÃ´nes dock': document.querySelectorAll('.dock .icon').length,
+      'Icônes dock': document.querySelectorAll('.dock .icon').length,
       'Vues': Object.keys(views).length
     };
     
-    console.log('âœ“ Portfolio Jef Ly - Ã‰tat des composants:', elementsCheck);
+    console.log('✓ Portfolio Jef Ly - État des composants:', elementsCheck);
     
-    // Animation d'entrÃ©e du dock
+    // Animation d'entrée du dock
     const dock = document.querySelector('.dock');
     if (dock) {
       dock.style.animation = 'slideInUp 0.8s ease';
     }
     
-    console.log('âœ“ Tous les systÃ¨mes sont opÃ©rationnels!');
+    console.log('✓ Tous les systèmes sont opérationnels!');
   }, 100);
 });
 
@@ -597,7 +609,7 @@ document.addEventListener('keydown', (e) => {
   if (konamiCode.join(',') === konamiPattern.join(',')) {
     document.body.style.animation = 'glow 2s infinite';
     
-    // Message spÃ©cial
+    // Message spécial
     const easterEgg = document.createElement('div');
     easterEgg.style.cssText = `
       position: fixed;
@@ -613,7 +625,7 @@ document.addEventListener('keydown', (e) => {
       z-index: 9999;
       animation: pulse 1s infinite;
     `;
-    easterEgg.textContent = 'ðŸŽ® Konami Code activÃ©! Vous Ãªtes un vrai gamer!';
+    easterEgg.textContent = '🎮 Konami Code activé! Vous êtes un vrai gamer!';
     document.body.appendChild(easterEgg);
     
     setTimeout(() => {
@@ -646,7 +658,7 @@ if ('IntersectionObserver' in window) {
 // LOG DE BIENVENUE
 // ========================================
 
-console.log('%cðŸš€ Portfolio Jef Ly', 'font-size: 24px; font-weight: bold; color: #3ea6ff;');
-console.log('%cDÃ©veloppeur Full Stack passionnÃ©', 'font-size: 14px; color: #7ad1c2;');
-console.log('%cðŸ“§ contact@jefly.dev', 'font-size: 12px; color: #b9c2cf;');
-console.log('%cðŸ”— github.com/Unybudy', 'font-size: 12px; color: #b9c2cf;');
+console.log('%c🚀 Portfolio Jef Ly', 'font-size: 24px; font-weight: bold; color: #3ea6ff;');
+console.log('%cDéveloppeur Full Stack passionné', 'font-size: 14px; color: #7ad1c2;');
+console.log(`%c📧 ${CONFIG.email}`, 'font-size: 12px; color: #b9c2cf;');
+console.log(`%c🔗 ${CONFIG.github}`, 'font-size: 12px; color: #b9c2cf;');
