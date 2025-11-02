@@ -127,7 +127,8 @@ const views = {
   apropos: document.getElementById('view-apropos'),
   parcours: document.getElementById('view-parcours'),
   competences: document.getElementById('view-competences'),
-  contact: document.getElementById('view-contact')
+  contact: document.getElementById('view-contact'),
+  'projet-sogecap': document.getElementById('view-projet-sogecap')
 };
 
 // Fonction globale pour changer de vue
