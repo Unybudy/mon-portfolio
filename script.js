@@ -8,11 +8,11 @@
 // CONFIGURATION RAPIDE
 // ========================================
 const CONFIG = {
-  github: 'https://github.com/Unybudy',
-  linkedin: 'https://www.linkedin.com/in/jenhsunhuang', // TODO: Remplacer par ton profil
-  twitter: 'https://twitter.com/Unybudy',
-  email: 'contact@Unybudy.dev',
-  medium: 'https://medium.com/@Unybudy'
+  github: 'https://github.com/jefly',
+  linkedin: 'https://linkedin.com/in/jefly',
+  twitter: 'https://twitter.com/jefly',
+  email: 'contact@jefly.dev',
+  medium: 'https://medium.com/@jefly'
 };
 
 // Initialisation sécurisée
@@ -31,7 +31,7 @@ function createRipple(e, element) {
   const size = Math.max(rect.width, rect.height);
   const x = e.clientX - rect.left - size / 2;
   const y = e.clientY - rect.top - size / 2;
-  
+
   ripple.style.cssText = `
     position: absolute;
     width: ${size}px;
@@ -44,11 +44,11 @@ function createRipple(e, element) {
     transform: scale(0);
     animation: rippleEffect 0.6s ease-out;
   `;
-  
+
   element.style.position = 'relative';
   element.style.overflow = 'hidden';
   element.appendChild(ripple);
-  
+
   setTimeout(() => ripple.remove(), 600);
 }
 
@@ -83,7 +83,7 @@ if (themeToggle) {
     currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-theme', currentTheme);
     localStorage.setItem('theme', currentTheme);
-    
+
     // Animation de transition
     html.style.transition = 'background 0.4s ease';
     setTimeout(() => {
@@ -111,7 +111,7 @@ if (accentToggle) {
   accentToggle.addEventListener('click', () => {
     accentIndex = (accentIndex + 1) % accentColors.length;
     document.documentElement.style.setProperty('--accent', accentColors[accentIndex]);
-    
+
     // Animation de pulsation
     accentToggle.style.animation = 'pulse 0.6s ease';
     setTimeout(() => accentToggle.style.animation = '', 600);
@@ -132,24 +132,29 @@ const views = {
 };
 
 // Fonction globale pour changer de vue
-window.showView = function(viewName) {
+window.showView = function (viewName) {
   // Masquer toutes les vues
   for (const key in views) {
     if (views[key]) {
       views[key].hidden = key !== viewName;
     }
   }
-  
+
   // Mettre à jour la navigation active
   document.querySelectorAll('.navbtn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.view === viewName);
   });
-  
+
   // Mettre à jour le menu bar
   document.querySelectorAll('.menu-items .item').forEach(item => {
     item.classList.remove('active');
   });
-  
+
+  // Mettre à jour le dock
+  document.querySelectorAll('.dock .icon').forEach(icon => {
+    icon.classList.toggle('active', icon.dataset.open === viewName);
+  });
+
   // Animation d'entrée
   const activeView = views[viewName];
   if (activeView) {
@@ -225,15 +230,15 @@ const projectCards = Array.from(document.querySelectorAll('#projects .card'));
 if (searchInput) {
   searchInput.addEventListener('input', (e) => {
     const query = e.target.value.toLowerCase().trim();
-    
+
     projectCards.forEach(card => {
       const text = (card.dataset.text || '').toLowerCase();
       const matches = text.includes(query);
-      
+
       card.style.display = matches ? 'block' : 'none';
       card.style.animation = matches ? 'slideInUp 0.3s ease' : '';
     });
-    
+
     // Message si aucun résultat
     const visibleCards = projectCards.filter(c => c.style.display !== 'none');
     if (visibleCards.length === 0 && query) {
@@ -264,7 +269,7 @@ segButtons.forEach(btn => {
   btn.addEventListener('click', () => {
     segButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    
+
     if (btn.dataset.tab === 'liste') {
       projectsGrid.style.gridTemplateColumns = '1fr';
       projectCards.forEach(card => {
@@ -296,7 +301,7 @@ if (redLight) {
     win.style.transform = 'scale(0.8)';
     setTimeout(() => {
       win.style.display = 'none';
-      
+
       // Bouton pour rouvrir
       const reopenBtn = document.createElement('button');
       reopenBtn.textContent = '🖥️ Rouvrir la fenêtre';
@@ -331,7 +336,7 @@ if (yellowLight) {
     win.style.transition = 'all 0.3s ease';
     win.style.transform = 'translateY(calc(100vh - 100px))';
     win.style.opacity = '0.3';
-    
+
     // Indicateur dans le dock
     const minimizedIndicator = document.createElement('div');
     minimizedIndicator.style.cssText = `
@@ -344,13 +349,13 @@ if (yellowLight) {
       background: var(--accent);
       border-radius: 50%;
     `;
-    
+
     const firstDockIcon = document.querySelector('.dock .icon');
     if (firstDockIcon && !firstDockIcon.querySelector('div')) {
       firstDockIcon.style.position = 'relative';
       firstDockIcon.appendChild(minimizedIndicator);
     }
-    
+
     // Restaurer au clic
     const restore = () => {
       win.style.transform = 'translateY(0)';
@@ -358,7 +363,7 @@ if (yellowLight) {
       if (minimizedIndicator) minimizedIndicator.remove();
       document.removeEventListener('click', restore);
     };
-    
+
     setTimeout(() => {
       document.addEventListener('click', restore);
     }, 100);
@@ -369,9 +374,9 @@ if (yellowLight) {
 if (greenLight) {
   greenLight.addEventListener('click', () => {
     const isFullscreen = win.classList.contains('fullscreen');
-    
+
     win.style.transition = 'all 0.4s ease';
-    
+
     if (isFullscreen) {
       // Restaurer taille normale
       win.classList.remove('fullscreen');
@@ -400,16 +405,16 @@ if (greenLight) {
 // DRAG DE LA FENÊTRE
 // ========================================
 
-(function() {
+(function () {
   const drag = document.getElementById('drag');
   let isDragging = false;
   let startX = 0, startY = 0;
   let winX = 0, winY = 0;
-  
+
   const startDrag = (e) => {
     // Ne pas draguer si on clique sur un bouton
     if (e.target.classList.contains('light')) return;
-    
+
     isDragging = true;
     startX = e.clientX || e.touches[0].clientX;
     startY = e.clientY || e.touches[0].clientY;
@@ -418,41 +423,41 @@ if (greenLight) {
     winY = rect.top;
     drag.style.cursor = 'grabbing';
   };
-  
+
   const doDrag = (e) => {
     if (!isDragging) return;
     e.preventDefault();
-    
+
     const clientX = e.clientX || e.touches[0].clientX;
     const clientY = e.clientY || e.touches[0].clientY;
-    
+
     const deltaX = clientX - startX;
     const deltaY = clientY - startY;
-    
+
     let newX = winX + deltaX;
     let newY = winY + deltaY;
-    
+
     // Contraintes
     const maxX = window.innerWidth - win.offsetWidth - 8;
     const maxY = window.innerHeight - win.offsetHeight - 80;
-    
+
     newX = Math.max(8, Math.min(newX, maxX));
     newY = Math.max(40, Math.min(newY, maxY));
-    
+
     win.style.left = newX + 'px';
     win.style.top = newY + 'px';
   };
-  
+
   const endDrag = () => {
     isDragging = false;
     drag.style.cursor = 'move';
   };
-  
+
   // Mouse events
   drag.addEventListener('mousedown', startDrag);
   window.addEventListener('mousemove', doDrag);
   window.addEventListener('mouseup', endDrag);
-  
+
   // Touch events
   drag.addEventListener('touchstart', startDrag, { passive: true });
   window.addEventListener('touchmove', doDrag, { passive: false });
@@ -467,13 +472,13 @@ const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
     // Animation du bouton
     const btn = contactForm.querySelector('button[type="submit"]');
     const originalText = btn.innerHTML;
     btn.innerHTML = '<span>✅</span> Message envoyé !';
     btn.style.background = 'linear-gradient(135deg, #51cf66, #7ad1c2)';
-    
+
     // Notification
     const notification = document.createElement('div');
     notification.style.cssText = `
@@ -491,7 +496,7 @@ if (contactForm) {
     `;
     notification.textContent = '✨ Merci pour votre message ! Je vous répondrai rapidement.';
     document.body.appendChild(notification);
-    
+
     // Reset après 3 secondes
     setTimeout(() => {
       contactForm.reset();
@@ -511,10 +516,10 @@ document.querySelectorAll('.chip').forEach(chip => {
   chip.addEventListener('click', (e) => {
     if (e.target.closest('.skills')) {
       const skill = chip.textContent.trim();
-      
+
       // Aller à la vue projets
       window.showView('projets');
-      
+
       // Filtrer par compétence
       if (searchInput) {
         searchInput.value = skill;
@@ -556,11 +561,11 @@ document.querySelectorAll('.dock .icon').forEach(icon => {
     icon.style.transform = 'scale(0.95)';
     createRipple(e, icon);
   });
-  
+
   icon.addEventListener('mouseup', () => {
     icon.style.transform = '';
   });
-  
+
   icon.addEventListener('mouseleave', () => {
     icon.style.transform = '';
   });
@@ -574,7 +579,7 @@ window.addEventListener('load', () => {
   setTimeout(() => {
     // Afficher la vue projets par défaut
     window.showView('projets');
-    
+
     // Vérifier l'état des composants
     const elementsCheck = {
       'Fenêtre': document.getElementById('win'),
@@ -583,15 +588,15 @@ window.addEventListener('load', () => {
       'Icônes dock': document.querySelectorAll('.dock .icon').length,
       'Vues': Object.keys(views).length
     };
-    
+
     console.log('✓ Portfolio Jef Ly - État des composants:', elementsCheck);
-    
+
     // Animation d'entrée du dock
     const dock = document.querySelector('.dock');
     if (dock) {
       dock.style.animation = 'slideInUp 0.8s ease';
     }
-    
+
     console.log('✓ Tous les systèmes sont opérationnels!');
   }, 100);
 });
@@ -606,10 +611,10 @@ const konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLef
 document.addEventListener('keydown', (e) => {
   konamiCode.push(e.key);
   konamiCode = konamiCode.slice(-10);
-  
+
   if (konamiCode.join(',') === konamiPattern.join(',')) {
     document.body.style.animation = 'glow 2s infinite';
-    
+
     // Message spécial
     const easterEgg = document.createElement('div');
     easterEgg.style.cssText = `
@@ -628,7 +633,7 @@ document.addEventListener('keydown', (e) => {
     `;
     easterEgg.textContent = '🎮 Konami Code activé! Vous êtes un vrai gamer!';
     document.body.appendChild(easterEgg);
-    
+
     setTimeout(() => {
       document.body.style.animation = '';
       easterEgg.remove();
@@ -651,7 +656,7 @@ if ('IntersectionObserver' in window) {
       }
     });
   });
-  
+
   lazyImages.forEach(img => imageObserver.observe(img));
 }
 
