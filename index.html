@@ -1,587 +1,69 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
-
+<html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jef Ly — Portfolio Developer BTS SIO SLAM</title>
-  <meta name="description"
-    content="Portfolio de Jef Ly - Développeur Full Stack BTS SIO SLAM. Spécialisé en Python, PHP, JavaScript et cybersécurité." />
-
-  <!-- Meta tags SEO -->
-  <meta property="og:title" content="Jef Ly - Portfolio Developer" />
-  <meta property="og:description" content="Développeur Full Stack passionné, spécialisé en Python, PHP et JavaScript" />
-  <meta property="og:type" content="website" />
-  <meta name="author" content="Jef Ly" />
-  <meta name="keywords" content="développeur, full stack, BTS SIO SLAM, Python, PHP, JavaScript, portfolio" />
-
-  <!-- Lien vers le fichier CSS -->
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Immersif</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-
 <body>
-  <!-- MENU BAR -->
-  <div class="menubar" role="navigation" aria-label="Barre de menus">
-    <div class="apple" title="Menu"></div>
-    <div class="menu-items">
-      <span class="item active" onclick="window.showView('projets')" style="cursor:pointer">Portfolio</span>
-      <span class="item" onclick="window.showView('projets')" style="cursor:pointer">Projets</span>
-      <span class="item" onclick="window.showView('parcours')" style="cursor:pointer">Expérience</span>
-      <span class="item" onclick="window.open('https://medium.com/@jefly','_blank')" style="cursor:pointer">Blog</span>
-    </div>
-    <div class="menu-right">
-      <span class="status-dot" title="En ligne"></span>
-      <span id="clock" aria-live="polite"></span>
-      <button id="theme-toggle"
-        style="background:none;border:none;cursor:pointer;padding:4px;color:var(--text);font-size:18px"
-        title="Changer le thème">🌓</button>
-    </div>
-  </div>
 
-  <!-- FENÊTRE PRINCIPALE -->
-  <div class="window" id="win" role="dialog" aria-label="Portfolio">
-    <div class="titlebar" id="drag">
-      <div class="traffic" aria-hidden="true">
-        <button class="light red" title="Fermer"></button>
-        <button class="light yellow" title="Minimiser"></button>
-        <button class="light green" title="Agrandir"></button>
-      </div>
-      <div class="title">Portfolio — Jef Ly | Full Stack Developer</div>
-    </div>
-    <div class="content">
-      <aside class="sidebar">
-        <h3>Navigation</h3>
-        <div class="navlist">
-          <button class="navbtn active" data-view="projets">
-            <span>🚀</span> Projets
-          </button>
-          <button class="navbtn" data-view="apropos">
-            <span>👤</span> À propos
-          </button>
-          <button class="navbtn" data-view="parcours">
-            <span>📈</span> Parcours
-          </button>
-          <button class="navbtn" data-view="competences">
-            <span>💡</span> Compétences
-          </button>
-          <button class="navbtn" data-view="contact">
-            <span>✉️</span> Contact
-          </button>
+    <div class="cursor"></div>
+
+    <section class="hero">
+        <h1>Creative<br><span>Developer.</span></h1>
+        <p class="hero-text">
+            Je conçois des expériences numériques immersives.<br>
+            Minimalisme sombre. Interactions fluides.
+        </p>
+        <div class="scroll-indicator">SCROLL TO EXPLORE</div>
+    </section>
+
+    <div class="projects-wrapper">
+        <div class="projects-container">
+            
+            <div class="project-card">
+                <div class="project-number">01</div>
+                <div class="project-info">
+                    <div class="project-cat">// WEB DESIGN</div>
+                    <h3 class="project-title">Velvet Architecture</h3>
+                    <p>Refonte complète pour un cabinet d'architecte minimaliste.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">02</div>
+                <div class="project-info">
+                    <div class="project-cat">// APP MOBILE</div>
+                    <h3 class="project-title">Fintech Dark</h3>
+                    <p>Interface bancaire haute fréquence en mode sombre.</p>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">03</div>
+                <div class="project-info">
+                    <div class="project-cat">// ART DIRECTION</div>
+                    <h3 class="project-title">Mono Fashion</h3>
+                    <p>Campagne digitale pour une marque de vêtements techwear.</p>
+                </div>
+            </div>
+
         </div>
-
-        <h3 style="margin-top:24px">Statistiques</h3>
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-value">12</div>
-            <div class="stat-label">Projets réalisés</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">8+</div>
-            <div class="stat-label">Technologies</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">1+</div>
-            <div class="stat-label">Année d'exp.</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">100%</div>
-            <div class="stat-label">Satisfaction</div>
-          </div>
-        </div>
-
-        <div style="margin-top:24px">
-          <button class="btn" style="width:100%;justify-content:center"
-            onclick="alert('CV disponible bientôt ! En attendant, contactez-moi directement.')">
-            📄 Télécharger CV
-          </button>
-        </div>
-      </aside>
-
-      <main class="main">
-        <!-- VUE PROJETS -->
-        <section id="view-projets">
-          <div class="toolbar">
-            <div class="seg" role="tablist">
-              <button class="active" data-tab="grid">Grille</button>
-              <button data-tab="liste">Liste</button>
-            </div>
-            <label class="search">
-              🔎 <input id="search" placeholder="Rechercher..." />
-            </label>
-          </div>
-
-          <div class="grid" id="projects">
-            <article class="card"
-              data-text="automation python sogecap incidents bts sio slam 2025 api jira kibana confluence pandas excel">
-              <div class="card-preview">
-                <img src="assets/img/project-automation.png" alt="Automatisation Python" loading="lazy">
-              </div>
-              <div class="card-body">
-                <span class="tag">
-                  Python • API REST • 2025 • <span class="badge">STAGE</span>
-                </span>
-                <h4>Automatisation Sogécap</h4>
-                <p>Outil d'automatisation interne pour la gestion des incidents via API (JIRA, Kibana). Architecture
-                  modulaire avec génération de rapports Excel et envoi automatisé par e-mail. Développement Agile avec
-                  GitLab.</p>
-                <div class="card-actions">
-                  <a href="javascript:window.showView('projet-sogecap')" class="card-link">👁️ Voir le projet</a>
-                  <a href="javascript:alert('Stack : Python, requests, pandas, openpyxl, API JIRA/Kibana/Confluence, GitLab')"
-                    class="card-link">🔧 Stack</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="card" data-text="wordpress site web vitrine seo accessibilite 2024">
-              <div class="card-preview">
-                <img src="assets/img/project-wordpress.png" alt="Site WordPress" loading="lazy">
-              </div>
-              <div class="card-body">
-                <span class="tag">
-                  WordPress • 2024 • <span class="badge">LIVE</span>
-                </span>
-                <h4>Site vitrine professionnel</h4>
-                <p>Site WordPress optimisé SEO avec score PageSpeed 95/100 et conformité RGAA niveau AA.</p>
-                <div class="card-actions">
-                  <a href="javascript:alert('Site en ligne prochainement')" class="card-link">🌐 Visiter</a>
-                  <a href="javascript:alert('Métriques disponibles sur demande')" class="card-link">📊 Metrics</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="card" data-text="cybersecurite php sql authentification rgpd 2024">
-              <div class="card-preview">
-                <img src="assets/img/project-security.png" alt="Sécurité PHP" loading="lazy">
-              </div>
-              <div class="card-body">
-                <span class="tag">PHP/SQL • 2024</span>
-                <h4>Plateforme sécurisée</h4>
-                <p>Système d'authentification avec 2FA, hashage bcrypt et conformité RGPD complète.</p>
-                <div class="card-actions">
-                  <a href="javascript:alert('Documentation technique disponible sur demande')" class="card-link">📝
-                    Docs</a>
-                  <a href="https://github.com/jefly" class="card-link" target="_blank">🔗 Code</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="card" data-text="uml merise modelisation mini-projets 2024">
-              <div class="card-preview">
-                <img src="assets/img/project-architecture.png" alt="Architecture UML" loading="lazy">
-              </div>
-              <div class="card-body">
-                <span class="tag">UML/Merise • 2024</span>
-                <h4>Architecture système</h4>
-                <p>Conception complète avec diagrammes UML2 et modélisation de bases de données complexes.</p>
-                <div class="card-actions">
-                  <a href="javascript:alert('Schémas UML disponibles sur demande')" class="card-link">📐 Schémas</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="card" data-text="portfolio html css js 2024">
-              <div class="card-preview">
-                <img src="assets/img/project-portfolio.png" alt="Portfolio macOS" loading="lazy">
-              </div>
-              <div class="card-body">
-                <span class="tag">Front-end • 2024</span>
-                <h4>Portfolio macOS</h4>
-                <p>Interface immersive inspirée macOS avec animations fluides et design glassmorphism.</p>
-                <div class="card-actions">
-                  <a href="javascript:window.location.reload()" class="card-link">✨ Live</a>
-                  <a href="javascript:alert('Vidéo de présentation en cours de création')" class="card-link">🎬
-                    Video</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="card" data-text="android application mobile planifiee 2025">
-              <div class="card-preview">
-                <img src="assets/img/project-android.png" alt="Application Android" loading="lazy">
-              </div>
-              <div class="card-body">
-                <span class="tag">
-                  Android • 2025 • <span class="badge">SOON</span>
-                </span>
-                <h4>App mobile native</h4>
-                <p>Application Android avec architecture MVVM, Room DB et intégration API REST sécurisée.</p>
-                <div class="card-actions">
-                  <a href="javascript:alert('Roadmap : Q2 2025 - Conception, Q3 2025 - Développement, Q4 2025 - Lancement')"
-                    class="card-link">📋 Roadmap</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- VUE À PROPOS -->
-        <section id="view-apropos" hidden>
-          <div class="about">
-            <div class="panel">
-              <h3>👋 Hello, je suis Jef Ly</h3>
-              <p>Développeur <strong>Full Stack</strong> passionné, actuellement en <strong>BTS SIO option
-                  SLAM</strong>. Je transforme des idées en solutions numériques élégantes et performantes.</p>
-
-              <div class="kpi">
-                <div class="bubble">
-                  <h5>8+</h5>
-                  <p>Technologies</p>
-                </div>
-                <div class="bubble">
-                  <h5>12</h5>
-                  <p>Projets</p>
-                </div>
-                <div class="bubble">
-                  <h5>A+</h5>
-                  <p>Moyenne</p>
-                </div>
-              </div>
-
-              <h4 style="margin-top:24px">🎯 Objectifs</h4>
-              <ul style="color:var(--muted);font-size:14px;line-height:1.8">
-                <li>Devenir expert en architecture cloud (AWS/Azure)</li>
-                <li>Contribuer à des projets open source majeurs</li>
-                <li>Obtenir des certifications en cybersécurité</li>
-                <li>Développer une solution SaaS innovante</li>
-              </ul>
-            </div>
-
-            <div class="panel">
-              <h3>🏆 Points forts</h3>
-              <ul style="color:var(--muted);font-size:14px;line-height:1.8">
-                <li>Code propre et maintenable (Clean Code)</li>
-                <li>Méthodologies Agile/Scrum</li>
-                <li>Résolution créative de problèmes</li>
-                <li>Communication technique efficace</li>
-                <li>Veille technologique constante</li>
-              </ul>
-
-              <h4 style="margin-top:24px">📚 Formations</h4>
-              <ul style="color:var(--muted);font-size:14px;line-height:1.8">
-                <li><strong>BTS SIO SLAM</strong> (2024-2026)</li>
-                <li>Certifications en ligne (Udemy, OpenClassrooms)</li>
-                <li>Bootcamps et hackathons</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- VUE PARCOURS -->
-        <section id="view-parcours" hidden>
-          <div class="panel">
-            <h3>📈 Mon parcours professionnel</h3>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-date">Janvier 2025 - Aujourd'hui</div>
-                <div class="timeline-title">Stage Développeur Python - Sogécap (BTS SIO 2ème année)</div>
-                <div class="timeline-desc">
-                  <strong>Mission :</strong> Développement et amélioration d'un outil interne d'automatisation basé sur
-                  le traitement de tickets et l'exploitation d'API externes (JIRA, Kibana, Confluence).
-                  <br><br>
-                  <strong>Réalisations clés :</strong>
-                  <ul style="margin:8px 0;padding-left:20px;color:var(--muted)">
-                    <li>Automatisation de la récupération et traitement de données via API REST (Python, requests,
-                      pandas)</li>
-                    <li>Développement d'une architecture modulaire avec fichier main.py centralisé</li>
-                    <li>Génération automatique de rapports Excel et envoi par e-mail</li>
-                    <li>Refactorisation du code selon PEP8 et bonnes pratiques</li>
-                    <li>Travail en méthodologie Agile avec gestion de versions (GitLab)</li>
-                    <li>Présentation technique et soutenance devant les encadrants</li>
-                  </ul>
-                  <strong>Technologies :</strong> Python, API REST (JIRA/Kibana), pandas, openpyxl, GitLab, VS Code
-                  <br>
-                  <strong>Impact :</strong> Optimisation du suivi des incidents récurrents, réduction du temps de
-                  traitement et des erreurs manuelles.
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-date">Sept 2024 - Aujourd'hui</div>
-                <div class="timeline-title">BTS SIO option SLAM</div>
-                <div class="timeline-desc">
-                  Formation intensive en développement logiciel. Major de promotion avec 17.5/20 de moyenne.
-                  Spécialisation en Python, PHP, Java et gestion de bases de données.
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-date">2023 - 2024</div>
-                <div class="timeline-title">Projets personnels & Freelance</div>
-                <div class="timeline-desc">
-                  Création de sites WordPress pour PME locales. Développement d'applications web sur mesure.
-                  Formation autodidacte en JavaScript moderne et frameworks (React, Vue).
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-date">2022 - 2023</div>
-                <div class="timeline-title">Reconversion professionnelle</div>
-                <div class="timeline-desc">
-                  Transition vers le développement web. Apprentissage intensif via plateformes en ligne.
-                  Réalisation de premiers projets pour valider les compétences acquises.
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- VUE COMPÉTENCES -->
-        <section id="view-competences" hidden>
-          <div class="panel">
-            <h3>💻 Stack technique</h3>
-
-            <h4 style="margin-top:20px">Langages & Frameworks</h4>
-            <div class="skills">
-              <span class="chip">🐍 Python</span>
-              <span class="chip">🔷 PHP 8</span>
-              <span class="chip">⚡ JavaScript ES6+</span>
-              <span class="chip">☕ Java</span>
-              <span class="chip">🎨 HTML5/CSS3</span>
-              <span class="chip">⚛️ React</span>
-              <span class="chip">🟩 Vue.js</span>
-              <span class="chip">📱 React Native</span>
-            </div>
-
-            <h4 style="margin-top:20px">Base de données</h4>
-            <div class="skills">
-              <span class="chip">🐬 MySQL</span>
-              <span class="chip">🐘 PostgreSQL</span>
-              <span class="chip">🗄️ SQL Server</span>
-              <span class="chip">📊 MariaDB</span>
-              <span class="chip">🍃 MongoDB</span>
-              <span class="chip">🔥 Firebase</span>
-            </div>
-
-            <h4 style="margin-top:20px">DevOps & Outils</h4>
-            <div class="skills">
-              <span class="chip">🐙 Git/GitHub</span>
-              <span class="chip">🐋 Docker</span>
-              <span class="chip">☁️ AWS</span>
-              <span class="chip">🔧 VS Code</span>
-              <span class="chip">📦 npm/yarn</span>
-              <span class="chip">🚀 CI/CD</span>
-              <span class="chip">🔍 SonarQube</span>
-              <span class="chip">📈 Jira</span>
-            </div>
-
-            <h4 style="margin-top:20px">Méthodologies</h4>
-            <div class="skills">
-              <span class="chip">🏃 Agile/Scrum</span>
-              <span class="chip">📐 UML 2</span>
-              <span class="chip">🗺️ Merise</span>
-              <span class="chip">🧪 TDD</span>
-              <span class="chip">🏗️ MVC/MVVM</span>
-              <span class="chip">🔐 OWASP</span>
-              <span class="chip">📋 RGPD</span>
-            </div>
-
-            <h4 style="margin-top:20px">Soft Skills</h4>
-            <div class="skills">
-              <span class="chip">🇬🇧 Anglais B1</span>
-              <span class="chip">🇪🇸 Espagnol B1</span>
-              <span class="chip">🎯 Résolution de problèmes</span>
-              <span class="chip">👥 Travail d'équipe</span>
-              <span class="chip">📝 Documentation</span>
-              <span class="chip">🎤 Communication</span>
-              <span class="chip">⏰ Gestion du temps</span>
-              <span class="chip">🔄 Adaptabilité</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- VUE DÉTAIL PROJET SOGÉCAP -->
-        <section id="view-projet-sogecap" hidden>
-          <div class="panel">
-            <button class="btn btn-secondary" onclick="window.showView('projets')" style="margin-bottom:16px">
-              ← Retour aux projets
-            </button>
-
-            <h3>🐍 Automatisation Sogécap - Stage BTS SIO 2ème année</h3>
-            <div style="display:flex;gap:8px;margin:12px 0;flex-wrap:wrap">
-              <span class="chip">Python</span>
-              <span class="chip">API REST</span>
-              <span class="chip">JIRA</span>
-              <span class="chip">Kibana</span>
-              <span class="chip">pandas</span>
-              <span class="chip">openpyxl</span>
-              <span class="chip">GitLab</span>
-              <span class="chip">Agile</span>
-            </div>
-
-            <p style="color:var(--muted);margin:16px 0">
-              <strong>Période :</strong> Janvier 2025 - Aujourd'hui<br>
-              <strong>Contexte :</strong> Stage de deuxième année BTS SIO option SLAM chez Sogécap
-            </p>
-
-            <h4 style="margin-top:24px">🎯 Objectif du projet</h4>
-            <p>Développement et amélioration d'un outil interne d'automatisation basé sur le traitement de tickets et
-              l'exploitation de données issues d'API externes. L'objectif principal était d'optimiser le suivi et
-              l'analyse des incidents récurrents rencontrés par les utilisateurs en automatisant la collecte et le
-              traitement des informations provenant de différents services.</p>
-
-            <h4 style="margin-top:24px">⚙️ Activités réalisées</h4>
-            <ul style="color:var(--muted);font-size:14px;line-height:1.8">
-              <li><strong>Recherche et compréhension d'API</strong> : Étude de documentation technique (OpenWeatherMap,
-                JIRA, Kibana, Confluence), tests d'appels GET/POST en Python, compréhension des formats JSON/XML et des
-                mécanismes d'authentification</li>
-              <li><strong>Configuration de l'environnement</strong> : Setup de VS Code avec extensions, paramétrage du
-                poste de travail, authentification aux outils internes, préparation de l'environnement Python</li>
-              <li><strong>Développement de scripts Python</strong> : Automatisation de la récupération de données depuis
-                JIRA et Kibana (identifiants, logs, statuts des tickets), regroupement et affichage structuré des
-                résultats</li>
-              <li><strong>Architecture modulaire</strong> : Conception d'un fichier main.py centralisé permettant de
-                lancer l'ensemble des modules, facilitant tests et maintenance</li>
-              <li><strong>Refactorisation et bonnes pratiques</strong> : Application de PEP8, modularité, nommage clair,
-                ajout d'affichage tabulaire</li>
-              <li><strong>Génération de rapports</strong> : Création automatique de rapports Excel avec openpyxl</li>
-              <li><strong>Automatisation des communications</strong> : Envoi automatisé des résultats par e-mail pour
-                faciliter la communication avec l'équipe technique</li>
-              <li><strong>Présentation et soutenance</strong> : Préparation PowerPoint et soutenance technique devant
-                les encadrants pour présenter le fonctionnement, les résultats et les perspectives d'évolution</li>
-            </ul>
-
-            <h4 style="margin-top:24px">🧩 Compétences mobilisées (Référentiel BTS SIO - E5)</h4>
-            <div style="display:grid;gap:12px;margin-top:12px">
-              <div class="panel" style="padding:12px">
-                <strong>1️⃣ Gérer le patrimoine informatique</strong>
-                <p style="font-size:13px;color:var(--muted);margin:8px 0 0 0">Utilisation de GitLab pour la gestion de
-                  versions, application des bonnes pratiques de développement, vérification des habilitations d'accès
-                  aux API</p>
-              </div>
-              <div class="panel" style="padding:12px">
-                <strong>2️⃣ Répondre aux incidents et demandes d'évolution</strong>
-                <p style="font-size:13px;color:var(--muted);margin:8px 0 0 0">Analyse et amélioration d'un processus
-                  existant, proposition d'une solution automatisée pour réduire les erreurs et le temps de traitement
-                </p>
-              </div>
-              <div class="panel" style="padding:12px">
-                <strong>3️⃣ Travailler en mode projet</strong>
-                <p style="font-size:13px;color:var(--muted);margin:8px 0 0 0">Travail en équipe selon la méthodologie
-                  Agile (planification, itérations, suivi), communication avec les responsables, présentation des
-                  livrables</p>
-              </div>
-              <div class="panel" style="padding:12px">
-                <strong>4️⃣ Mettre à disposition un service informatique</strong>
-                <p style="font-size:13px;color:var(--muted);margin:8px 0 0 0">Conception, test et déploiement d'un
-                  service interne, réalisation d'un plan de test, accompagnement des utilisateurs via documentation</p>
-              </div>
-              <div class="panel" style="padding:12px">
-                <strong>5️⃣ Organiser son développement professionnel</strong>
-                <p style="font-size:13px;color:var(--muted);margin:8px 0 0 0">Veille technologique sur les API et
-                  l'automatisation Python (requests, pandas, openpyxl), développement de l'autonomie et amélioration de
-                  la communication professionnelle</p>
-              </div>
-            </div>
-
-            <h4 style="margin-top:24px">📸 Captures d'écran et démonstrations</h4>
-            <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:12px">
-              <div class="panel"
-                style="padding:16px;text-align:center;min-height:200px;display:flex;align-items:center;justify-content:center;background:var(--bg-secondary)">
-                <p style="color:var(--muted)">📷 Image à venir<br><small>Architecture du projet</small></p>
-              </div>
-              <div class="panel"
-                style="padding:16px;text-align:center;min-height:200px;display:flex;align-items:center;justify-content:center;background:var(--bg-secondary)">
-                <p style="color:var(--muted)">📷 Image à venir<br><small>Interface principale</small></p>
-              </div>
-              <div class="panel"
-                style="padding:16px;text-align:center;min-height:200px;display:flex;align-items:center;justify-content:center;background:var(--bg-secondary)">
-                <p style="color:var(--muted)">📷 Image à venir<br><small>Rapport Excel généré</small></p>
-              </div>
-              <div class="panel"
-                style="padding:16px;text-align:center;min-height:200px;display:flex;align-items:center;justify-content:center;background:var(--bg-secondary)">
-                <p style="color:var(--muted)">📷 Image à venir<br><small>Dashboard des résultats</small></p>
-              </div>
-            </div>
-
-            <h4 style="margin-top:24px">💡 Résultats et apports personnels</h4>
-            <p>Ce stage m'a permis de consolider mes compétences techniques en Python, d'acquérir une meilleure maîtrise
-              des API et de comprendre les enjeux réels de l'automatisation dans un environnement professionnel. J'ai
-              également développé une approche plus structurée du travail en équipe et de la gestion de projet Agile.
-            </p>
-            <p>Au-delà de la technique, j'ai appris à produire une documentation claire et à communiquer efficacement
-              avec des interlocuteurs variés (chefs de projet, développeurs, utilisateurs).</p>
-
-            <div style="margin-top:24px;padding:16px;background:var(--bg-secondary);border-radius:8px">
-              <strong>📊 Impact mesurable :</strong>
-              <ul style="color:var(--muted);font-size:14px;line-height:1.8;margin:8px 0">
-                <li>Optimisation du suivi des incidents récurrents</li>
-                <li>Réduction significative du temps de traitement</li>
-                <li>Diminution des erreurs manuelles</li>
-                <li>Amélioration de la communication inter-équipes</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- VUE CONTACT -->
-        <section id="view-contact" hidden>
-          <div class="panel">
-            <h3>✉️ Contactez-moi</h3>
-            <p>Vous avez un projet en tête ? Une opportunité de collaboration ? N'hésitez pas à me contacter !</p>
-
-            <form id="contact-form">
-              <div class="grid-form">
-                <input class="input" placeholder="Votre nom" required />
-                <input class="input" type="email" placeholder="Votre email" required />
-                <input class="input" placeholder="Sujet" required />
-                <input class="input" placeholder="Entreprise (optionnel)" />
-                <textarea class="input" placeholder="Votre message..." rows="6" required></textarea>
-              </div>
-              <div class="actions">
-                <button class="btn" type="submit">
-                  <span>📤</span> Envoyer le message
-                </button>
-                <button class="btn btn-secondary" type="reset">
-                  <span>🔄</span> Réinitialiser
-                </button>
-              </div>
-            </form>
-
-            <div style="margin-top:32px;padding-top:24px;border-top:var(--border)">
-              <h4>📱 Autres moyens de contact</h4>
-              <div class="skills" style="margin-top:12px">
-                <a href="https://linkedin.com/in/jefly" class="chip" style="text-decoration:none" target="_blank">💼
-                  LinkedIn</a>
-                <a href="https://github.com/jefly" class="chip" style="text-decoration:none" target="_blank">🐙
-                  GitHub</a>
-                <a href="https://twitter.com/jefly" class="chip" style="text-decoration:none" target="_blank">🐦
-                  Twitter</a>
-                <a href="mailto:contact@jefly.dev" class="chip" style="text-decoration:none">📧 contact@jefly.dev</a>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
     </div>
-  </div>
 
-  <!-- DOCK -->
-  <div class="dock" role="navigation" aria-label="Dock">
-    <button class="icon img-mode" data-open="projets" title="Projets">
-      <img src="assets/img/icon-rocket.png" alt="Projets">
-    </button>
-    <button class="icon img-mode" data-open="apropos" title="À propos">
-      <img src="assets/img/icon-about.png" alt="À propos">
-    </button>
-    <button class="icon img-mode" data-open="parcours" title="Parcours">
-      <img src="assets/img/icon-journey.png" alt="Parcours">
-    </button>
-    <button class="icon img-mode" data-open="competences" title="Compétences">
-      <img src="assets/img/icon-skills.png" alt="Compétences">
-    </button>
-    <button class="icon img-mode" data-open="contact" title="Contact">
-      <img src="assets/img/icon-contact.png" alt="Contact">
-    </button>
-    <button class="icon" id="toggle-accent" title="Changer l'accent">
-      <span>🎨</span>
-    </button>
-    <button class="icon" id="btn-github" title="GitHub">
-      <span>🐙</span>
-    </button>
-    <button class="icon" id="btn-linkedin" title="LinkedIn">
-      <span>💼</span>
-    </button>
-  </div>
+    <section class="footer">
+        <h2>Ready to<br>collaborate?</h2>
+        <a href="mailto:tonemail@gmail.com" class="cta-button">Start a project</a>
+    </section>
 
-  <!-- Lien vers le fichier JavaScript -->
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
