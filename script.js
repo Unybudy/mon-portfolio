@@ -84,7 +84,7 @@ let time = 0;
 // Paramètres de la grille (Tu peux jouer avec ça !)
 const gridSize = 60;      // Taille des carreaux (plus grand = moins de lignes)
 const waveSpeed = 0.002;  // Vitesse de l'ondulation
-const waveAmp = 30;       // Amplitude de la vague (puissance de la déformation)
+const waveAmp = 40;       // Amplitude de la vague (puissance de la déformation)
 
 // On redimensionne le canvas pour qu'il prenne tout l'écran
 function resize() {
@@ -106,8 +106,8 @@ function animateGrid() {
     ctx.clearRect(0, 0, width, height);
 
     // Couleur des lignes (Gris très foncé, presque noir)
-    ctx.strokeStyle = 'rgba(60, 60, 60, 0.3)';
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(120, 120, 120, 0.5)';
+    ctx.lineWidth = 1.5;
 
     time += waveSpeed;
 
