@@ -92,62 +92,93 @@ h2,
     font-family: var(--font-code);
 }
 
-/* --- PROJETS (HORIZONTAL) --- */
+/* --- PROJETS (HORIZONTAL BENTO) --- */
 .projects-wrapper {
     height: 100vh;
     width: 100%;
     overflow: hidden;
-    /* Essentiel pour cacher le scrollbar horizontal natif */
     display: flex;
     align-items: center;
+    background: transparent;
+    /* Laisse voir la grille liquide derrière */
 }
 
 .projects-container {
-    display: flex;
-    gap: 5vw;
-    padding-left: 10vw;
-    width: fit-content;
-    /* S'adapte au contenu */
+    display: grid;
+    /* On divise la hauteur en 2 rangées égales */
+    grid-template-rows: repeat(2, 1fr);
+    /* Le contenu s'ajoute vers la droite (magique pour le scroll horizontal) */
+    grid-auto-flow: column;
+    gap: 20px;
+    /* Espace entre les briques */
+    padding: 0 10vw;
+    height: 70vh;
+    /* La grille prend 70% de la hauteur de l'écran */
 }
 
+/* STYLE DE BASE D'UNE CARTE BENTO */
 .project-card {
-    width: 60vw;
-    height: 70vh;
-    background-color: var(--card-bg);
+    background-color: rgba(18, 18, 18, 0.8);
+    /* Un peu transparent pour l'effet tech */
+    backdrop-filter: blur(10px);
+    /* Effet verre fumé */
     border: 1px solid #333;
+    padding: 30px;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 40px;
-    position: relative;
-    flex-shrink: 0;
-    transition: border-color 0.3s;
+    transition: all 0.3s ease;
+    min-width: 300px;
+    /* Largeur minimum pour pas être écrasé */
 }
 
 .project-card:hover {
     border-color: var(--accent-color);
+    background-color: rgba(25, 25, 25, 0.9);
 }
 
+/* --- LES VARIATIONS DE FORMES (C'est ça le secret du Bento) --- */
+
+/* 1. La Carrée (Standard) - Prend 1 ligne, 1 colonne */
+.bento-square {
+    grid-row: span 1;
+    width: 350px;
+}
+
+/* 2. La Grande Verticale (Tall) - Prend toute la hauteur (2 lignes) */
+.bento-tall {
+    grid-row: span 2;
+    width: 400px;
+    background-color: #1a1a1a;
+    /* Une nuance un peu différente pour le rythme */
+}
+
+/* 3. La Large (Wide) - Prend 1 ligne mais plus large */
+.bento-wide {
+    grid-row: span 1;
+    width: 600px;
+}
+
+/* 4. La Géante (Big) - Prend 2 lignes et très large (pour le projet star) */
+.bento-big {
+    grid-row: span 2;
+    width: 700px;
+}
+
+/* Typo spécifique aux cartes */
 .project-number {
-    font-size: 10rem;
-    position: absolute;
-    top: -20px;
-    right: 20px;
-    color: #1a1a1a;
-    font-weight: bold;
-    z-index: 0;
     font-family: var(--font-code);
-    letter-spacing: -0.5px;
-}
-
-.project-info {
-    z-index: 1;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #444;
 }
 
 .project-title {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    color: #fff;
+    font-size: 2rem;
+    /* Un peu plus petit pour rentrer dans les cases */
 }
 
 .project-cat {
