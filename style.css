@@ -1,16 +1,19 @@
 :root {
-    --bg-color: #050505;
-    /* Noir profond mat */
-    --text-main: #d4d4d4;
-    /* Gris clair */
-    --accent-color: #2d5af0;
-    /* Bleu Cobalt intense */
-    --card-bg: #121212;
-    /* Gris anthracite */
-    --font-display: 'Space Grotesk', sans-serif;
-    /* Pour les gros titres */
-    --font-code: 'Space Mono', monospace;
-    /* Pour les détails techniques */
+    /* --- NOUVELLE PALETTE "PAPIER & ENCRE" --- */
+    --bg-color: #F3F0E7;
+    /* Beige Crème (couleur du papier) */
+    --text-main: #1A1A1A;
+    /* Noir Encre (pas tout à fait noir pur, plus doux) */
+    --accent-color: #006B5E;
+    /* Vert Vintage (comme les feuilles de l'image) */
+    --card-bg: #E6E2D6;
+    /* Un beige un peu plus foncé pour les cartes */
+
+    /* --- NOUVELLES POLICES --- */
+    --font-display: 'Fraunces', serif;
+    /* Le style Rétro des titres */
+    --font-body: 'Outfit', sans-serif;
+    /* Le style propre du texte */
 }
 
 * {
@@ -22,24 +25,29 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-main);
-    font-family: var(--font-display);
+    font-family: var(--font-body);
+    /* Le texte par défaut est moderne */
     overflow-x: hidden;
+    /* On ajoute un léger "bruit" pour l'effet papier texturé (optionnel) */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
     cursor: none;
-    /* On cache le curseur par défaut pour utiliser le nôtre */
 }
 
 /* --- CURSEUR --- */
 .cursor {
     width: 20px;
     height: 20px;
-    border: 2px solid var(--accent-color);
+    border: 2px solid var(--text-main);
+    background-color: var(--accent-color);
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
     transition: width 0.2s, height 0.2s;
-    mix-blend-mode: difference;
+    mix-blend-mode: normal;
+    /* Plus de mode "négatif", juste une couleur pleine */
+    opacity: 0.8;
 }
 
 /* --- SECTIONS --- */
@@ -52,18 +60,31 @@ section {
     position: relative;
 }
 
+/* --- TYPOGRAPHIE SPÉCIFIQUE --- */
+
+/* Les gros titres en mode "70s" */
 h1,
 h2,
 .project-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    /* Très gras comme sur l'image */
+    letter-spacing: -1px;
+    /* On resserre les lettres pour le style vintage */
     text-transform: uppercase;
     line-height: 0.9;
-    font-family: var(--font-display);
+}
+
+/* Le texte courant */
+p,
+.project-cat,
+.project-number {
+    font-family: var(--font-body);
 }
 
 /* --- HERO --- */
 .hero h1 {
     font-size: 8vw;
-    font-weight: 700;
     color: var(--text-main);
 }
 
@@ -77,7 +98,7 @@ h2,
     max-width: 500px;
     font-size: 1.2rem;
     color: #666;
-    font-family: var(--font-code);
+    font-family: var(--font-body);
     letter-spacing: -0.5px;
 }
 
@@ -89,7 +110,7 @@ h2,
     font-size: 0.8rem;
     opacity: 0.5;
     letter-spacing: 2px;
-    font-family: var(--font-code);
+    font-family: var(--font-body);
 }
 
 /* --- PROJETS (HORIZONTAL BENTO) --- */
@@ -116,13 +137,17 @@ h2,
     /* La grille prend 70% de la hauteur de l'écran */
 }
 
-/* STYLE DE BASE D'UNE CARTE BENTO */
+/* --- AJUSTEMENTS DES CARTES (BENTO) POUR CE STYLE --- */
 .project-card {
-    background-color: rgba(18, 18, 18, 0.8);
-    /* Un peu transparent pour l'effet tech */
-    backdrop-filter: blur(10px);
-    /* Effet verre fumé */
-    border: 1px solid #333;
+    background-color: var(--card-bg);
+    /* Beige foncé */
+    border: 2px solid var(--text-main);
+    /* Bordure noire style "BD/Illustration" */
+    color: var(--text-main);
+    box-shadow: 4px 4px 0px var(--text-main);
+    /* Ombre dure "Pop Art" */
+    backdrop-filter: none;
+    /* On enlève le flou de verre, ça ne va pas avec le rétro */
     padding: 30px;
     position: relative;
     display: flex;
@@ -135,7 +160,10 @@ h2,
 
 .project-card:hover {
     border-color: var(--accent-color);
-    background-color: rgba(25, 25, 25, 0.9);
+    box-shadow: 6px 6px 0px var(--accent-color);
+    /* L'ombre devient verte au survol */
+    transform: translate(-2px, -2px);
+    /* Petit mouvement */
 }
 
 /* --- LES VARIATIONS DE FORMES (C'est ça le secret du Bento) --- */
@@ -152,6 +180,8 @@ h2,
     width: 400px;
     background-color: #1a1a1a;
     /* Une nuance un peu différente pour le rythme */
+    color: #f4f1ea;
+    /* Texte clair sur fond sombre */
 }
 
 /* 3. La Large (Wide) - Prend 1 ligne mais plus large */
@@ -166,29 +196,36 @@ h2,
     width: 700px;
 }
 
-/* Typo spécifique aux cartes */
 .project-number {
-    font-family: var(--font-code);
     font-size: 1.5rem;
     position: absolute;
     top: 20px;
     right: 20px;
-    color: #444;
+    font-weight: bold;
+    z-index: 0;
+}
+
+.project-info {
+    z-index: 1;
 }
 
 .project-title {
     font-size: 2rem;
-    /* Un peu plus petit pour rentrer dans les cases */
+    margin-bottom: 10px;
 }
 
 .project-cat {
     color: var(--accent-color);
-    font-family: var(--font-code);
-    margin-bottom: 20px;
-    font-size: 0.9rem;
+    font-weight: 700;
     text-transform: uppercase;
-    opacity: 0.8;
-    letter-spacing: -0.5px;
+    border: 1px solid var(--text-main);
+    padding: 5px 10px;
+    border-radius: 50px;
+    /* Style "Badge" arrondi comme sur l'image */
+    display: inline-block;
+    font-size: 0.8rem;
+    background: #fff;
+    margin-bottom: 20px;
 }
 
 /* --- FOOTER --- */
@@ -217,7 +254,7 @@ h2,
 .cta-button:hover {
     background: var(--accent-color);
     border-color: var(--accent-color);
-    color: #000;
+    color: #fff;
 }
 
 /* --- AJOUT : FOND ANIMÉ --- */

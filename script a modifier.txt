@@ -1,5 +1,0 @@
-// Dans la fonction animateGrid(), cherche cette ligne :
-ctx.strokeStyle = 'rgba(60, 60, 60, 0.3)'; 
-
-// Et remplace-la par celle-ci (Gris crayon léger) :
-ctx.strokeStyle = 'rgba(0, 0, 0, 0.1)';

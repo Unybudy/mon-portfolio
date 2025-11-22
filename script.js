@@ -105,8 +105,8 @@ function getWaveOffset(x, y, time) {
 function animateGrid() {
     ctx.clearRect(0, 0, width, height);
 
-    // Couleur des lignes (Gris très foncé, presque noir)
-    ctx.strokeStyle = 'rgba(120, 120, 120, 0.5)';
+    // Couleur des lignes (Gris crayon léger)
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.1)';
     ctx.lineWidth = 1.5;
 
     time += waveSpeed;
