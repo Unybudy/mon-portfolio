@@ -604,4 +604,22 @@ section.hero {
         padding-left: 5vw;
         font-size: 1.5rem;
     }
+
+    /* --- CORRECTION ESPACEMENT : TAGS vs DESCRIPTION --- */
+    .detail-text .tags {
+        margin-bottom: 25px;
+        /* C'est ici qu'on crée l'espace avec le texte */
+        display: flex;
+        /* S'assure que les tags sont bien alignés */
+        gap: 10px;
+        /* Espace entre les tags eux-mêmes (ex: entre PHP et SQL) */
+        flex-wrap: wrap;
+        /* Permet aux tags de passer à la ligne si besoin */
+    }
+
+    /* Optionnel : Si tu veux aussi aérer un peu le texte lui-même */
+    .detail-text p {
+        line-height: 1.8;
+        /* Rend la lecture du paragraphe plus agréable */
+    }
 }
