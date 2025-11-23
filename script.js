@@ -11,9 +11,31 @@ document.addEventListener("DOMContentLoaded", (event) => {
         });
     });
 
-    // 2. Animation d'entrée (Hero)
-    gsap.from(".hero h1", { y: 100, opacity: 0, duration: 1, ease: "power4.out" });
-    gsap.from(".header-deco", { y: -50, opacity: 0, duration: 1, delay: 0.3 });
+    // 2. Animation d'entrée (Nouveau Hero)
+    // On anime le titre géant
+    gsap.from(".huge-title", {
+        y: 150,
+        opacity: 0,
+        duration: 1.5,
+        ease: "power4.out",
+        delay: 0.2
+    });
+
+    // On anime la barre du haut
+    gsap.from(".top-nav", {
+        y: -50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.5
+    });
+
+    // On anime le texte d'intro
+    gsap.from(".hero-intro", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.8
+    });
 
     // 3. Scroll Horizontal des Projets
     const container = document.querySelector(".projects-container");

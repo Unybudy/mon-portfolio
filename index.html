@@ -18,311 +18,291 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
-<body>
+<div class="project-card bento-square">
+    <div class="card-header">
+        <span class="project-number">.01</span>
+        <div class="tags"><span class="tag">RÉSEAU</span></div>
+    </div>
+    <h3 class="project-title">Ateliers de Certification</h3>
+    <p class="project-desc">Validation des compétences techniques fondamentales.</p>
+</div>
 
-    <canvas id="gridCanvas"></canvas>
+<div class="project-card bento-tall">
+    <div class="card-header">
+        <span class="project-number">.02</span>
+        <div class="tags"><span class="tag">WEB</span><span class="tag">HTML/CSS</span></div>
+    </div>
+    <h3 class="project-title">Création Site Web</h3>
+    <p class="project-desc">Développement complet d'une vitrine numérique responsive.</p>
+    <div class="img-placeholder"></div>
+</div>
 
-    <div class="cursor"></div>
+<div class="project-card bento-wide">
+    <div class="card-header">
+        <span class="project-number">.03</span>
+        <div class="tags"><span class="tag">PHP</span><span class="tag">SQL</span><span class="tag">SEC</span></div>
+    </div>
+    <h3 class="project-title">Gestion Cyber-Sécurité</h3>
+    <p class="project-desc">Backend sécurisé et gestion de base de données pour prévenir les injections.</p>
+</div>
 
-    <section class="hero">
-        <div class="header-deco">PORTFOLIO 2025</div>
-        <h1>Hello !<br><span>Je suis Développeur.</span></h1>
-        <p class="hero-text">
-            Passionné par l'automatisation, la cybersécurité et le développement web.
-            Voici une sélection de mes projets académiques et personnels.
-        </p>
-        <div class="scroll-indicator">SCROLL POUR DÉCOUVRIR ↓</div>
-    </section>
+<div class="project-card bento-square">
+    <div class="card-header">
+        <span class="project-number">.04</span>
+        <div class="tags"><span class="tag">CONCEPTION</span></div>
+    </div>
+    <h3 class="project-title">Modélisation UML</h3>
+    <p class="project-desc">Architecture logicielle et diagrammes de classes.</p>
+</div>
 
-    <div class="projects-wrapper">
-        <div class="projects-container">
+<div class="project-card bento-square">
+    <div class="card-header">
+        <span class="project-number">.05</span>
+        <div class="tags"><span class="tag">DATA</span></div>
+    </div>
+    <h3 class="project-title">Veille Info</h3>
+    <p class="project-desc">Mise en place d'outils de curation technologique.</p>
+</div>
 
-            <div class="project-card bento-square">
-                <div class="card-header">
-                    <span class="project-number">.01</span>
-                    <div class="tags"><span class="tag">RÉSEAU</span></div>
-                </div>
-                <h3 class="project-title">Ateliers de Certification</h3>
-                <p class="project-desc">Validation des compétences techniques fondamentales.</p>
-            </div>
+<div class="project-card bento-square">
+    <div class="card-header">
+        <span class="project-number">.06</span>
+        <div class="tags"><span class="tag">AGILE</span></div>
+    </div>
+    <h3 class="project-title">Méthode Projet</h3>
+    <p class="project-desc">Organisation et travail collaboratiff.</p>
+</div>
 
-            <div class="project-card bento-tall">
-                <div class="card-header">
-                    <span class="project-number">.02</span>
-                    <div class="tags"><span class="tag">WEB</span><span class="tag">HTML/CSS</span></div>
-                </div>
-                <h3 class="project-title">Création Site Web</h3>
-                <p class="project-desc">Développement complet d'une vitrine numérique responsive.</p>
-                <div class="img-placeholder"></div>
-            </div>
+<div class="project-card bento-big">
+    <div class="card-header">
+        <span class="project-number">.07</span>
+        <div class="tags"><span class="tag">PYTHON</span><span class="tag">AUTOMATION</span></div>
+    </div>
+    <h3 class="project-title">Gestion d'incidents (SOGECAP)</h3>
+    <p class="project-desc">Scripting Python pour l'automatisation complète du traitement des tickets
+        d'incidents.</p>
+    <div class="img-placeholder"></div>
+</div>
 
-            <div class="project-card bento-wide">
-                <div class="card-header">
-                    <span class="project-number">.03</span>
-                    <div class="tags"><span class="tag">PHP</span><span class="tag">SQL</span><span
-                            class="tag">SEC</span></div>
-                </div>
-                <h3 class="project-title">Gestion Cyber-Sécurité</h3>
-                <p class="project-desc">Backend sécurisé et gestion de base de données pour prévenir les injections.</p>
-            </div>
+<div class="project-card bento-wide">
+    <div class="card-header">
+        <span class="project-number">.08</span>
+        <div class="tags"><span class="tag">DESIGN</span><span class="tag">JS</span></div>
+    </div>
+    <h3 class="project-title">Ce Portfolio</h3>
+    <p class="project-desc">Développement Scrollytelling immersif.</p>
+</div>
 
-            <div class="project-card bento-square">
-                <div class="card-header">
-                    <span class="project-number">.04</span>
-                    <div class="tags"><span class="tag">CONCEPTION</span></div>
-                </div>
-                <h3 class="project-title">Modélisation UML</h3>
-                <p class="project-desc">Architecture logicielle et diagrammes de classes.</p>
-            </div>
+<div class="project-card bento-tall dashed-border">
+    <div class="card-header">
+        <span class="project-number">.09</span>
+        <div class="tags"><span class="tag">SOON</span></div>
+    </div>
+    <h3 class="project-title">Stage 2ème Année</h3>
+    <p class="project-desc">À venir...</p>
+</div>
 
-            <div class="project-card bento-square">
-                <div class="card-header">
-                    <span class="project-number">.05</span>
-                    <div class="tags"><span class="tag">DATA</span></div>
-                </div>
-                <h3 class="project-title">Veille Info</h3>
-                <p class="project-desc">Mise en place d'outils de curation technologique.</p>
-            </div>
+<div class="project-card bento-square dashed-border">
+    <div class="card-header">
+        <span class="project-number">.10</span>
+        <div class="tags"><span class="tag">ANDROID</span></div>
+    </div>
+    <h3 class="project-title">App Mobile</h3>
+    <p class="project-desc">Développement natif Kotlin/Java.</p>
+</div>
 
-            <div class="project-card bento-square">
-                <div class="card-header">
-                    <span class="project-number">.06</span>
-                    <div class="tags"><span class="tag">AGILE</span></div>
-                </div>
-                <h3 class="project-title">Méthode Projet</h3>
-                <p class="project-desc">Organisation et travail collaboratiff.</p>
-            </div>
+</div>
+</div>
 
-            <div class="project-card bento-big">
-                <div class="card-header">
-                    <span class="project-number">.07</span>
-                    <div class="tags"><span class="tag">PYTHON</span><span class="tag">AUTOMATION</span></div>
-                </div>
-                <h3 class="project-title">Gestion d'incidents (SOGECAP)</h3>
-                <p class="project-desc">Scripting Python pour l'automatisation complète du traitement des tickets
-                    d'incidents.</p>
-                <div class="img-placeholder"></div>
-            </div>
+<div class="details-wrapper">
 
-            <div class="project-card bento-wide">
-                <div class="card-header">
-                    <span class="project-number">.08</span>
-                    <div class="tags"><span class="tag">DESIGN</span><span class="tag">JS</span></div>
-                </div>
-                <h3 class="project-title">Ce Portfolio</h3>
-                <p class="project-desc">Développement Scrollytelling immersif.</p>
-            </div>
-
-            <div class="project-card bento-tall dashed-border">
-                <div class="card-header">
-                    <span class="project-number">.09</span>
-                    <div class="tags"><span class="tag">SOON</span></div>
-                </div>
-                <h3 class="project-title">Stage 2ème Année</h3>
-                <p class="project-desc">À venir...</p>
-            </div>
-
-            <div class="project-card bento-square dashed-border">
-                <div class="card-header">
-                    <span class="project-number">.10</span>
-                    <div class="tags"><span class="tag">ANDROID</span></div>
-                </div>
-                <h3 class="project-title">App Mobile</h3>
-                <p class="project-desc">Développement natif Kotlin/Java.</p>
-            </div>
-
+    <section class="project-detail" id="p1">
+        <div class="detail-header">
+            <span class="big-num">.01</span>
+            <h2>Ateliers de Certification</h2>
         </div>
-    </div>
-
-    <div class="details-wrapper">
-
-        <section class="project-detail" id="p1">
-            <div class="detail-header">
-                <span class="big-num">.01</span>
-                <h2>Ateliers de Certification</h2>
+        <div class="detail-content">
+            <div class="detail-text">
+                <div class="tags"><span class="tag">AUTO-FORMATION</span></div>
+                <p>Fil rouge de mes années de BTS SIO SLAM, ce parcours a pour but d'élargir mon horizon technique.
+                    Au-delà de la simple maîtrise du code, ces ateliers structurent mon approche de l'informatique.
+                </p>
             </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags"><span class="tag">AUTO-FORMATION</span></div>
-                    <p>Fil rouge de mes années de BTS SIO SLAM, ce parcours a pour but d'élargir mon horizon technique.
-                        Au-delà de la simple maîtrise du code, ces ateliers structurent mon approche de l'informatique.
-                    </p>
-                </div>
-                <div class="detail-image">
-                    <div class="img-placeholder-large">Image Ateliers</div>
-                </div>
+            <div class="detail-image">
+                <div class="img-placeholder-large">Image Ateliers</div>
             </div>
-        </section>
-
-        <section class="project-detail reverse" id="p2">
-            <div class="detail-header">
-                <span class="big-num">.02</span>
-                <h2>Coffee Shop</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags"><span class="tag">WORDPRESS</span><span class="tag">E-COMMERCE</span></div>
-                    <p>Conception intégrale d'une boutique en ligne fictive dédiée à l'univers du café. Ce projet
-                        explore la puissance de l'écosystème WordPress pour déployer une interface e-commerce moderne.
-                    </p>
-                </div>
-                <div class="detail-image">
-                    <div class="img-placeholder-large">Image Coffee Shop</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail" id="p3">
-            <div class="detail-header">
-                <span class="big-num">.03</span>
-                <h2>GSB : Secure App</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags"><span class="tag">PHP</span><span class="tag">CYBERSÉCURITÉ</span></div>
-                    <p>Refonte et sécurisation critique de l'application du laboratoire Galaxy Swiss Bourdin. Migration
-                        vers une architecture MVC robuste tout en neutralisant les vulnérabilités majeures (Injections
-                        SQL, XSS).</p>
-                </div>
-                <div class="detail-image">
-                    <div class="img-placeholder-large">Image GSB</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail reverse" id="p4">
-            <div class="detail-header">
-                <span class="big-num">.04</span>
-                <h2>UML Design</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags"><span class="tag">MODÉLISATION</span></div>
-                    <p>L'étape cruciale avant le code. Traduire des besoins métiers complexes en architectures
-                        logicielles claires (Diagrammes de cas d'utilisation, séquences, classes).</p>
-                </div>
-                <div class="detail-image">
-                    <div class="img-placeholder-large">Image UML</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail" id="p5">
-            <div class="detail-header">
-                <span class="big-num">.05</span>
-                <h2>Tech Watch</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags"><span class="tag">VEILLE</span></div>
-                    <p>Définition d'un écosystème de surveillance automatisé pour capter les signaux faibles, anticiper
-                        les failles de sécurité et intégrer les technologies émergentes.</p>
-                    <br>
-                    <a href="#" class="btn-contact" style="font-size: 0.8rem;">Voir ma veille</a>
-                </div>
-                <div class="detail-image">
-                    <div class="img-placeholder-large">Image Veille</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail reverse" id="p6">
-            <div class="detail-header">
-                <span class="big-num">.06</span>
-                <h2>Agile Workflow</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags"><span class="tag">SCRUM</span><span class="tag">GESTION PROJET</span></div>
-                    <p>Maîtrise des méthodologies collaboratives. Découpage en sprints, définition du Backlog et rituels
-                        de suivi pour transformer des objectifs complexes en livrables concrets.</p>
-                </div>
-                <div class="detail-image">
-                    <div class="img-placeholder-large">Image Agile</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail" id="p7">
-            <div class="detail-header">
-                <span class="big-num">.07</span>
-                <h2>Jira Automation</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags"><span class="tag">PYTHON</span><span class="tag">SOGECAP</span></div>
-                    <p>Développement d'une solution d'automatisation pour la DSI de SOGECAP. Le script Python
-                        s'interface avec l'API JIRA pour analyser et filtrer les tickets incidents automatiquement.</p>
-                </div>
-                <div class="detail-image">
-                    <div class="img-placeholder-large">Image Python</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail reverse" id="p8">
-            <div class="detail-header">
-                <span class="big-num">.08</span>
-                <h2>Digital Identity</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags"><span class="tag">WEB DESIGN</span></div>
-                    <p>Conception intégrale de ce portfolio. Du design de l'interface à l'intégration responsive, pensé
-                        pour valoriser mon parcours et affirmer mon identité de développeur.</p>
-                </div>
-                <div class="detail-image">
-                    <div class="img-placeholder-large">Image Portfolio</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail" id="p9">
-            <div class="detail-header">
-                <span class="big-num">.09</span>
-                <h2>Stage 2ème Année</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags"><span class="tag">SOON</span></div>
-                    <p>Immersion professionnelle à venir. L'objectif est d'intégrer une nouvelle structure et de relever
-                        des défis techniques d'envergure.</p>
-                </div>
-                <div class="detail-image">
-                    <div class="img-placeholder-large dashed">En cours...</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail reverse" id="p10">
-            <div class="detail-header">
-                <span class="big-num">.10</span>
-                <h2>Android Lab</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags"><span class="tag">MOBILE</span><span class="tag">KOTLIN</span></div>
-                    <p>Prochaine étape : le développement natif. Ambition de concevoir une application fonctionnelle et
-                        intuitive sur l'écosystème Android.</p>
-                </div>
-                <div class="detail-image">
-                    <div class="img-placeholder-large dashed">En cours...</div>
-                </div>
-            </div>
-        </section>
-
-    </div>
-
-    <section class="footer">
-        <h2 class="footer-title">Merci !</h2>
-        <div class="footer-links">
-            <a href="#" class="cta-button">Mon LinkedIn</a>
-            <a href="mailto:tonemail@gmail.com" class="cta-button">M'envoyer un mail</a>
-            <a href="#" class="cta-button">Ma Veille Techno</a>
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <section class="project-detail reverse" id="p2">
+        <div class="detail-header">
+            <span class="big-num">.02</span>
+            <h2>Coffee Shop</h2>
+        </div>
+        <div class="detail-content">
+            <div class="detail-text">
+                <div class="tags"><span class="tag">WORDPRESS</span><span class="tag">E-COMMERCE</span></div>
+                <p>Conception intégrale d'une boutique en ligne fictive dédiée à l'univers du café. Ce projet
+                    explore la puissance de l'écosystème WordPress pour déployer une interface e-commerce moderne.
+                </p>
+            </div>
+            <div class="detail-image">
+                <div class="img-placeholder-large">Image Coffee Shop</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-detail" id="p3">
+        <div class="detail-header">
+            <span class="big-num">.03</span>
+            <h2>GSB : Secure App</h2>
+        </div>
+        <div class="detail-content">
+            <div class="detail-text">
+                <div class="tags"><span class="tag">PHP</span><span class="tag">CYBERSÉCURITÉ</span></div>
+                <p>Refonte et sécurisation critique de l'application du laboratoire Galaxy Swiss Bourdin. Migration
+                    vers une architecture MVC robuste tout en neutralisant les vulnérabilités majeures (Injections
+                    SQL, XSS).</p>
+            </div>
+            <div class="detail-image">
+                <div class="img-placeholder-large">Image GSB</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-detail reverse" id="p4">
+        <div class="detail-header">
+            <span class="big-num">.04</span>
+            <h2>UML Design</h2>
+        </div>
+        <div class="detail-content">
+            <div class="detail-text">
+                <div class="tags"><span class="tag">MODÉLISATION</span></div>
+                <p>L'étape cruciale avant le code. Traduire des besoins métiers complexes en architectures
+                    logicielles claires (Diagrammes de cas d'utilisation, séquences, classes).</p>
+            </div>
+            <div class="detail-image">
+                <div class="img-placeholder-large">Image UML</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-detail" id="p5">
+        <div class="detail-header">
+            <span class="big-num">.05</span>
+            <h2>Tech Watch</h2>
+        </div>
+        <div class="detail-content">
+            <div class="detail-text">
+                <div class="tags"><span class="tag">VEILLE</span></div>
+                <p>Définition d'un écosystème de surveillance automatisé pour capter les signaux faibles, anticiper
+                    les failles de sécurité et intégrer les technologies émergentes.</p>
+                <br>
+                <a href="#" class="btn-contact" style="font-size: 0.8rem;">Voir ma veille</a>
+            </div>
+            <div class="detail-image">
+                <div class="img-placeholder-large">Image Veille</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-detail reverse" id="p6">
+        <div class="detail-header">
+            <span class="big-num">.06</span>
+            <h2>Agile Workflow</h2>
+        </div>
+        <div class="detail-content">
+            <div class="detail-text">
+                <div class="tags"><span class="tag">SCRUM</span><span class="tag">GESTION PROJET</span></div>
+                <p>Maîtrise des méthodologies collaboratives. Découpage en sprints, définition du Backlog et rituels
+                    de suivi pour transformer des objectifs complexes en livrables concrets.</p>
+            </div>
+            <div class="detail-image">
+                <div class="img-placeholder-large">Image Agile</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-detail" id="p7">
+        <div class="detail-header">
+            <span class="big-num">.07</span>
+            <h2>Jira Automation</h2>
+        </div>
+        <div class="detail-content">
+            <div class="detail-text">
+                <div class="tags"><span class="tag">PYTHON</span><span class="tag">SOGECAP</span></div>
+                <p>Développement d'une solution d'automatisation pour la DSI de SOGECAP. Le script Python
+                    s'interface avec l'API JIRA pour analyser et filtrer les tickets incidents automatiquement.</p>
+            </div>
+            <div class="detail-image">
+                <div class="img-placeholder-large">Image Python</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-detail reverse" id="p8">
+        <div class="detail-header">
+            <span class="big-num">.08</span>
+            <h2>Digital Identity</h2>
+        </div>
+        <div class="detail-content">
+            <div class="detail-text">
+                <div class="tags"><span class="tag">WEB DESIGN</span></div>
+                <p>Conception intégrale de ce portfolio. Du design de l'interface à l'intégration responsive, pensé
+                    pour valoriser mon parcours et affirmer mon identité de développeur.</p>
+            </div>
+            <div class="detail-image">
+                <div class="img-placeholder-large">Image Portfolio</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-detail" id="p9">
+        <div class="detail-header">
+            <span class="big-num">.09</span>
+            <h2>Stage 2ème Année</h2>
+        </div>
+        <div class="detail-content">
+            <div class="detail-text">
+                <div class="tags"><span class="tag">SOON</span></div>
+                <p>Immersion professionnelle à venir. L'objectif est d'intégrer une nouvelle structure et de relever
+                    des défis techniques d'envergure.</p>
+            </div>
+            <div class="detail-image">
+                <div class="img-placeholder-large dashed">En cours...</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-detail reverse" id="p10">
+        <div class="detail-header">
+            <span class="big-num">.10</span>
+            <h2>Android Lab</h2>
+        </div>
+        <div class="detail-content">
+            <div class="detail-text">
+                <div class="tags"><span class="tag">MOBILE</span><span class="tag">KOTLIN</span></div>
+                <p>Prochaine étape : le développement natif. Ambition de concevoir une application fonctionnelle et
+                    intuitive sur l'écosystème Android.</p>
+            </div>
+            <div class="detail-image">
+                <div class="img-placeholder-large dashed">En cours...</div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<section class="footer">
+    <h2 class="footer-title">Merci !</h2>
+    <div class="footer-links">
+        <a href="#" class="cta-button">Mon LinkedIn</a>
+        <a href="mailto:tonemail@gmail.com" class="cta-button">M'envoyer un mail</a>
+        <a href="#" class="cta-button">Ma Veille Techno</a>
+    </div>
+</section>
+
+<script src="script.js"></script>
 </body>
 
 </html>
