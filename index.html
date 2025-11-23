@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio 2025 - Jef Ly</title>
+    <title>Portfolio - IT & Développement</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;600;800&family=Outfit:wght@300;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;600;900&family=Outfit:wght@300;500;700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -20,224 +20,126 @@
 
 <body>
 
+    <canvas id="gridCanvas"></canvas>
+
     <div class="cursor"></div>
 
-    <section class="hero-section">
-        <div class="top-bar">
-            <span>ANNÉE 2025</span>
-            <span>JEF LY</span>
-            <span>BTS SIO SLAM</span>
-        </div>
-
-        <div class="title-container">
-            <h1 class="main-title">PORT<br>FOLIO</h1>
-            <div class="deco-star">✦</div>
-        </div>
-
-        <div class="intro-block">
-            <h2>HELLO !</h2>
-            <p class="intro-text">
-                <strong>Je m'appelle Jef Ly et je suis étudiant en BTS SIO.</strong><br><br>
-                Actuellement en deuxième année, spécialité Solutions Logicielles et Applications Métiers (SIO SLAM), je
-                suis à la recherche d’un stage en développement web. Ce stage me permettrait de mettre en pratique les
-                connaissances acquises durant ma formation et de développer mes compétences au sein d’un environnement
-                professionnel.
-                <br><br>
-                Tout au long de mon parcours, j’ai pu maîtriser plusieurs langages de programmation tels que PHP,
-                JavaScript, HTML5 et CSS3, ainsi que les bases de données MySQL et MariaDB. Autonome, curieux et
-                apprécié pour mon esprit d’équipe, je suis motivé à mettre mes compétences en développement web,
-                modélisation et gestion de projet Agile au service de votre entreprise.
-            </p>
-        </div>
-    </section>
-
-    <section class="resume-section">
-        <div class="resume-grid">
-
-            <div class="resume-col">
-                <h3 class="resume-title">✦ EXPÉRIENCES</h3>
-
-                <div class="resume-item">
-                    <span class="date">2025 (1 mois et 2 semaines)</span>
-                    <h4>Stage BTS SIO 1 SLAM</h4>
-                    <span class="company">SOGÉCAP - Orléans</span>
-                    <p>Développement d'outils Python pour l'automatisation des tâches liées à la gestion d'incidents.
-                    </p>
-                </div>
-
-                <div class="resume-item">
-                    <span class="date">2023 - 2025</span>
-                    <h4>Employé Polyvalent (Week-ends)</h4>
-                    <span class="company">E.LECLERC DRIVE - Chécy</span>
-                    <p>Préparateur de commandes et livreur. Développement de l'autonomie et de la rigueur.</p>
-                </div>
-
-                <div class="resume-item">
-                    <span class="date">Été 2023 & 2024</span>
-                    <h4>Jobs d'été</h4>
-                    <span class="company">SOCIÉTÉ SOPA / E.LECLERC</span>
-                    <p>Tri, palettisation et mise en rayon.</p>
-                </div>
-            </div>
-
-            <div class="resume-col">
-                <h3 class="resume-title">✦ FORMATIONS</h3>
-
-                <div class="resume-item">
-                    <span class="date">2023 - Présent</span>
-                    <h4>BTS SIO (Option SLAM)</h4>
-                    <span class="company">Lycée Benjamin Franklin - Orléans</span>
-                    <p>Services Informatiques aux Organisations. Spécialisation développement web et logiciel.</p>
-                </div>
-
-                <div class="resume-item">
-                    <span class="date">2022 - 2023</span>
-                    <h4>Licence 1 Informatique</h4>
-                    <span class="company">Université d'Orléans</span>
-                </div>
-
-                <div class="resume-item">
-                    <span class="date">2022</span>
-                    <h4>Bac STI2D</h4>
-                    <span class="company">Lycée Benjamin Franklin</span>
-                    <p>Sciences et Technologies de l'Industrie et du Développement Durable.</p>
-                </div>
-            </div>
-
-        </div>
+    <section class="hero">
+        <div class="header-deco">PORTFOLIO 2025</div>
+        <h1>Hello !<br><span>Je suis Développeur.</span></h1>
+        <p class="hero-text">
+            Passionné par l'automatisation, la cybersécurité et le développement web.
+            Voici une sélection de mes projets académiques et personnels.
+        </p>
+        <div class="scroll-indicator">SCROLL POUR DÉCOUVRIR ↓</div>
     </section>
 
     <div class="projects-wrapper">
-        <div class="projects-header">MES PROJETS <span class="arrow">→</span></div>
-
         <div class="projects-container">
 
             <div class="project-card bento-square">
-                <div class="card-head">
-                    <span class="num">.01</span>
-                    <div class="badge">AUTO-FORMATION</div>
+                <div class="card-header">
+                    <span class="project-number">.01</span>
+                    <div class="tags"><span class="tag">RÉSEAU</span></div>
                 </div>
-                <h3>Ateliers OpenClassrooms</h3>
-                <p class="desc">Fil rouge de mes années de BTS SIO SLAM. Parcours certifiant pour élargir mon horizon
-                    technique et consolider les fondations théoriques.</p>
-                <div class="img-placeholder"></div>
+                <h3 class="project-title">Ateliers de Certification</h3>
+                <p class="project-desc">Validation des compétences techniques fondamentales.</p>
             </div>
 
             <div class="project-card bento-tall">
-                <div class="card-head">
-                    <span class="num">.02</span>
-                    <div class="badge">WORDPRESS</div>
+                <div class="card-header">
+                    <span class="project-number">.02</span>
+                    <div class="tags"><span class="tag">WEB</span><span class="tag">HTML/CSS</span></div>
                 </div>
-                <h3>Coffee Shop E-Commerce</h3>
-                <p class="desc">Conception intégrale d'une boutique en ligne fictive. De la structuration du catalogue à
-                    la gestion dynamique du panier.</p>
+                <h3 class="project-title">Création Site Web</h3>
+                <p class="project-desc">Développement complet d'une vitrine numérique responsive.</p>
                 <div class="img-placeholder"></div>
             </div>
 
             <div class="project-card bento-wide">
-                <div class="card-head">
-                    <span class="num">.03</span>
-                    <div class="badge-group">
-                        <div class="badge">PHP/SQL</div>
-                        <div class="badge">MVC</div>
-                    </div>
+                <div class="card-header">
+                    <span class="project-number">.03</span>
+                    <div class="tags"><span class="tag">PHP</span><span class="tag">SQL</span><span
+                            class="tag">SEC</span></div>
                 </div>
-                <h3>GSB : Secure App</h3>
-                <p class="desc">Refonte et sécurisation critique (Injections SQL, XSS) de l'application de suivi
-                    commercial du laboratoire Galaxy Swiss Bourdin. Migration vers une architecture MVC robuste.</p>
+                <h3 class="project-title">Gestion Cyber-Sécurité</h3>
+                <p class="project-desc">Backend sécurisé et gestion de base de données pour prévenir les injections.</p>
             </div>
 
             <div class="project-card bento-square">
-                <div class="card-head">
-                    <span class="num">.04</span>
-                    <div class="badge">MODÉLISATION</div>
+                <div class="card-header">
+                    <span class="project-number">.04</span>
+                    <div class="tags"><span class="tag">CONCEPTION</span></div>
                 </div>
-                <h3>UML Design</h3>
-                <p class="desc">Traduction des besoins métiers en architectures logicielles (diagrammes de cas
-                    d'utilisation, séquences, classes).</p>
+                <h3 class="project-title">Modélisation UML</h3>
+                <p class="project-desc">Architecture logicielle et diagrammes de classes.</p>
             </div>
 
             <div class="project-card bento-square">
-                <div class="card-head">
-                    <span class="num">.05</span>
-                    <div class="badge">VEILLE</div>
+                <div class="card-header">
+                    <span class="project-number">.05</span>
+                    <div class="tags"><span class="tag">DATA</span></div>
                 </div>
-                <h3>Tech Watch</h3>
-                <p class="desc">Écosystème de surveillance automatisé pour capter les signaux faibles et anticiper les
-                    failles de sécurité.</p>
-                <a href="#" class="project-link">Voir ma veille →</a>
+                <h3 class="project-title">Veille Info</h3>
+                <p class="project-desc">Mise en place d'outils de curation technologique.</p>
             </div>
 
-            <div class="project-card bento-wide">
-                <div class="card-head">
-                    <span class="num">.06</span>
-                    <div class="badge">SCRUM</div>
+            <div class="project-card bento-square">
+                <div class="card-header">
+                    <span class="project-number">.06</span>
+                    <div class="tags"><span class="tag">AGILE</span></div>
                 </div>
-                <h3>Agile Workflow</h3>
-                <p class="desc">Maîtrise du travail collaboratif : Sprints, Backlog, et rituels de suivi pour
-                    transformer des objectifs complexes en livrables.</p>
+                <h3 class="project-title">Méthode Projet</h3>
+                <p class="project-desc">Organisation et travail collaboratif.</p>
             </div>
 
             <div class="project-card bento-big">
-                <div class="card-head">
-                    <span class="num">.07</span>
-                    <div class="badge-group">
-                        <div class="badge">PYTHON</div>
-                        <div class="badge">AUTOMATION</div>
-                    </div>
+                <div class="card-header">
+                    <span class="project-number">.07</span>
+                    <div class="tags"><span class="tag">PYTHON</span><span class="tag">AUTOMATION</span></div>
                 </div>
-                <h3>Jira Flow Automation (SOGECAP)</h3>
-                <p class="desc">Solution d'automatisation pour la DSI. Interface avec l'API JIRA pour extraire, analyser
-                    et filtrer les tickets incidents. Génération de synthèses automatiques pour l'aide à la décision.
-                </p>
+                <h3 class="project-title">Gestion d'incidents (SOGECAP)</h3>
+                <p class="project-desc">Scripting Python pour l'automatisation complète du traitement des tickets
+                    d'incidents.</p>
                 <div class="img-placeholder"></div>
             </div>
 
-            <div class="project-card bento-square">
-                <div class="card-head">
-                    <span class="num">.08</span>
-                    <div class="badge">DESIGN</div>
+            <div class="project-card bento-wide">
+                <div class="card-header">
+                    <span class="project-number">.08</span>
+                    <div class="tags"><span class="tag">DESIGN</span><span class="tag">JS</span></div>
                 </div>
-                <h3>Digital Identity</h3>
-                <p class="desc">Ce site ! Synthèse de mes compétences UI/UX et intégration responsive pour affirmer mon
-                    identité de développeur.</p>
+                <h3 class="project-title">Ce Portfolio</h3>
+                <p class="project-desc">Développement Scrollytelling immersif.</p>
             </div>
 
-            <div class="project-card bento-tall dashed">
-                <div class="card-head">
-                    <span class="num">.09</span>
-                    <div class="badge">STAGE 2</div>
+            <div class="project-card bento-tall dashed-border">
+                <div class="card-header">
+                    <span class="project-number">.09</span>
+                    <div class="tags"><span class="tag">SOON</span></div>
                 </div>
-                <h3>Next Step : Internship</h3>
-                <p class="desc">Immersion professionnelle à venir. Projet en cours de chargement...</p>
+                <h3 class="project-title">Stage 2ème Année</h3>
+                <p class="project-desc">À venir...</p>
             </div>
 
-            <div class="project-card bento-square dashed">
-                <div class="card-head">
-                    <span class="num">.10</span>
-                    <div class="badge">ANDROID</div>
+            <div class="project-card bento-square dashed-border">
+                <div class="card-header">
+                    <span class="project-number">.10</span>
+                    <div class="tags"><span class="tag">ANDROID</span></div>
                 </div>
-                <h3>Android Lab</h3>
-                <p class="desc">Développement natif Kotlin/Java. Compilation en cours...</p>
+                <h3 class="project-title">App Mobile</h3>
+                <p class="project-desc">Développement natif Kotlin/Java.</p>
             </div>
 
         </div>
     </div>
 
     <section class="footer">
-        <div class="footer-content">
-            <h2 class="footer-title">MERCI !</h2>
-            <p>Travaillons ensemble !</p>
-
-            <div class="contact-links">
-                <a href="mailto:ly.poisson@gmail.com" class="btn-contact">ly.poisson@gmail.com</a>
-                <a href="https://www.linkedin.com/" target="_blank" class="btn-contact">LinkedIn</a>
-                <a href="#" target="_blank" class="btn-contact">Ma Veille Techno</a>
-            </div>
-
-            <div class="footer-bottom">
-                © 2025 Jef Ly - Portfolio BTS SIO
-            </div>
+        <h2 class="footer-title">Merci !</h2>
+        <div class="footer-links">
+            <a href="#" class="cta-button">Mon LinkedIn</a>
+            <a href="mailto:tonemail@gmail.com" class="cta-button">M'envoyer un mail</a>
+            <a href="#" class="cta-button">Ma Veille Techno</a>
         </div>
     </section>
 
