@@ -234,72 +234,18 @@
 
         <section class="project-detail" id="p5">
             <div class="detail-header">
-                <span class="big-num">.05</span><h2>Tech Watch</h2>
+                <span class="big-num">.05</span>
+                <h2>Tech Watch</h2>
             </div>
             <div class="detail-content">
-                
-                <div class="detail-text" style="width: 100%;"> <div class="tags"><span class="tag">VEILLE</span> <span class="tag">FLUX RSS</span></div>
-                    
-                    <p style="margin-bottom: 30px;">
-                        Ma veille technologique automatisée, sourcée directement depuis 01net :
-                    </p>
-
-                    <div class="ma-veille">
-                        <h2>
-                            <img src="https://www.01net.com/favicon.ico" alt="Logo 01net" style="vertical-align: middle; width: 30px; border-radius: 4px;"> 
-                            Actualités 01net
-                        </h2>
-                        
-                        <div class="timeline">
-                        <?php
-                        // 1. URL du flux RSS de 01net
-                        $url = "https://www.01net.com/feed/"; 
-                        
-                        // URL du Logo
-                        $logo_src = "https://www.01net.com/favicon.ico";
-
-                        // 2. Chargement
-                        $rss = @simplexml_load_file($url);
-
-                        if ($rss) {
-                            $i = 0;
-                            foreach ($rss->channel->item as $item) {
-                                if ($i >= 4) break; // J'ai mis 4 pour ne pas faire une page trop longue, tu peux remettre 5
-                                
-                                $titre = $item->title;
-                                $lien = $item->link;
-                                $date = date("d/m", strtotime($item->pubDate));
-                                
-                                $description = strip_tags($item->description);
-                                if (strlen($description) > 100) {
-                                    $description = substr($description, 0, 100) . "...";
-                                }
-
-                                echo "<div class='timeline-item'>";
-                                echo "  <div class='date'>$date</div>";
-                                echo "  <div class='content'>";
-                                echo "      <h3>";
-                                echo "      <img src='$logo_src' class='site-icon' alt='01net'> ";
-                                echo "      <a href='$lien' target='_blank'>$titre</a>";
-                                echo "      </h3>";
-                                echo "      <p>$description</p>";
-                                echo "  </div>";
-                                echo "</div>";
-                                
-                                $i++;
-                            }
-                        } else {
-                            echo "<p>Flux 01net indisponible pour le moment (Vérifiez votre connexion).</p>";
-                        }
-                        ?>
-                        </div>
-                    </div>
-                    </div>
-                
+                <div class="detail-text">
+                    <div class="tags"><span class="tag">VEILLE</span></div>
+                    <p>Définition d'un écosystème de surveillance automatisé pour capter les signaux faibles, anticiper
+                        les failles de sécurité et intégrer les technologies émergentes.</p>
+                    <a href="#" class="cta-button" style="font-size: 0.8rem; margin: 20px 0;">Voir ma veille</a>
+                </div>
                 <div class="detail-image">
-                    <div class="img-placeholder-large">
-                        <span style="font-size: 3rem;">📡</span>
-                    </div>
+                    <div class="img-placeholder-large">Image Veille</div>
                 </div>
             </div>
         </section>
