@@ -88,20 +88,24 @@ h3,
     font-weight: 800;
 }
 
-/* --- SECTION HERO --- */
+/* --- SECTION HERO (NOUVEAU STYLE MAGAZINE) --- */
 section.hero {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 5vw;
+    /* MODIFICATION ICI : */
+    /* On ajoute 15vh (15% de la hauteur) en bas pour remonter le centre visuel */
+    padding: 0 5vw 15vh 5vw;
+    position: relative;
     text-align: center;
 }
 
 .top-nav {
     position: absolute;
-    top: 40px;
+    /* On remonte aussi un peu la barre du haut */
+    top: 30px;
     left: 40px;
     right: 40px;
     display: flex;
@@ -115,15 +119,15 @@ section.hero {
 
 .huge-title {
     font-family: var(--font-title);
-    font-size: 15vw;
-    /* Taille adaptative */
+    font-size: 16vw;
     line-height: 0.85;
     font-weight: 900;
     text-transform: uppercase;
     color: var(--text-main);
-    margin-top: 80px;
-    margin-bottom: 40px;
     position: relative;
+    /* MODIFICATION ICI : On réduit l'espace au-dessus du titre */
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .outlined-year {
