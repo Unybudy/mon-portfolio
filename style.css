@@ -62,6 +62,7 @@ span,
     pointer-events: none;
 }
 
+/* --- CURSEUR OPTIMISÉ --- */
 .cursor {
     width: 20px;
     height: 20px;
@@ -71,8 +72,11 @@ span,
     position: fixed;
     pointer-events: none;
     z-index: 9999;
+    /* Important : On positionne le curseur au centre par défaut pour que le JS prenne le relais proprement */
+    top: 0;
+    left: 0;
     transform: translate(-50%, -50%);
-    transition: transform 0.1s;
+    /* PAS DE TRANSITION SUR TRANSFORM ICI, SINON ÇA RAME ! */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 

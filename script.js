@@ -2,37 +2,32 @@ document.addEventListener("DOMContentLoaded", (event) => {
     gsap.registerPlugin(ScrollTrigger);
 
     /* 1. CURSEUR */
+    /* --------------------------------------------------
+       1. CURSEUR SUIVEUR (Optimisé avec quickTo)
+    -------------------------------------------------- */
     const cursor = document.querySelector('.cursor');
+
+    // On prépare l'animation pour qu'elle soit ultra-rapide
+    // xTo et yTo sont des fonctions optimisées pour les mises à jour fréquentes
+    const xTo = gsap.quickTo(cursor, "x", { duration: 0.1, ease: "power3" });
+    const yTo = gsap.quickTo(cursor, "y", { duration: 0.1, ease: "power3" });
+
     document.addEventListener('mousemove', (e) => {
-        gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1, ease: "power2.out" });
+        // On utilise les fonctions optimisées
+        xTo(e.clientX);
+        yTo(e.clientY);
     });
-    const links = document.querySelectorAll('a, .project-card, .img-placeholder-large');
+
+    // Effet au survol des liens (grossit un peu)
+    const links = document.querySelectorAll('a, .project-card, .img-placeholder-large, .contact-row');
     links.forEach(link => {
-        link.addEventListener('mouseenter', () => { gsap.to(cursor, { scale: 1.5, duration: 0.2 }); });
-        link.addEventListener('mouseleave', () => { gsap.to(cursor, { scale: 1, duration: 0.2 }); });
-    });
-
-    /* 2. ANIMATIONS HERO */
-    gsap.from(".huge-title", { y: 100, opacity: 0, duration: 1.5, ease: "power4.out", delay: 0.2 });
-    gsap.from(".top-nav", { y: -50, opacity: 0, duration: 1, delay: 0.5 });
-    gsap.from(".hero-intro", { y: 50, opacity: 0, duration: 1, delay: 0.8 });
-
-    /* 3. SCROLL HORIZONTAL */
-    const container = document.querySelector(".projects-container");
-    if (container) {
-        gsap.to(container, {
-            x: () => -(container.scrollWidth - window.innerWidth),
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".projects-wrapper",
-                start: "top top",
-                end: () => `+=${container.scrollWidth - window.innerWidth}`,
-                pin: true,
-                scrub: 1,
-                invalidateOnRefresh: true,
-            }
+        link.addEventListener('mouseenter', () => {
+            gsap.to(cursor, { scale: 1.5, duration: 0.2 });
         });
-    }
+        link.addEventListener('mouseleave', () => {
+            gsap.to(cursor, { scale: 1, duration: 0.2 });
+        });
+    });
 
     /* 4. GRILLE ANIMÉE */
     const canvas = document.getElementById('gridCanvas');
