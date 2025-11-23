@@ -595,4 +595,106 @@ section.hero {
         right: 20px;
         font-size: 0.8rem;
     }
+
+    /* --- STYLE EXACT DES BADGES (APTITUDES) --- */
+    .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .skill-badge {
+        background: #fff;
+        border: 2px solid var(--text-main);
+        /* Bordure noire */
+        color: var(--text-main);
+        padding: 8px 18px;
+        /* Un peu plus large */
+        border-radius: 50px;
+        /* Forme pilule */
+        font-family: var(--font-body);
+        font-weight: 800;
+        /* Très gras */
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        /* L'ombre magique : décalage de 3px, 0 flou, couleur noire */
+        box-shadow: 3px 3px 0px var(--text-main);
+        transition: transform 0.2s, box-shadow 0.2s;
+        display: inline-block;
+    }
+
+    .skill-badge:hover {
+        transform: translate(-1px, -1px);
+        box-shadow: 4px 4px 0px var(--accent-color);
+        /* L'ombre devient verte au survol */
+    }
+
+    /* --- STYLE EXACT CONTACT (ICÔNES RONDES) --- */
+    .contact-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .contact-row {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        text-decoration: none;
+        color: var(--text-main);
+        width: fit-content;
+        /* Pour que le hover marche juste sur l'élément */
+    }
+
+    /* Le rond blanc avec l'icône */
+    .icon-box {
+        width: 45px;
+        height: 45px;
+        background: #fff;
+        border: 2px solid var(--text-main);
+        border-radius: 50%;
+        /* Cercle parfait */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* La même ombre dure que les badges */
+        box-shadow: 3px 3px 0px var(--text-main);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .icon-box svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--text-main);
+        /* Couleur du trait de l'icône */
+        stroke-width: 2.5px;
+        /* Trait un peu épais pour le style rétro */
+    }
+
+    .contact-text {
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 1rem;
+        /* Petit soulignement discret au survol */
+        border-bottom: 2px solid transparent;
+        transition: border-color 0.2s;
+    }
+
+    /* Animation au survol du lien complet */
+    .contact-row:hover .icon-box {
+        transform: translate(-1px, -1px);
+        box-shadow: 4px 4px 0px var(--accent-color);
+        /* L'ombre devient verte */
+        border-color: var(--accent-color);
+    }
+
+    .contact-row:hover .icon-box svg {
+        stroke: var(--accent-color);
+        /* L'icône devient verte */
+    }
+
+    .contact-row:hover .contact-text {
+        border-color: var(--accent-color);
+        /* Soulignement vert */
+    }
 }
