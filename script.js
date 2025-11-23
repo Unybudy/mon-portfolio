@@ -130,4 +130,59 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     animateGrid();
+
+    /* --------------------------------------------------
+       FLUX RSS VIA JAVASCRIPT (API FETCH)
+    -------------------------------------------------- */
+    const feedContainer = document.getElementById('rss-feed-container');
+
+    if (feedContainer) {
+        // On utilise un service tiers (rss2json) pour convertir le RSS en JSON utilisable par JS
+        const rssUrl = 'https://www.01net.com/feed/';
+        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Si tout va bien, on vide le message "Chargement..."
+                if (data.status === 'ok') {
+                    feedContainer.innerHTML = '';
+
+                    // On prend les 4 premiers articles
+                    data.items.slice(0, 4).forEach(item => {
+
+                        // Nettoyage de la date
+                        const dateObj = new Date(item.pubDate);
+                        const dateStr = dateObj.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' });
+
+                        // Création du HTML pour chaque news
+                        const html = `
+                            <div class="timeline-item">
+                                <div class="date">${dateStr}</div>
+                                <div class="content">
+                                    <h3>
+                                        <img src="https://www.01net.com/favicon.ico" class="site-icon" alt="01net">
+                                        <a href="${item.link}" target="_blank">${item.title}</a>
+                                    </h3>
+                                    <p>${cleanDescription(item.description)}</p>
+                                </div>
+                            </div>
+                        `;
+                        feedContainer.innerHTML += html;
+                    });
+                }
+            })
+            .catch(error => {
+                feedContainer.innerHTML = '<p style="color:red;">Impossible de charger le flux.</p>';
+                console.error('Erreur RSS:', error);
+            });
+    }
+
+    // Petite fonction utilitaire pour nettoyer le texte (enlever les balises HTML de la description)
+    function cleanDescription(text) {
+        let tempDiv = document.createElement("div");
+        tempDiv.innerHTML = text;
+        let cleanText = tempDiv.textContent || tempDiv.innerText || "";
+        return cleanText.length > 100 ? cleanText.substring(0, 100) + "..." : cleanText;
+    }
 });
