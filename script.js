@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     ScrollTrigger.create({
         trigger: ".projects-wrapper",
         start: "top top",
-        end: () => `+=${getScrollAmount() * -1}`, // La durée du scroll correspond à la longueur du contenue
+        end: () => `+=${getScrollAmount() * -1}`, // La durée du scroll correspond à la longueur du contenu
         pin: true,
         animation: tween,
         scrub: 1,

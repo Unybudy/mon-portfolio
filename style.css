@@ -290,7 +290,7 @@ section {
     width: 100%;
     height: 100%;
     z-index: -1;
-    /* Très important : place le canvas DERRIÈRE tout le restee */
+    /* Très important : place le canvas DERRIÈRE tout le reste */
     pointer-events: none;
     /* Permet de cliquer à travers la grille */
     opacity: 0.8;
