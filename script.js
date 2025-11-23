@@ -40,62 +40,62 @@ document.addEventListener("DOMContentLoaded", (event) => {
         // markers: true // Décommente ça si tu veux voir les marqueurs de debug
     });
 
-    // --- LIQUID GRID ANIMATION ---
+    /* --------------------------------------------------
+       LIQUID GRID ANIMATION (CORRIGÉE)
+    -------------------------------------------------- */
     const canvas = document.getElementById('gridCanvas');
     const ctx = canvas.getContext('2d');
 
     let width, height;
     let time = 0;
 
-    // Paramètres de la grille
-    const gridSize = 40; // Taille des carreaux
-    const waveAmp = 40;   // Amplitude de la vague (plus grand = plus déformé)
-    const waveFreq = 0.002; // Fréquence de la vague (plus petit = vagues plus larges)
-    const waveSpeed = 0.02; // Vitesse de l'animation
+    // --- RÉGLAGES POUR AVOIR DE BELLES VAGUES ---
+    const gridSize = 50;      // Taille des carreaux
+    const waveSpeed = 0.003;  // Vitesse de l'animation
+    const waveAmp = 30;       // Hauteur des bosses (Amplitude)
 
     function resize() {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
     }
-
     window.addEventListener('resize', resize);
     resize();
 
-    // Fonction pour calculer le décalage (la vague)
+    // Fonction mathématique "Double Vague" pour l'effet liquide
     function getWaveOffset(x, y, time) {
-        // On combine deux ondes sinusoïdales pour un effet plus organique
-        return Math.sin(x * waveFreq + time) * Math.cos(y * waveFreq + time) * waveAmp;
+        // Vague 1 : Mouvement principal
+        const wave1 = Math.sin(x * 0.01 + time) * Math.cos(y * 0.01 + time) * waveAmp;
+
+        // Vague 2 : Contre-courant (c'est ça qui crée l'effet "eau")
+        const wave2 = Math.sin(x * 0.005 - time * 0.5) * Math.sin(y * 0.005 + time * 0.5) * (waveAmp / 2);
+
+        return wave1 + wave2;
     }
 
     function animateGrid() {
         ctx.clearRect(0, 0, width, height);
 
-        // Couleur des lignes (Gris crayon léger)
-        ctx.strokeStyle = 'rgba(0, 0, 0, 0.1)';
-        ctx.lineWidth = 1.5;
+        // Couleur : Gris crayon léger (parfait sur fond beige)
+        ctx.strokeStyle = 'rgba(26, 26, 26, 0.1)';
+        ctx.lineWidth = 1;
 
         time += waveSpeed;
 
         ctx.beginPath();
 
-        // 1. Dessiner les lignes VERTICALES
+        // 1. Lignes VERTICALES
         for (let x = 0; x <= width; x += gridSize) {
-            // Pour chaque ligne verticale, on dessine plein de petits segments
-            // pour pouvoir courber la ligne
             ctx.moveTo(x + getWaveOffset(x, 0, time), 0);
-
-            for (let y = 0; y <= height; y += 20) { // Résolution de la courbe (20px)
-                // On calcule la déformation à ce point précis
+            for (let y = 0; y <= height; y += 20) {
                 const offsetX = getWaveOffset(x, y, time);
-                const offsetY = getWaveOffset(x, y, time); // On peut aussi déformer Y légèrement
-                ctx.lineTo(x + offsetX, y + offsetY * 0.5); // * 0.5 pour moins de bougeotte verticale
+                const offsetY = getWaveOffset(x, y, time);
+                ctx.lineTo(x + offsetX, y + offsetY * 0.5);
             }
         }
 
-        // 2. Dessiner les lignes HORIZONTALES
+        // 2. Lignes HORIZONTALES
         for (let y = 0; y <= height; y += gridSize) {
             ctx.moveTo(0, y + getWaveOffset(0, y, time));
-
             for (let x = 0; x <= width; x += 20) {
                 const offsetX = getWaveOffset(x, y, time);
                 const offsetY = getWaveOffset(x, y, time);
