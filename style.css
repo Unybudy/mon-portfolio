@@ -6,11 +6,8 @@
     --card-bg: #E6E2D6;
     --border-color: #1A1A1A;
 
-    /* --- TYPOGRAPHIE (Noms harmonisés) --- */
-    /* 1. La police Rétro pour les Titres */
+    /* --- TYPOGRAPHIE --- */
     --font-title: 'Fraunces', serif;
-
-    /* 2. La police Moderne pour le Texte */
     --font-body: 'Outfit', sans-serif;
 }
 
@@ -20,60 +17,171 @@
     box-sizing: border-box;
 }
 
-/* Application par défaut */
 body {
     background-color: var(--bg-color);
     color: var(--text-main);
     font-family: var(--font-body);
-    /* Tout le texte est en Outfit par défaut */
     overflow-x: hidden;
-    /* Texture de grain subtile */
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
     cursor: none;
 }
 
 /* --- TYPOGRAPHIE --- */
-/* Application aux Titres */
 h1,
 h2,
 h3,
 .main-title,
 .project-number,
 .project-title,
-.footer-title,
-.header-deco {
+.footer-title {
     font-family: var(--font-title);
-    /* Tous les titres passent en Fraunces */
-    /* 2 rangées de hauteur fixe */
+    font-weight: 800;
+}
+
+/* --- HERO (NOUVEAU STYLE MAGAZINE) --- */
+section.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5vw;
+    position: relative;
+    text-align: center;
+}
+
+.top-nav {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-title);
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--text-main);
+    padding-bottom: 20px;
+}
+
+.huge-title {
+    font-family: var(--font-title);
+    font-size: 16vw;
+    line-height: 0.85;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--text-main);
+    position: relative;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.outlined-year {
+    display: block;
+    font-size: 6vw;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--accent-color);
+    position: absolute;
+    bottom: 20px;
+    right: -5vw;
+    transform: rotate(-10deg);
+}
+
+.hero-intro {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.intro-hello {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    opacity: 0.6;
+}
+
+/* --- CV / RESUME --- */
+.resume-section {
+    padding: 80px 5vw;
+    border-top: 2px solid var(--text-main);
+}
+
+.resume-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.resume-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.resume-item {
+    margin-bottom: 30px;
+    border-left: 2px solid var(--accent-color);
+    padding-left: 15px;
+}
+
+.date {
+    font-weight: bold;
+    color: var(--accent-color);
+    display: block;
+}
+
+/* --- BENTO HORIZONTAL (Le conteneur manquant) --- */
+.projects-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 2px solid var(--text-main);
+    background-color: var(--card-bg);
+    overflow: hidden;
+}
+
+.projects-header {
+    padding-left: 10vw;
+    margin-bottom: 20px;
+    font-family: var(--font-title);
+    font-size: 2rem;
+}
+
+.projects-container {
+    display: grid;
+    /* C'était ici l'erreur : ces propriétés étaient dans le h1 ! */
+    grid-template-rows: repeat(2, 35vh);
     grid-auto-flow: column;
-    /* Remplissage vers la droite */
     grid-auto-columns: min-content;
-    /* Largeur s'adapte au contenu */
     gap: 25px;
     padding: 0 10vw;
 }
 
-/* --- STYLE DES CARTES --- */
+/* --- CARDS --- */
 .project-card {
-    background-color: var(--card-bg);
+    background-color: var(--bg-color);
     border: 2px solid var(--border-color);
-    padding: 30px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
     min-width: 320px;
 }
 
 .project-card:hover {
     transform: translate(-4px, -4px);
     box-shadow: 8px 8px 0px var(--text-main);
-    /* Grosse ombre noire au survol */
     border-color: var(--accent-color);
 }
 
-/* Variantes de tailles */
 .bento-square {
     grid-row: span 1;
     width: 350px;
@@ -85,7 +193,6 @@ h3,
     background: #fff;
 }
 
-/* Fond blanc pour varier */
 .bento-wide {
     grid-row: span 1;
     width: 600px;
@@ -98,157 +205,57 @@ h3,
     color: #fff;
 }
 
-/* Inversion de couleur pour le gros projet */
-
-/* Style spécifique pour la carte sombre (Big) */
 .bento-big .project-number,
-.bento-big .project-desc,
-.bento-big h3 {
+.bento-big h3,
+.bento-big p {
     color: #F3F0E7;
 }
 
-.bento-big:hover {
-    box-shadow: 8px 8px 0px var(--accent-color);
-}
-
-/* Style "Futur" (pointillés) */
 .dashed-border {
     border-style: dashed;
     opacity: 0.7;
 }
 
-/* --- CONTENU INTERNE DES CARTES --- */
+/* --- INTERIEUR CARTE --- */
 .card-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .project-number {
-    font-family: var(--font-title);
-    font-size: 3rem;
-    font-weight: 900;
-    line-height: 0.8;
-}
-
-.tags {
-    display: flex;
-    gap: 5px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
+    font-size: 2.5rem;
+    line-height: 1;
 }
 
 .tag {
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
     border: 1px solid currentColor;
     padding: 4px 10px;
     border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
 }
 
 .project-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
-.project-desc {
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-/* Placeholder pour image (carré gris pour l'instant) */
-.img-placeholder {
-    width: 100%;
-    height: 150px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin-top: 15px;
-}
-
-/* --- FOOTER --- */
-.footer {
-    background-color: var(--text-main);
-    color: var(--bg-color);
-    text-align: center;
-}
-
-.footer h2 {
-    font-size: 4rem;
-    margin-bottom: 40px;
-    color: var(--bg-color);
-}
-
-.footer-links {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.cta-button {
-    padding: 15px 30px;
-    background: var(--bg-color);
-    color: var(--text-main);
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 50px;
-    border: 2px solid transparent;
-    transition: 0.3s;
-}
-
-.cta-button:hover {
-    background: var(--accent-color);
-    color: #fff;
-}
-
-/* --- CURSEUR --- */
-.cursor {
-    width: 20px;
-    height: 20px;
-    background-color: var(--accent-color);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    opacity: 0.8;
-}
-
-/* --- AJOUT : FOND ANIMÉ --- */
-#gridCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    /* Très important : place le canvas DERRIÈRE tout le reste */
-    pointer-events: none;
-    /* Permet de cliquer à travers la grille */
-    opacity: 0.8;
-    /* Réglage de la visibilité de la grille (0.1 à 1) */
-}
-
-/* --- SECTION DÉTAILS VERTICAUX --- */
+/* --- DETAILS VERTICAUX --- */
 .details-wrapper {
     background-color: var(--bg-color);
     padding-bottom: 50px;
-    position: relative;
     z-index: 2;
-    /* Pour passer au dessus de la grille liquide si besoin */
+    position: relative;
 }
 
 .project-detail {
-    min-height: 80vh;
-    /* Chaque projet prend presque tout l'écran */
+    min-height: 90vh;
     padding: 80px 10vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    /* Séparateur léger */
 }
 
 .detail-header {
@@ -261,85 +268,82 @@ h3,
 .big-num {
     font-family: var(--font-title);
     font-size: 4rem;
-    font-weight: 900;
     color: var(--accent-color);
-    opacity: 0.8;
 }
 
 .project-detail h2 {
     font-size: 3rem;
     text-transform: uppercase;
-    line-height: 1;
 }
 
 .detail-content {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    /* Texte plus petit que l'image */
     gap: 60px;
     align-items: center;
-}
-
-.detail-text p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-top: 20px;
 }
 
 .img-placeholder-large {
     width: 100%;
     height: 400px;
-    /* Taille de l'image */
     background-color: var(--card-bg);
     border: 2px solid var(--text-main);
-    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-title);
-    font-size: 1.5rem;
     box-shadow: 10px 10px 0px var(--text-main);
-    /* Ombre rétro */
-    transition: transform 0.3s;
 }
 
-.img-placeholder-large:hover {
-    transform: translate(-5px, -5px);
-    box-shadow: 15px 15px 0px var(--accent-color);
-}
-
-.img-placeholder-large.dashed {
-    border-style: dashed;
-    background: transparent;
-}
-
-/* --- ALTERNANCE GAUCHE / DROITE --- */
-/* Pour les projets pairs (2, 4, 6...), on inverse l'ordre */
 .project-detail.reverse .detail-content {
     direction: rtl;
-    /* Astuce simple pour inverser la grille */
 }
 
 .project-detail.reverse .detail-content>* {
     direction: ltr;
-    /* On remet le texte à l'endroit */
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-    .detail-content {
-        grid-template-columns: 1fr;
-    }
+/* --- FOOTER & MISC --- */
+.footer {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+    text-align: center;
+    padding: 80px 0;
+}
 
-    .big-num {
-        font-size: 3rem;
-    }
+.footer h2 {
+    font-size: 4rem;
+    margin-bottom: 40px;
+}
 
-    .project-detail h2 {
-        font-size: 2rem;
-    }
+.cta-button {
+    padding: 15px 30px;
+    background: var(--bg-color);
+    color: var(--text-main);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    margin: 0 10px;
+}
 
-    .img-placeholder-large {
-        height: 250px;
-    }
+.cursor {
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+}
+
+#gridCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.8;
+    pointer-events: none;
 }
