@@ -649,4 +649,61 @@ section.hero {
         margin-bottom: 5px;
         /* Sécurité supplémentaire */
     }
+
+    /* --- CORRECTION FINALE : ESPACE TAGS --- */
+    /* On cible très précisément pour être sûr que ça s'applique */
+    .project-detail .detail-content .detail-text .tags {
+        margin-bottom: 40px !important;
+        /* Espace forcé sous les badges */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    /* On ajoute aussi une marge au-dessus du paragraphe pour être sûr */
+    .project-detail .detail-content .detail-text p {
+        margin-top: 20px !important;
+        line-height: 1.6;
+    }
+
+    /* --- CORRECTION FINALE : TITRE CENTRÉ --- */
+    /* On s'assure que le conteneur du titre ne prend que la place du texte */
+    .huge-title {
+        width: fit-content;
+        /* Le cadre colle au texte */
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        /* Pour accrocher l'année */
+        /* On s'assure que rien ne décale */
+        left: 0;
+        transform: none;
+    }
+
+    /* On sort l'année du flux pour qu'elle ne pousse pas le titre */
+    .outlined-year {
+        position: absolute;
+        /* Flotte par dessus */
+        bottom: 15px;
+        right: -60px;
+        /* Se décale vers la droite SANS bouger le titre */
+        font-size: 5vw;
+        display: block;
+        transform: rotate(-10deg);
+        pointer-events: none;
+        /* On ne peut pas cliquer dessus */
+    }
+
+    /* Petit ajustement mobile pour que l'année ne sorte pas de l'écran */
+    @media (max-width: 768px) {
+        .outlined-year {
+            position: static;
+            /* Sur mobile, on la remet en dessous sagement */
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            transform: none;
+            right: auto;
+        }
+    }
 }
