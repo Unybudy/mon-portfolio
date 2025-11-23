@@ -622,4 +622,31 @@ section.hero {
         line-height: 1.8;
         /* Rend la lecture du paragraphe plus agréable */
     }
+
+    /* --- CORRECTION FORCÉE DES ESPACEMENTS --- */
+
+    /* 1. Espace sous les tags (badges) */
+    .detail-text .tags {
+        margin-bottom: 30px !important;
+        /* Force un gros espace sous les badges */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    /* 2. Espace au-dessus du texte */
+    .detail-text p {
+        margin-top: 0 !important;
+        /* On évite que le paragraphe ne remonte */
+        line-height: 1.6;
+        /* On aère le texte pour la lecture */
+    }
+
+    /* 3. (Optionnel) Si les tags eux-mêmes sont trop fins */
+    .tag {
+        padding: 6px 14px;
+        /* Un peu plus de "gras" autour du texte du badge */
+        margin-bottom: 5px;
+        /* Sécurité supplémentaire */
+    }
 }
