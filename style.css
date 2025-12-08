@@ -201,7 +201,7 @@ section.hero {
     /* Very transparent */
     padding: 30px;
     border-radius: 12px;
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(3px);
     /* Low blur to see lines */
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
