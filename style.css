@@ -96,6 +96,40 @@ section.hero {
     text-transform: uppercase;
     border-bottom: 2px solid var(--text-main);
     padding-bottom: 20px;
+    align-items: center; /* Vertically align items */
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 /* Conteneur titre pour centrage parfait */
