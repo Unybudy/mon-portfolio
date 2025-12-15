@@ -197,11 +197,11 @@ section.hero {
 .hero-intro {
     max-width: 600px;
     margin: 0 auto;
-    background: rgba(243, 240, 231, 0.1);
+    background: transparent;
     /* Very transparent */
     padding: 30px;
     border-radius: 12px;
-    backdrop-filter: blur(3px);
+    backdrop-filter: none;
     /* Low blur to see lines */
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
@@ -495,10 +495,8 @@ section.hero {
     flex-direction: column;
     justify-content: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    background: rgba(243, 240, 231, 0.1);
-    /* Very transparent */
-    /* Semi-transparent */
-    backdrop-filter: blur(3px);
+    background: transparent;
+    backdrop-filter: none;
 }
 
 .detail-header {
