@@ -572,10 +572,10 @@ section.hero {
     color: rgba(0, 0, 0, 0.5);
 }
 
-/* --- FLUX RSS --- */
+/* --- FLUX RSS / AGRÉGATEUR --- */
 .ma-veille {
     background: #fff;
-    padding: 20px;
+    padding: 25px;
     border: 2px solid var(--text-main);
     border-radius: 8px;
     box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
@@ -584,8 +584,8 @@ section.hero {
 }
 
 .ma-veille h2 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -593,8 +593,56 @@ section.hero {
     padding-bottom: 10px;
 }
 
+/* --- Boutons Filtres Sources --- */
+.source-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.source-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: 2px solid #ccc;
+    border-radius: 50px;
+    background: #f8f8f8;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer !important;
+    transition: all 0.25s ease;
+    opacity: 0.5;
+    box-shadow: none;
+}
+
+.source-filter-btn.active {
+    border-color: var(--filter-color, var(--accent-color));
+    background: #fff;
+    opacity: 1;
+    box-shadow: 3px 3px 0px var(--filter-color, var(--accent-color));
+    transform: translate(-1px, -1px);
+}
+
+.source-filter-btn:hover {
+    opacity: 0.85;
+    transform: translate(-1px, -1px);
+}
+
+.source-filter-btn .site-icon {
+    width: 14px;
+    height: 14px;
+}
+
+/* --- Timeline Dynamique (couleur par source) --- */
 .timeline {
-    border-left: 3px solid #e74c3c;
+    border-left: 3px solid var(--accent-color);
     margin-left: 10px;
     padding-left: 20px;
 }
@@ -602,7 +650,23 @@ section.hero {
 .timeline-item {
     margin-bottom: 25px;
     position: relative;
+    animation: fadeInUp 0.4s ease forwards;
+    opacity: 0;
 }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.05s; }
+.timeline-item:nth-child(2) { animation-delay: 0.1s; }
+.timeline-item:nth-child(3) { animation-delay: 0.15s; }
+.timeline-item:nth-child(4) { animation-delay: 0.2s; }
+.timeline-item:nth-child(5) { animation-delay: 0.25s; }
+.timeline-item:nth-child(6) { animation-delay: 0.3s; }
+.timeline-item:nth-child(7) { animation-delay: 0.35s; }
+.timeline-item:nth-child(8) { animation-delay: 0.4s; }
 
 .timeline-item::before {
     content: '';
@@ -611,15 +675,16 @@ section.hero {
     top: 5px;
     width: 10px;
     height: 10px;
-    background: #e74c3c;
+    background: var(--timeline-color, #e74c3c);
     border-radius: 50%;
     border: 2px solid #fff;
+    box-shadow: 0 0 0 2px var(--timeline-color, #e74c3c);
 }
 
 .timeline-item .date {
     font-size: 0.8rem;
     font-weight: bold;
-    color: #e74c3c;
+    color: var(--timeline-color, #e74c3c);
     margin-bottom: 4px;
 }
 
@@ -632,11 +697,32 @@ section.hero {
 .content h3 a {
     text-decoration: none;
     color: var(--text-main);
+    transition: color 0.2s;
 }
 
 .content h3 a:hover {
-    color: #e74c3c;
+    color: var(--timeline-color, #e74c3c);
     text-decoration: underline;
+}
+
+.content p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+/* Badge de source affiché sous chaque article */
+.source-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border: 1.5px solid currentColor;
+    border-radius: 20px;
+    margin-top: 4px;
 }
 
 .site-icon {
