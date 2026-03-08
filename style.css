@@ -767,7 +767,18 @@ section.hero {
     border-color: var(--accent-color);
 }
 
-/* --- MOBILE --- */
+/* --- ÉCRANS TACTILES : Désactiver le curseur personnalisé --- */
+@media (pointer: coarse) {
+    .cursor {
+        display: none !important;
+    }
+
+    * {
+        cursor: auto !important;
+    }
+}
+
+/* --- TABLETTE (≤ 1024px) --- */
 @media (max-width: 1024px) {
     .resume-grid-v2 {
         grid-template-columns: 1fr;
@@ -810,5 +821,209 @@ section.hero {
     .projects-header {
         padding-left: 5vw;
         font-size: 1.5rem;
+    }
+}
+
+/* --- PETIT ÉCRAN (≤ 768px) --- */
+@media (max-width: 768px) {
+    section.hero {
+        padding: 0 4vw 10vh 4vw;
+    }
+
+    .huge-title {
+        font-size: 22vw;
+    }
+
+    .intro-hello {
+        font-size: 1.5rem;
+    }
+
+    .resume-section {
+        padding: 60px 4vw;
+    }
+
+    .resume-title {
+        font-size: 1.8rem;
+    }
+
+    .project-detail {
+        padding: 60px 5vw;
+        min-height: auto;
+    }
+
+    .project-detail h2 {
+        font-size: 2rem;
+    }
+
+    .big-num {
+        font-size: 3rem;
+    }
+
+    .detail-content {
+        gap: 30px;
+    }
+
+    .project-detail.reverse .detail-content {
+        direction: ltr;
+    }
+
+    .footer h2 {
+        font-size: 2.5rem;
+    }
+
+    .ma-veille {
+        padding: 15px;
+    }
+
+    .ma-veille h2 {
+        font-size: 1.1rem;
+    }
+
+    .projects-container {
+        grid-template-rows: repeat(2, 30vh);
+        gap: 20px;
+        padding: 0 5vw;
+    }
+
+    .project-card {
+        min-width: 280px;
+        padding: 20px;
+    }
+
+    .bento-square {
+        width: 300px;
+    }
+
+    .bento-tall {
+        width: 320px;
+    }
+
+    .bento-wide {
+        width: 450px;
+    }
+
+    .bento-big {
+        width: 550px;
+    }
+}
+
+/* --- MOBILE (≤ 480px) --- */
+@media (max-width: 480px) {
+    .top-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+        left: 15px;
+        right: 15px;
+        padding-bottom: 15px;
+    }
+
+    .nav-right {
+        display: none;
+    }
+
+    .huge-title {
+        font-size: 25vw;
+    }
+
+    .hero-intro {
+        padding: 20px 15px;
+    }
+
+    .intro-hello {
+        font-size: 1.2rem;
+    }
+
+    .hero-text {
+        font-size: 0.9rem;
+    }
+
+    .scroll-indicator {
+        font-size: 0.7rem;
+    }
+
+    .resume-title {
+        font-size: 1.5rem;
+    }
+
+    .skill-badge {
+        font-size: 0.65rem;
+        padding: 6px 12px;
+    }
+
+    .project-detail h2 {
+        font-size: 1.5rem;
+    }
+
+    .big-num {
+        font-size: 2.5rem;
+    }
+
+    .detail-header {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .img-placeholder-large {
+        height: 180px;
+    }
+
+    .footer {
+        padding: 50px 20px;
+    }
+
+    .footer h2 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 0.85rem;
+        width: 80%;
+        text-align: center;
+    }
+
+    .projects-container {
+        grid-template-rows: repeat(2, 28vh);
+        gap: 15px;
+        padding: 0 4vw;
+    }
+
+    .project-card {
+        min-width: 240px;
+        padding: 18px;
+    }
+
+    .bento-square {
+        width: 260px;
+    }
+
+    .bento-tall {
+        width: 280px;
+    }
+
+    .bento-wide {
+        width: 360px;
+    }
+
+    .bento-big {
+        width: 420px;
+    }
+
+    .project-number {
+        font-size: 2rem;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
     }
 }

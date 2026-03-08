@@ -4,26 +4,34 @@ document.addEventListener("DOMContentLoaded", (event) => {
     gsap.registerPlugin(ScrollTrigger);
 
     /* ==========================================================================
-       1. CURSEUR SUIVEUR (OPTIMISÉ PERFORMANCE)
+       1. CURSEUR SUIVEUR (OPTIMISÉ PERFORMANCE + TACTILE)
        ========================================================================== */
     const cursor = document.querySelector('.cursor');
 
-    // Création des fonctions optimisées "quickTo" pour éviter le lag
-    const xTo = gsap.quickTo(cursor, "x", { duration: 0.1, ease: "power3" });
-    const yTo = gsap.quickTo(cursor, "y", { duration: 0.1, ease: "power3" });
+    // Détection des appareils tactiles (mobile / tablette)
+    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 
-    // Le curseur suit la souris sans délai CSS
-    document.addEventListener('mousemove', (e) => {
-        xTo(e.clientX);
-        yTo(e.clientY);
-    });
+    if (!isTouchDevice && cursor) {
+        // Création des fonctions optimisées "quickTo" pour éviter le lag
+        const xTo = gsap.quickTo(cursor, "x", { duration: 0.1, ease: "power3" });
+        const yTo = gsap.quickTo(cursor, "y", { duration: 0.1, ease: "power3" });
 
-    // Effet "Grossissement" au survol des éléments interactifs
-    const interactives = document.querySelectorAll('a, button, .project-card, .img-placeholder-large, .contact-row, .cta-button');
-    interactives.forEach(el => {
-        el.addEventListener('mouseenter', () => gsap.to(cursor, { scale: 1.5, duration: 0.2 }));
-        el.addEventListener('mouseleave', () => gsap.to(cursor, { scale: 1, duration: 0.2 }));
-    });
+        // Le curseur suit la souris sans délai CSS
+        document.addEventListener('mousemove', (e) => {
+            xTo(e.clientX);
+            yTo(e.clientY);
+        });
+
+        // Effet "Grossissement" au survol des éléments interactifs
+        const interactives = document.querySelectorAll('a, button, .project-card, .img-placeholder-large, .contact-row, .cta-button');
+        interactives.forEach(el => {
+            el.addEventListener('mouseenter', () => gsap.to(cursor, { scale: 1.5, duration: 0.2 }));
+            el.addEventListener('mouseleave', () => gsap.to(cursor, { scale: 1, duration: 0.2 }));
+        });
+    } else if (cursor) {
+        // Sur mobile/tablette : cacher le curseur personnalisé
+        cursor.style.display = 'none';
+    }
 
     /* ==========================================================================
        2. ANIMATIONS D'ENTRÉE (HERO)
@@ -67,12 +75,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     /* ==========================================================================
-       4. GRILLE LIQUIDE (CANVAS) - LIGNES VISIBLES
+       4. GRILLE LIQUIDE (CANVAS) - OPTIMISÉ AVEC PAGE VISIBILITY API
        ========================================================================== */
     const canvas = document.getElementById('gridCanvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
         let width, height, time = 0;
+        let animationId = null;
+        let isPageVisible = true;
 
         // Paramètres visuels
         const gridSize = 50;
@@ -92,6 +102,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
 
         function animateGrid() {
+            // Si la page n'est pas visible, on arrête la boucle d'animation
+            if (!isPageVisible) {
+                animationId = null;
+                return;
+            }
+
             ctx.clearRect(0, 0, width, height);
 
             // Couleur des lignes : Gris moyen (bien visible sur le beige)
@@ -118,8 +134,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
 
             ctx.stroke();
-            requestAnimationFrame(animateGrid);
+            animationId = requestAnimationFrame(animateGrid);
         }
+
+        // Page Visibility API : pause/reprise du canvas
+        document.addEventListener('visibilitychange', () => {
+            isPageVisible = !document.hidden;
+            if (isPageVisible && !animationId) {
+                animateGrid(); // Relancer l'animation quand l'onglet redevient actif
+            }
+        });
+
         animateGrid();
     }
 
