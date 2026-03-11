@@ -4,36 +4,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     gsap.registerPlugin(ScrollTrigger);
 
     /* ==========================================================================
-       1. CURSEUR SUIVEUR (OPTIMISÉ PERFORMANCE + TACTILE)
-       ========================================================================== */
-    const cursor = document.querySelector('.cursor');
-
-    // Détection des appareils tactiles (mobile / tablette)
-    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-
-    if (!isTouchDevice && cursor) {
-        // Création des fonctions optimisées "quickTo" pour éviter le lag
-        const xTo = gsap.quickTo(cursor, "x", { duration: 0.1, ease: "power3" });
-        const yTo = gsap.quickTo(cursor, "y", { duration: 0.1, ease: "power3" });
-
-        // Le curseur suit la souris sans délai CSS
-        document.addEventListener('mousemove', (e) => {
-            xTo(e.clientX);
-            yTo(e.clientY);
-        });
-
-        // Effet "Grossissement" au survol des éléments interactifs
-        const interactives = document.querySelectorAll('a, button, .project-card, .img-placeholder-large, .contact-row, .cta-button');
-        interactives.forEach(el => {
-            el.addEventListener('mouseenter', () => gsap.to(cursor, { scale: 1.5, duration: 0.2 }));
-            el.addEventListener('mouseleave', () => gsap.to(cursor, { scale: 1, duration: 0.2 }));
-        });
-    } else if (cursor) {
-        // Sur mobile/tablette : cacher le curseur personnalisé
-        cursor.style.display = 'none';
-    }
-
-    /* ==========================================================================
        2. ANIMATIONS D'ENTRÉE (HERO)
        ========================================================================== */
     const tlHero = gsap.timeline({ defaults: { ease: "power4.out" } });
