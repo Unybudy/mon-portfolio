@@ -10,6 +10,8 @@
     /* Beige légèrement plus foncé */
     --border-color: #1A1A1A;
     /* Bordures noires */
+    --text-dark: #1A1A1A;
+    /* Texte foncé */
 
     /* --- TYPOGRAPHIE --- */
     --font-title: 'Fraunces', serif;
