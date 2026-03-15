@@ -86,27 +86,28 @@ section.hero {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* Padding bottom important pour remonter visuellement le contenu */
-    padding: 0 5vw 15vh 5vw;
+    /* Padding top pour compenser la nav fixe */
+    padding: 80px 5vw 15vh 5vw;
     position: relative;
     text-align: center;
     z-index: 2;
 }
 
 .top-nav {
-    position: absolute;
-    top: 30px;
-    left: 40px;
-    right: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-family: var(--font-title);
     font-weight: 700;
     text-transform: uppercase;
     border-bottom: 2px solid var(--text-main);
-    padding-bottom: 20px;
-    align-items: center;
-    /* Vertically align items */
+    padding: 18px 40px;
+    background-color: var(--bg-color);
 }
 
 .nav-links {
