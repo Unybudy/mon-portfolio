@@ -144,4 +144,47 @@ document.addEventListener("DOMContentLoaded", (event) => {
         });
     }
 
+    /* ==========================================================================
+       6. LIGHTBOX / MODAL D'IMAGES
+       ========================================================================== */
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("fullImage");
+    const closeModal = document.querySelector(".close-modal");
+    const gridItems = document.querySelectorAll(".grid-item");
+
+    if (modal && modalImg) {
+        gridItems.forEach(item => {
+            item.addEventListener("click", () => {
+                const bg = window.getComputedStyle(item).backgroundImage;
+                if (bg && bg !== "none") {
+                    // Extract URL from url("path/to/img")
+                    const url = bg.match(/url\(["']?([^"']+)["']?\)/);
+                    if (url && url[1]) {
+                        modal.style.display = "flex"; // Use flex for centering
+                        modal.style.alignItems = "center";
+                        modal.style.justifyContent = "center";
+                        modalImg.src = url[1];
+                        document.body.style.overflow = "hidden"; // Prevent scrolling
+                    }
+                }
+            });
+        });
+
+        const hideModal = () => {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        };
+
+        if (closeModal) closeModal.addEventListener("click", hideModal);
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal || e.target === closeModal) {
+                hideModal();
+            }
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") hideModal();
+        });
+    }
+
 });
