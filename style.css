@@ -98,6 +98,7 @@ section.hero {
     top: 30px;
     left: 40px;
     right: 40px;
+    z-index: 10; /* Assure que la nav est toujours cliquable par-dessus les autres éléments */
     display: flex;
     justify-content: space-between;
     font-family: var(--font-title);
@@ -106,7 +107,6 @@ section.hero {
     border-bottom: 2px solid var(--text-main);
     padding-bottom: 20px;
     align-items: center;
-    /* Vertically align items */
 }
 
 .nav-links {
@@ -557,6 +557,60 @@ section.hero {
     color: rgba(0, 0, 0, 0.5);
 }
 
+/* --- GRILLE D'IMAGES (Façon Behance) --- */
+.bento-image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    height: 400px; /* Conserve la même hauteur globale */
+}
+
+.bento-image-grid .grid-item {
+    background-color: var(--card-bg);
+    border: 2px solid var(--text-main);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-title);
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--text-main);
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s;
+}
+
+.bento-image-grid .grid-item:hover {
+    transform: scale(0.98);
+}
+
+.bento-image-grid .item-tall {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3; /* Prend toute la hauteur (2 lignes) */
+}
+
+/* Variante 4 cases : 1 verticale à gauche, 1 large en haut droite, 2 en bas droite */
+.bento-image-grid.bento-4 {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.bento-image-grid.bento-4 .grid-item:nth-child(2) {
+    grid-column: 2 / 4; /* Image 2 : toute la largeur haute droite */
+}
+
+.bento-image-grid.bento-4 .grid-item:nth-child(3) {
+    grid-column: 2 / 3; /* Image 3 : bas gauche droite */
+}
+
+.bento-image-grid.bento-4 .grid-item:nth-child(4) {
+    grid-column: 3 / 4; /* Image 4 : bas droite droite */
+}
+
 /* --- FLUX RSS / AGRÉGATEUR --- */
 .ma-veille {
     background: #fff;
@@ -585,118 +639,209 @@ section.hero {
     background-color: var(--text-main);
     color: var(--bg-color);
     text-align: center;
-    padding: 80px 0;
+    padding: 30px 40px 60px 40px;
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-top-line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--bg-color);
+    margin-bottom: 25px;
 }
 
 .footer h2 {
-    font-size: 4rem;
-    margin-bottom: 40px;
+    font-family: var(--font-title);
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: -2px;
     color: var(--bg-color);
 }
 
-.cta-button {
-    padding: 15px 30px;
-    background: var(--bg-color);
-    color: var(--text-main);
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    margin: 0 10px;
-    display: inline-block;
-    border: 2px solid transparent;
-    transition: 0.3s;
+.footer-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-family: 'Outfit', sans-serif;
+    margin: 5px 0 30px 0;
+    color: var(--bg-color);
 }
 
-.cta-button:hover {
-    background: var(--accent-color);
-    color: #fff;
-    border-color: var(--accent-color);
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.footer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--bg-color);
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.footer-link svg {
+    display: block;
+}
+
+.footer-link:hover {
+    color: var(--accent-color);
+}
+
+/* Bouton Back to Top */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--text-main);
+    color: var(--bg-color);
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s, opacity 0.3s;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    background-color: var(--accent-color);
 }
 
 /* --- VEILLE TECHNOLOGIQUE --- */
+.ma-veille h2 {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--text-main);
+}
+
 .veille-card {
-    background: rgba(255, 255, 255, 0.6);
-    border-left: 4px solid var(--accent-color);
-    border-radius: 0 12px 12px 0;
-    padding: 20px 24px;
-    margin-bottom: 16px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    background: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+    margin-bottom: 0;
+    transition: padding-left 0.3s ease, border-bottom-color 0.3s;
+}
+
+.veille-card:first-of-type {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .veille-card:hover {
-    transform: translateX(6px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding-left: 10px;
+    border-bottom-color: var(--accent-color);
 }
 
 .veille-header {
     display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 10px;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
 }
 
 .veille-icon {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     line-height: 1;
     flex-shrink: 0;
 }
 
 .veille-header h3 {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-title);
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     color: var(--text-dark);
     margin: 0;
-    line-height: 1.3;
+    line-height: 1.2;
+    text-transform: none;
+}
+
+.source-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 6px;
 }
 
 .veille-source {
     font-family: 'Outfit', sans-serif;
     font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--accent-color);
+    font-weight: 600;
+    color: var(--text-main);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-right: 10px;
+    letter-spacing: 1px;
+    opacity: 0.7;
 }
 
 .veille-type {
     display: inline-block;
-    padding: 3px 8px;
-    border-radius: 4px;
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-family: 'Outfit', sans-serif;
     font-size: 0.65rem;
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    border: 1px solid transparent;
 }
 
-.veille-type.article { background: rgba(0, 107, 94, 0.1); color: var(--accent-color); }
-.veille-type.video { background: rgba(220, 53, 69, 0.1); color: #dc3545; }
-.veille-type.podcast { background: rgba(111, 66, 193, 0.1); color: #6f42c1; }
+.veille-type.article { border-color: var(--accent-color); color: var(--accent-color); background: transparent; }
+.veille-type.video { border-color: #dc3545; color: #dc3545; background: transparent; }
+.veille-type.podcast { border-color: #6f42c1; color: #6f42c1; background: transparent; }
 
 .veille-card p {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.9rem;
-    color: #555;
-    line-height: 1.6;
-    margin: 8px 0 12px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+    max-width: 85%;
+    opacity: 0.85;
 }
 
 .veille-link {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--accent-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-main);
     text-decoration: none;
-    transition: color 0.2s, letter-spacing 0.2s;
-    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .veille-link:hover {
-    color: var(--text-dark);
-    letter-spacing: 0.5px;
+    color: var(--accent-color);
 }
 
 

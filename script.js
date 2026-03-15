@@ -122,4 +122,26 @@ document.addEventListener("DOMContentLoaded", (event) => {
         animateGrid();
     }
 
+    /* ==========================================================================
+       5. BOUTON RETOUR EN HAUT (BACK TO TOP)
+       ========================================================================== */
+    const backToTopBtn = document.getElementById("backToTop");
+    if (backToTopBtn) {
+        window.addEventListener("scroll", () => {
+            // Afficher le bouton après 500px de scroll
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.add("visible");
+            } else {
+                backToTopBtn.classList.remove("visible");
+            }
+        });
+
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+
 });

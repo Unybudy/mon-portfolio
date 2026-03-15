@@ -258,7 +258,12 @@
                         Testcontainers et JUnit.</p>
                 </div>
                 <div class="detail-image">
-                    <div class="img-placeholder-large ">Image Sparow IT</div>
+                    <div class="bento-image-grid bento-4">
+                        <div class="grid-item item-tall" style="background-image: url('imageSparowIT/1.PNG');"></div>
+                        <div class="grid-item" style="background-image: url('imageSparowIT/2.PNG');"></div>
+                        <div class="grid-item" style="background-image: url('imageSparowIT/3.png');"></div>
+                        <div class="grid-item" style="background-image: url('imageSparowIT/4.png');"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -384,15 +389,17 @@
                     </p>
 
                     <div class="ma-veille">
-                        <h2>� Ma Veille Technologique</h2>
+                        <h2>✦ Ma Veille Technologique</h2>
 
                         <div class="veille-card">
                             <div class="veille-header">
                                 <span class="veille-icon">🤖</span>
                                 <div>
                                     <h3>GitHub Copilot : du compagnon au co-développeur</h3>
-                                    <span class="veille-source">GitHub Blog — Mai 2025</span>
-                                    <span class="veille-type article">📄 Article</span>
+                                    <div class="source-container">
+                                        <span class="veille-type article">📄 Article</span>
+                                        <span class="veille-source">GitHub Blog — Mai 2025</span>
+                                    </div>
                                 </div>
                             </div>
                             <p>20 millions de développeurs, 50% du code généré par IA. Copilot évolue vers un agent
@@ -406,8 +413,10 @@
                                 <span class="veille-icon">🔐</span>
                                 <div>
                                     <h3>Cyberattaques sur les hôpitaux français</h3>
-                                    <span class="veille-source">01net — 2024/2025</span>
-                                    <span class="veille-type article">📄 Article</span>
+                                    <div class="source-container">
+                                        <span class="veille-type article">📄 Article</span>
+                                        <span class="veille-source">01net — 2024/2025</span>
+                                    </div>
                                 </div>
                             </div>
                             <p>749 incidents cyber en 2024 (+29%). Fuite de 15M de dossiers patients. Ransomware,
@@ -421,8 +430,10 @@
                                 <span class="veille-icon">☕</span>
                                 <div>
                                     <h3>Java 25 & 26 : les nouveautés du langage</h3>
-                                    <span class="veille-source">Baeldung / Oracle — 2025/2026</span>
-                                    <span class="veille-type article">📄 Article</span>
+                                    <div class="source-container">
+                                        <span class="veille-type article">📄 Article</span>
+                                        <span class="veille-source">Baeldung / Oracle — 2025/2026</span>
+                                    </div>
                                 </div>
                             </div>
                             <p>Pattern Matching, Constructeurs flexibles, HTTP/3, suppression de l'API Applet. Java
@@ -436,8 +447,10 @@
                                 <span class="veille-icon">🦀</span>
                                 <div>
                                     <h3>Pourquoi les devs réécrivent tout en Rust ?</h3>
-                                    <span class="veille-source">Underscore_ — YouTube</span>
-                                    <span class="veille-type video">🎥 Vidéo</span>
+                                    <div class="source-container">
+                                        <span class="veille-type video">🎥 Vidéo</span>
+                                        <span class="veille-source">Underscore_ — YouTube</span>
+                                    </div>
                                 </div>
                             </div>
                             <p>Pourquoi les géants de la tech abandonnent C/C++ pour Rust ? Analyse des raisons de
@@ -451,8 +464,10 @@
                                 <span class="veille-icon">🛡️</span>
                                 <div>
                                     <h3>Directive NIS 2 : le cadre européen de cybersécurité</h3>
-                                    <span class="veille-source">cyber-sécurité.fr — 2025</span>
-                                    <span class="veille-type podcast">🎙️ Podcast</span>
+                                    <div class="source-container">
+                                        <span class="veille-type podcast">🎙️ Podcast</span>
+                                        <span class="veille-source">cyber-sécurité.fr — 2025</span>
+                                    </div>
                                 </div>
                             </div>
                             <p>18 000 entités concernées en France. Obligation de signalement sous 24h, audits
@@ -519,13 +534,43 @@
 
     </div>
 
-    <section class="footer">
-        <h2 class="footer-title">Merci !</h2>
-        <div class="footer-links">
-            <a href="https://www.linkedin.com/in/jef-l-0093b1327" target="_blank" class="cta-button">LinkedIn</a>
-            <a href="mailto:jef.ly@netocentre.fr" class="cta-button">Email</a>
-            <a href="#p6" class="cta-button">Veille Techno</a>
+    <section class="footer" id="contact">
+        <div class="footer-top-line"></div>
+        <div class="footer-content">
+            <h2 class="footer-title">MERCI !</h2>
+            <p class="footer-subtitle">✦ Travaillons ensemble ! ✦</p>
+
+            <div class="footer-links">
+                <a href="mailto:jef.ly@netocentre.fr" class="footer-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    jef.ly@netocentre.fr
+                </a>
+                <a href="https://github.com/JefLy" target="_blank" class="footer-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg>
+                    github.com/JefLy
+                </a>
+                <a href="https://www.linkedin.com/in/jef-l-0093b1327" target="_blank" class="footer-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                    linkedin.com/in/jef-ly
+                </a>
+            </div>
         </div>
+
+        <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
     </section>
 
     <script src="script.js"></script>
