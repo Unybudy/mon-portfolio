@@ -611,6 +611,18 @@ section.hero {
     grid-column: 3 / 4; /* Image 4 : bas droite droite */
 }
 
+/* Variante Uniforme : 4 cases de même taille */
+.bento-image-grid.grid-uniform {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.bento-image-grid.grid-uniform .grid-item {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+}
+
+
 /* --- FLUX RSS / AGRÉGATEUR --- */
 .ma-veille {
     background: #fff;
