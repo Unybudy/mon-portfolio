@@ -1,16 +1,108 @@
 document.addEventListener("DOMContentLoaded", (event) => {
 
+    // Vérifier si l'utilisateur préfère les mouvements réduits
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // Enregistrement des plugins GSAP (Indispensable)
     gsap.registerPlugin(ScrollTrigger);
 
     /* ==========================================================================
        2. ANIMATIONS D'ENTRÉE (HERO)
        ========================================================================== */
-    const tlHero = gsap.timeline({ defaults: { ease: "power4.out" } });
+    if (!prefersReducedMotion) {
+        const tlHero = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-    tlHero.from(".huge-title", { y: 100, opacity: 0, duration: 1.5, delay: 0.2 })
-        .from(".top-nav", { y: -20, opacity: 0, duration: 1 }, "-=1")
-        .from(".hero-intro", { y: 30, opacity: 0, duration: 1 }, "-=0.8");
+        tlHero.from(".huge-title", { y: 120, opacity: 0, duration: 1.4, delay: 0.3 })
+            .from(".top-nav", { y: -30, opacity: 0, duration: 0.8 }, "-=1")
+            .from(".hero-intro", { y: 40, opacity: 0, duration: 1 }, "-=0.7")
+            .from(".scroll-indicator", { y: 20, opacity: 0, duration: 0.6 }, "-=0.5");
+
+        /* ======================================================================
+           2b. SCROLL REVEAL — Sections qui apparaissent au scroll
+           ====================================================================== */
+
+        // Reveal vertical (fade-in-up) pour les sections de projet
+        gsap.utils.toArray(".reveal-element").forEach(el => {
+            gsap.to(el, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                }
+            });
+        });
+
+        // Reveal latéral (slide-in-left) pour les titres de section
+        gsap.utils.toArray(".reveal-left").forEach(el => {
+            gsap.to(el, {
+                opacity: 1,
+                x: 0,
+                duration: 0.7,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                }
+            });
+        });
+
+        // Stagger sur les badges de compétences (cascade)
+        ScrollTrigger.create({
+            trigger: ".skills-container",
+            start: "top 85%",
+            onEnter: () => {
+                gsap.from(".skill-badge", {
+                    opacity: 0,
+                    scale: 0.8,
+                    y: 15,
+                    duration: 0.4,
+                    stagger: 0.08,
+                    ease: "back.out(1.7)"
+                });
+            },
+            once: true
+        });
+
+        // Stagger sur les resume items
+        gsap.utils.toArray(".resume-col").forEach(col => {
+            const items = col.querySelectorAll(".resume-item");
+            if (items.length) {
+                gsap.from(items, {
+                    opacity: 0,
+                    y: 30,
+                    duration: 0.6,
+                    stagger: 0.15,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: col,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            }
+        });
+
+        // Stagger sur les contact rows
+        ScrollTrigger.create({
+            trigger: ".contact-list",
+            start: "top 85%",
+            onEnter: () => {
+                gsap.from(".contact-row", {
+                    opacity: 0,
+                    x: -20,
+                    duration: 0.5,
+                    stagger: 0.12,
+                    ease: "power2.out"
+                });
+            },
+            once: true
+        });
+    }
 
     /* ==========================================================================
        3. SCROLL HORIZONTAL (BENTO) - CALCUL DYNAMIQUE
@@ -24,6 +116,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
         // N'activer le pin GSAP que sur Desktop/Tablette (> 768px)
         mm.add("(min-width: 769px)", () => {
+            if (prefersReducedMotion) return;
+
             // Fonction pour recalculer la largeur exacte à scroller
             function getScrollAmount() {
                 let containerWidth = container.scrollWidth;
@@ -52,7 +146,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
        4. GRILLE LIQUIDE (CANVAS) - OPTIMISÉ AVEC PAGE VISIBILITY API
        ========================================================================== */
     const canvas = document.getElementById('gridCanvas');
-    if (canvas) {
+
+    // Désactiver le canvas si l'utilisateur préfère les mouvements réduits
+    if (canvas && !prefersReducedMotion) {
         const ctx = canvas.getContext('2d');
         let width, height, time = 0;
         let animationId = null;
@@ -63,12 +159,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
         const waveSpeed = 0.004;
         const waveAmp = 40; // Amplitude des vagues
 
+        let resizeTimeout;
         function resize() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }, 100);
         }
+        // Premier appel immédiat
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
         window.addEventListener('resize', resize);
-        resize();
 
         // Formule mathématique de la double vague
         function getWaveOffset(x, y, time) {
@@ -120,6 +222,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
         });
 
         animateGrid();
+    } else if (canvas) {
+        // Cacher le canvas si reduced-motion
+        canvas.style.display = 'none';
     }
 
     /* ==========================================================================
@@ -139,7 +244,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         backToTopBtn.addEventListener("click", () => {
             window.scrollTo({
                 top: 0,
-                behavior: "smooth"
+                behavior: prefersReducedMotion ? "instant" : "smooth"
             });
         });
     }
@@ -149,23 +254,36 @@ document.addEventListener("DOMContentLoaded", (event) => {
        ========================================================================== */
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("fullImage");
-    const closeModal = document.querySelector(".close-modal");
+    const closeModalBtn = document.querySelector(".close-modal");
     const gridItems = document.querySelectorAll(".grid-item");
 
     if (modal && modalImg) {
+        const openModal = (item) => {
+            const bg = window.getComputedStyle(item).backgroundImage;
+            if (bg && bg !== "none") {
+                const url = bg.match(/url\(["']?([^"']+)["']?\)/);
+                if (url && url[1]) {
+                    modal.style.display = "flex";
+                    modal.style.alignItems = "center";
+                    modal.style.justifyContent = "center";
+                    modalImg.src = url[1];
+                    // Alt dynamique depuis aria-label
+                    modalImg.alt = item.getAttribute('aria-label') || 'Image en plein écran';
+                    document.body.style.overflow = "hidden";
+                    // Focus sur le bouton fermer (accessibilité)
+                    if (closeModalBtn) closeModalBtn.focus();
+                }
+            }
+        };
+
         gridItems.forEach(item => {
-            item.addEventListener("click", () => {
-                const bg = window.getComputedStyle(item).backgroundImage;
-                if (bg && bg !== "none") {
-                    // Extract URL from url("path/to/img")
-                    const url = bg.match(/url\(["']?([^"']+)["']?\)/);
-                    if (url && url[1]) {
-                        modal.style.display = "flex"; // Use flex for centering
-                        modal.style.alignItems = "center";
-                        modal.style.justifyContent = "center";
-                        modalImg.src = url[1];
-                        document.body.style.overflow = "hidden"; // Prevent scrolling
-                    }
+            // Click
+            item.addEventListener("click", () => openModal(item));
+            // Clavier : Entrée et Espace
+            item.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    openModal(item);
                 }
             });
         });
@@ -175,15 +293,45 @@ document.addEventListener("DOMContentLoaded", (event) => {
             document.body.style.overflow = "auto";
         };
 
-        if (closeModal) closeModal.addEventListener("click", hideModal);
+        if (closeModalBtn) closeModalBtn.addEventListener("click", hideModal);
         modal.addEventListener("click", (e) => {
-            if (e.target === modal || e.target === closeModal) {
+            if (e.target === modal || e.target === closeModalBtn) {
                 hideModal();
             }
         });
 
         document.addEventListener("keydown", (e) => {
             if (e.key === "Escape") hideModal();
+        });
+    }
+
+    /* ==========================================================================
+       7. NAV STICKY
+       ========================================================================== */
+    const nav = document.getElementById("main-nav");
+    if (nav) {
+        const heroSection = document.querySelector(".hero");
+        const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > heroHeight * 0.7) {
+                nav.classList.add("sticky");
+            } else {
+                nav.classList.remove("sticky");
+            }
+        });
+    }
+
+    /* ==========================================================================
+       8. BARRE DE PROGRESSION DE SCROLL
+       ========================================================================== */
+    const progressBar = document.getElementById("scroll-progress");
+    if (progressBar && !prefersReducedMotion) {
+        window.addEventListener("scroll", () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + "%";
         });
     }
 

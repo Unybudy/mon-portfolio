@@ -1,23 +1,21 @@
 :root {
     /* --- PALETTE DE COULEURS (Rétro / Papier) --- */
     --bg-color: #F3F0E7;
-    /* Beige papier */
     --text-main: #1A1A1A;
-    /* Noir encre */
     --accent-color: #006B5E;
-    /* Vert Vintage */
     --card-bg: #E6E2D6;
-    /* Beige légèrement plus foncé */
     --border-color: #1A1A1A;
-    /* Bordures noires */
     --text-dark: #1A1A1A;
-    /* Texte foncé */
+    --text-muted: #444444;
 
     /* --- TYPOGRAPHIE --- */
     --font-title: 'Fraunces', serif;
-    /* Titres avec empattements */
     --font-body: 'Outfit', sans-serif;
-    /* Texte moderne propre */
+
+    /* --- COULEURS SÉMANTIQUES VEILLE --- */
+    --color-article: #006B5E;
+    --color-video: #b91c1c;
+    --color-podcast: #6d28d9;
 }
 
 /* --- RESET & BASES --- */
@@ -25,6 +23,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 html,
@@ -81,32 +83,35 @@ span,
 
 /* --- SECTION 1 : HERO (Style Magazine) --- */
 section.hero {
-    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     /* Padding bottom important pour remonter visuellement le contenu */
-    padding: 0 5vw 15vh 5vw;
+    padding: 80px 5vw 15vh 5vw;
     position: relative;
     text-align: center;
     z-index: 2;
 }
 
 .top-nav {
-    position: absolute;
-    top: 30px;
-    left: 40px;
-    right: 40px;
-    z-index: 10; /* Assure que la nav est toujours cliquable par-dessus les autres éléments */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
     display: flex;
     justify-content: space-between;
     font-family: var(--font-title);
     font-weight: 700;
     text-transform: uppercase;
     border-bottom: 2px solid var(--text-main);
-    padding-bottom: 20px;
+    padding: 20px 40px;
     align-items: center;
+    background-color: rgba(243, 240, 231, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .nav-links {
@@ -205,6 +210,23 @@ section.hero {
     letter-spacing: 2px;
     opacity: 0.6;
     font-weight: 700;
+    animation: pulseScroll 2s ease-in-out infinite;
+}
+
+@keyframes pulseScroll {
+    0%, 100% { opacity: 0.6; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(5px); }
+}
+
+/* --- SCROLL REVEAL --- */
+.reveal-element {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
 }
 
 /* --- SECTION 2 : CV (3 Colonnes) --- */
@@ -265,7 +287,7 @@ section.hero {
 .resume-item p {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #444;
+    color: var(--text-muted);
     max-width: 95%;
 }
 
@@ -285,14 +307,18 @@ section.hero {
     font-weight: 800;
     font-size: 0.75rem;
     text-transform: uppercase;
-    box-shadow: 3px 3px 0px var(--text-main);
-    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
     display: inline-block;
+    cursor: default;
 }
 
 .skill-badge:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 4px 4px 0px var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    border-color: var(--accent-color);
 }
 
 /* Contact (Logos Fins) */
@@ -312,8 +338,8 @@ section.hero {
 }
 
 .icon-box {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
     background: #fff;
     border: 2px solid var(--text-main);
     border-radius: 50%;
@@ -322,6 +348,7 @@ section.hero {
     justify-content: center;
     box-shadow: 2px 2px 0px var(--text-main);
     transition: transform 0.2s, box-shadow 0.2s;
+    flex-shrink: 0;
 }
 
 .icon-box svg {
@@ -384,6 +411,7 @@ section.hero {
     gap: 30px;
     padding: 0 10vw;
     width: max-content;
+    overscroll-behavior-x: contain;
 }
 
 .project-card {
@@ -393,19 +421,18 @@ section.hero {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.3s ease;
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 0.35s ease;
     min-width: 320px;
     text-decoration: none;
-    /* Enlever le soulignement du lien */
     color: inherit;
-    /* Garder la couleur du texte définie */
-    display: flex;
-    /* Assurer que le display flex est maintenu pour le layout */
+    cursor: pointer;
 }
 
 .project-card:hover {
-    transform: translate(-5px, -5px);
-    box-shadow: 8px 8px 0px var(--text-main);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
     border-color: var(--accent-color);
 }
 
@@ -634,15 +661,6 @@ section.hero {
     width: 100%;
 }
 
-.ma-veille h2 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-}
 
 
 
@@ -709,6 +727,22 @@ section.hero {
 
 .footer-link:hover {
     color: var(--accent-color);
+}
+
+/* Flèche du header sommaire */
+.arrow {
+    display: inline-block;
+    font-style: normal;
+}
+
+/* Placeholder bento cards (sans image) */
+.img-placeholder {
+    width: 100%;
+    flex: 1;
+    background-color: var(--card-bg);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    margin-top: 12px;
 }
 
 /* Bouton Back to Top */
@@ -824,9 +858,9 @@ section.hero {
     border: 1px solid transparent;
 }
 
-.veille-type.article { border-color: var(--accent-color); color: var(--accent-color); background: transparent; }
-.veille-type.video { border-color: #dc3545; color: #dc3545; background: transparent; }
-.veille-type.podcast { border-color: #6f42c1; color: #6f42c1; background: transparent; }
+.veille-type.article { border-color: var(--color-article); color: var(--color-article); background: transparent; }
+.veille-type.video { border-color: var(--color-video); color: var(--color-video); background: transparent; }
+.veille-type.podcast { border-color: var(--color-podcast); color: var(--color-podcast); background: transparent; }
 
 .veille-card p {
     font-family: 'Outfit', sans-serif;
@@ -1102,7 +1136,7 @@ section.hero {
     }
 
     .hero-text {
-        font-size: 0.9rem;
+        font-size: 1rem; /* Minimum 16px — évite l'autozoom iOS */
     }
 
     .scroll-indicator {
@@ -1114,7 +1148,7 @@ section.hero {
     }
 
     .skill-badge {
-        font-size: 0.65rem;
+        font-size: 0.75rem; /* Lisible sur mobile */
         padding: 6px 12px;
     }
 
@@ -1192,5 +1226,120 @@ section.hero {
 
     .project-title {
         font-size: 1.2rem;
+    }
+}
+
+/* --- NAV STICKY (apparaît au scroll) --- */
+.top-nav.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    background-color: rgba(243, 240, 231, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--text-main);
+    padding: 14px 40px;
+    margin: 0;
+    border-radius: 0;
+    animation: navSlideDown 0.3s ease-out;
+}
+
+@keyframes navSlideDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to   { transform: translateY(0);     opacity: 1; }
+}
+
+@media (max-width: 480px) {
+    .top-nav.sticky {
+        padding: 12px 15px;
+        flex-direction: row;
+        font-size: 0.75rem;
+    }
+    .top-nav.sticky .nav-right {
+        display: none;
+    }
+}
+
+/* --- VEILLE : ICÔNE SVG --- */
+.veille-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--accent-color);
+    flex-shrink: 0;
+}
+
+/* --- FOCUS STATES VISIBLES (accessibilité clavier) --- */
+:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.nav-links a:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 4px;
+    border-radius: 3px;
+}
+
+.project-card:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.contact-row:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.grid-item:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.veille-link:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+/* --- TOUCH ACTION (mobile : supprime le délai 300ms) --- */
+a,
+button,
+.project-card,
+.skill-badge,
+.contact-row,
+.grid-item,
+.back-to-top,
+.veille-link {
+    touch-action: manipulation;
+}
+
+/* --- BARRE DE PROGRESSION SCROLL --- */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: var(--accent-color);
+    z-index: 10001;
+    transition: width 0.1s linear;
+}
+
+/* --- PREFERS-REDUCED-MOTION --- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    #gridCanvas {
+        display: none;
+    }
+    .top-nav.sticky {
+        animation: none;
     }
 }
