@@ -352,7 +352,7 @@ body.custom-cursor-active .custom-cursor {
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 1004;
     color: var(--text-main);
     padding: 5px;
     align-items: center;
@@ -825,7 +825,7 @@ section.hero::after {
     content: '';
     position: absolute;
     left: 10vw;
-    top: 80px;
+    top: 0;
     width: 0;
     height: 2px;
     background: linear-gradient(90deg, var(--accent-color), transparent);
@@ -1453,13 +1453,16 @@ section.hero::after {
 
     .nav-links {
         position: fixed;
-        inset: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         background-color: var(--bg-color);
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 40px;
-        z-index: 1000;
+        z-index: 1003;
         clip-path: inset(0 0 100% 0);
         transition: clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         pointer-events: none;
