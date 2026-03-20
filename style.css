@@ -441,10 +441,11 @@ section.hero {
 .skill-badge {
     box-sizing: border-box;
     width: 100%;
+    min-height: 48px;
+    padding: 8px 10px;
     background: #fff;
     border: 2px solid var(--text-main);
     color: var(--text-main);
-    padding: 8px 6px;
     border-radius: 50px;
     font-weight: 800;
     font-size: 0.70rem;
@@ -457,8 +458,7 @@ section.hero {
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-height: 48px;
-    word-break: break-word;
+    white-space: nowrap;
     cursor: default;
 }
 
