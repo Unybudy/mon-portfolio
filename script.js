@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("fullImage");
     const closeModalBtn = document.querySelector(".close-modal");
-    const gridItems = document.querySelectorAll(".grid-item");
+    const gridItems = document.querySelectorAll(".grid-item, .gallery-item");
 
     if (modal && modalImg) {
         const openModal = (item) => {
@@ -373,7 +373,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }
         });
 
-        const interactiveElements = document.querySelectorAll('a, button, .grid-item, .icon-box');
+        const interactiveElements = document.querySelectorAll('a, button, .grid-item, .gallery-item, .icon-box');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));

@@ -318,7 +318,7 @@ section.hero {
     border-radius: 12px;
     backdrop-filter: none;
     /* Low blur to see lines */
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .intro-hello {
@@ -434,7 +434,7 @@ section.hero {
 /* Aptitudes (Badges Rétro) */
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 12px;
 }
 
@@ -449,6 +449,8 @@ section.hero {
     border-radius: 50px;
     font-weight: 800;
     font-size: 0.70rem;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     text-transform: uppercase;
     box-shadow: var(--shadow-sm);
     transition: transform var(--duration-normal) var(--ease-out-expo),
@@ -459,7 +461,9 @@ section.hero {
     justify-content: center;
     text-align: center;
     white-space: nowrap;
-    cursor: default;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
 }
 
 .skill-badge:hover {
@@ -687,11 +691,11 @@ section.hero {
 }
 
 .project-detail.reverse .detail-content {
-    direction: rtl;
+    direction: ltr;
 }
 
-.project-detail.reverse .detail-content>* {
-    direction: ltr;
+.project-detail.reverse .detail-content .detail-image {
+    order: -1;
 }
 
 /* --- CORRECTIF TAGS (Espace & Alignement) --- */
@@ -1101,8 +1105,8 @@ section.hero {
         grid-template-columns: 1fr;
     }
 
-    .project-detail.reverse .detail-content {
-        direction: ltr;
+    .project-detail.reverse .detail-content .detail-image {
+        order: 0;
     }
 
     .img-placeholder-large {
@@ -1175,8 +1179,8 @@ section.hero {
         gap: 30px;
     }
 
-    .project-detail.reverse .detail-content {
-        direction: ltr;
+    .project-detail.reverse .detail-content .detail-image {
+        order: 0;
     }
 
     .footer h2 {
@@ -1243,6 +1247,32 @@ section.hero {
     .bento-big {
         width: 550px;
     }
+}
+
+/* --- VEILLE ACCORDION GALLERY --- */
+.veille-gallery {
+    display: flex;
+    gap: 15px;
+    height: 100%;
+    min-height: 600px;
+    width: 100%;
+}
+
+.veille-gallery .gallery-item {
+    flex: 1;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    transition: flex 0.8s var(--ease-out-expo), filter 0.8s var(--ease-out-expo);
+    filter: grayscale(80%) brightness(0.7);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+}
+
+.veille-gallery .gallery-item:hover {
+    flex: 4;
+    filter: grayscale(0%) brightness(1);
+    box-shadow: var(--shadow-lg);
 }
 
 /* --- MODAL LIGHTBOX --- */
@@ -1357,6 +1387,16 @@ section.hero {
         height: 180px;
     }
 
+    .veille-gallery {
+        min-height: 300px;
+        flex-direction: row;
+        gap: 8px;
+    }
+    
+    .veille-gallery .gallery-item {
+        border-radius: 12px;
+    }
+
     .footer {
         padding: 50px 20px;
     }
@@ -1435,6 +1475,27 @@ section.hero {
 }
 
 /* NAV STICKY CSS REMOVED (Nav is now always fixed) */
+
+/* --- SCROLL HINT BENTO (desktop only) --- */
+.scroll-hint {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: 0.45;
+    margin-left: 20px;
+    animation: pulseRight 2s ease-in-out infinite;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@keyframes pulseRight {
+    0%, 100% { opacity: 0.45; transform: translateX(0); }
+    50% { opacity: 0.8; transform: translateX(6px); }
+}
+
+@media (max-width: 768px) {
+    .scroll-hint { display: none; }
+}
 
 /* --- VEILLE : ICÔNE SVG --- */
 .veille-icon svg {
