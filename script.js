@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Priorité : localStorage > préférence système
+    // Priorité : localStorage > clair par défaut (ignore la préférence système)
     const saved = localStorage.getItem('theme');
-    applyTheme(saved ? saved === 'dark' : prefersDark.matches);
+    applyTheme(saved === 'dark');
 
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
