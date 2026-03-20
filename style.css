@@ -927,6 +927,17 @@ section.hero {
     color: var(--accent-color);
 }
 
+.footer-credits {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.8rem;
+    color: var(--bg-color);
+    opacity: 0.7;
+    font-weight: 500;
+}
+
 /* Flèche du header sommaire */
 .arrow {
     display: inline-block;
