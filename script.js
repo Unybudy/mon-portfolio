@@ -167,12 +167,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
             resizeTimeout = setTimeout(() => {
                 width = canvas.width = window.innerWidth;
                 height = canvas.height = window.innerHeight;
-            }, 100);
+            }, 50);
         }
         // Premier appel immédiat
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
         window.addEventListener('resize', resize);
+        // Rotation mobile : recalcul immédiat sans debounce
+        screen.orientation?.addEventListener('change', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
 
         // Formule mathématique de la double vague
         function getWaveOffset(x, y, time) {
@@ -254,6 +259,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     /* ==========================================================================
        6. LIGHTBOX / MODAL D'IMAGES
        ========================================================================== */
+    // Déclaré ici pour être accessible dans hideModal
+    const navLinks = document.querySelector('.nav-links');
+
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("fullImage");
     const closeModalBtn = document.querySelector(".close-modal");
@@ -363,7 +371,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
        10. MENU MOBILE
        ========================================================================== */
     const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
     
     if (mobileBtn && navLinks) {
         mobileBtn.addEventListener('click', () => {

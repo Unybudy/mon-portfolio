@@ -141,7 +141,6 @@ body.custom-cursor-active .custom-cursor {
     z-index: 0;
     opacity: 0.35;
     pointer-events: none;
-    will-change: transform;
 }
 
 /* --- BARRE DE PROGRESSION SCROLL --- */
@@ -523,7 +522,7 @@ section.hero {
     border-top: 2px solid var(--text-main);
     background-color: transparent;
     /* Transparent */
-    overflow: hidden;
+    overflow: hidden; /* Empêche le flash de scrollbar horizontal au chargement */
     position: relative;
     z-index: 2;
 }

@@ -37,10 +37,16 @@
         .skip-link:focus {
             top: 10px;
         }
+
+        /* Fallback : cache l'écran de transition après 3s si GSAP ne charge pas */
+        @keyframes fallbackHide {
+            to { transform: scaleY(0); pointer-events: none; }
+        }
+        .page-transition {
+            animation: fallbackHide 0s 3s forwards;
+        }
     </style>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
@@ -635,6 +641,8 @@
         <img class="modal-content" id="fullImage" alt="">
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
 </body>
 
