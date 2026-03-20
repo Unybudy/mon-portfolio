@@ -1553,8 +1553,19 @@ section.hero::after {
     /* Nav */
     .top-nav { padding: 16px 20px; }
     .nav-right { display: none; }
+    .theme-toggle { display: none; }
 
     .mobile-menu-btn { display: flex; }
+
+    /* Retire les liens du flux de la nav sur mobile */
+    .nav-links {
+        display: flex !important;
+        visibility: hidden;
+    }
+
+    .nav-links.menu-open {
+        visibility: visible;
+    }
 
     /* Overlay sombre derrière le drawer */
     .nav-links::before {
