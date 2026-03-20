@@ -11,6 +11,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;600;900&family=Outfit:wght@300;500;700&display=swap">
     <link
         href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;600;900&family=Outfit:wght@300;500;700&display=swap"
         rel="stylesheet">
@@ -42,6 +44,8 @@
 </head>
 
 <body>
+    <div class="page-transition">JEF LY</div>
+    <div class="custom-cursor"></div>
 
     <a href="#experiences" class="skip-link">Aller au contenu principal</a>
 
@@ -55,8 +59,16 @@
         <div class="nav-links">
             <a href="#experiences">Expériences</a>
             <a href="#sommaire">Sommaire</a>
+            <a href="#contact">Contact</a>
         </div>
         <div class="nav-right">Étudiant BTS SIO</div>
+        <button class="mobile-menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="12" x2="20" y2="12"></line>
+                <line x1="4" y1="6" x2="20" y2="6"></line>
+                <line x1="4" y1="18" x2="20" y2="18"></line>
+            </svg>
+        </button>
     </nav>
 
     <section class="hero">

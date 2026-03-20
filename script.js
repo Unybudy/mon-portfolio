@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
     if (!prefersReducedMotion) {
         const tlHero = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-        tlHero.from(".huge-title", { y: 120, opacity: 0, duration: 1.4, delay: 0.3 })
+        // Page Transition first
+        tlHero.to(".page-transition", { scaleY: 0, duration: 1.2, ease: "power4.inOut" })
+              .from(".huge-title", { y: 120, opacity: 0, duration: 1.4, delay: -0.2 })
             .from(".top-nav", { y: -30, opacity: 0, duration: 0.8 }, "-=1")
             .from(".hero-intro", { y: 40, opacity: 0, duration: 1 }, "-=0.7")
             .from(".scroll-indicator", { y: 20, opacity: 0, duration: 0.6 }, "-=0.5");
@@ -306,21 +308,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     /* ==========================================================================
-       7. NAV STICKY
+       7. NAV STICKY (Remplace par CSS Fixed)
        ========================================================================== */
-    const nav = document.getElementById("main-nav");
-    if (nav) {
-        const heroSection = document.querySelector(".hero");
-        const heroHeight = heroSection ? heroSection.offsetHeight : window.innerHeight;
+    // La navigation est gérée entièrement en CSS fixed désormais
 
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > heroHeight * 0.7) {
-                nav.classList.add("sticky");
-            } else {
-                nav.classList.remove("sticky");
-            }
-        });
-    }
 
     /* ==========================================================================
        8. BARRE DE PROGRESSION DE SCROLL
@@ -332,6 +323,76 @@ document.addEventListener("DOMContentLoaded", (event) => {
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
             progressBar.style.width = progress + "%";
+        });
+    }
+
+    /* ==========================================================================
+       9. CUSTOM CURSOR
+       ========================================================================== */
+    const cursor = document.querySelector('.custom-cursor');
+    if (cursor && !prefersReducedMotion && window.matchMedia("(pointer: fine)").matches) {
+        document.body.classList.add('custom-cursor-active');
+        
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        const animateCursor = () => {
+            cursorX += (mouseX - cursorX) * 0.2;
+            cursorY += (mouseY - cursorY) * 0.2;
+            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+            requestAnimationFrame(animateCursor);
+        };
+        animateCursor();
+
+        const interactiveElements = document.querySelectorAll('a, button, .grid-item, .icon-box');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+    }
+
+    /* ==========================================================================
+       10. MENU MOBILE
+       ========================================================================== */
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('menu-open');
+            mobileBtn.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('menu-open');
+                mobileBtn.setAttribute('aria-expanded', false);
+                document.body.style.overflow = 'auto';
+            });
+        });
+    }
+
+    /* ==========================================================================
+       11. FOOTER REVEAL
+       ========================================================================== */
+    const footerTitle = document.querySelector('.footer h2');
+    if (footerTitle && !prefersReducedMotion) {
+        gsap.from(footerTitle, {
+            y: 80,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".footer",
+                start: "top 85%",
+                toggleActions: "play none none none"
+            }
         });
     }
 
