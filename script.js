@@ -749,7 +749,7 @@ document.addEventListener("DOMContentLoaded", () => {
         /* ======================================================================
            14. LIGHTBOX / MODAL
            ====================================================================== */
-        const navLinks = document.querySelector('.nav-links');
+        const navLinks = null; // remplacé par drawer mobile indépendant
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('fullImage');
         const closeModalBtn = document.querySelector('.close-modal');
@@ -779,7 +779,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const hideModal = () => {
                 modal.style.display = 'none';
-                if (!navLinks?.classList.contains('menu-open')) {
+                const drawerEl = document.getElementById('mobileDrawer');
+                if (!drawerEl?.classList.contains('is-open')) {
                     document.body.style.overflow = '';
                     if (lenis) lenis.start();
                 }
@@ -793,37 +794,45 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         /* ======================================================================
-           15. MENU MOBILE
+           15. MENU MOBILE — DRAWER
            ====================================================================== */
-        const mobileBtn = document.querySelector('.mobile-menu-btn');
-        if (mobileBtn && navLinks) {
+        const mobileBtn   = document.querySelector('.mobile-menu-btn');
+        const drawer      = document.getElementById('mobileDrawer');
+        const drawerClose = document.getElementById('drawerClose');
+        const drawerOverlay = document.getElementById('drawerOverlay');
 
-            const closeMenu = () => {
-                navLinks.classList.remove('menu-open');
-                mobileBtn.setAttribute('aria-expanded', false);
-                mobileBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>`;
+        if (mobileBtn && drawer) {
+
+            const closeDrawer = () => {
+                drawer.classList.remove('is-open');
+                drawer.setAttribute('aria-hidden', 'true');
+                mobileBtn.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
                 if (lenis) lenis.start();
             };
 
-            const openMenu = () => {
-                navLinks.classList.add('menu-open');
-                mobileBtn.setAttribute('aria-expanded', true);
-                mobileBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+            const openDrawer = () => {
+                drawer.classList.add('is-open');
+                drawer.setAttribute('aria-hidden', 'false');
+                mobileBtn.setAttribute('aria-expanded', 'true');
                 document.body.style.overflow = 'hidden';
                 if (lenis) lenis.stop();
             };
 
-            mobileBtn.addEventListener('click', () => {
-                navLinks.classList.contains('menu-open') ? closeMenu() : openMenu();
+            mobileBtn.addEventListener('click', openDrawer);
+            drawerClose?.addEventListener('click', closeDrawer);
+            drawerOverlay?.addEventListener('click', closeDrawer);
+
+            drawer.querySelectorAll('.drawer-link').forEach(link => {
+                link.addEventListener('click', closeDrawer);
             });
 
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => closeMenu());
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
             });
 
             window.addEventListener('resize', () => {
-                if (window.innerWidth > 768) closeMenu();
+                if (window.innerWidth > 768) closeDrawer();
             });
         }
 
