@@ -224,6 +224,7 @@ section.hero {
         display: block;
     }
     .nav-links {
+        display: none;
         position: fixed;
         top: 0;
         right: 0;
@@ -234,18 +235,10 @@ section.hero {
         justify-content: center;
         align-items: center;
         gap: 30px;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transform: translateY(-20px);
-        transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
         z-index: 1000;
     }
     .nav-links.menu-open {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transform: translateY(0);
+        display: flex;
     }
     .nav-links a {
         font-size: 1.4rem;
