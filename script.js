@@ -355,7 +355,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             const dy = mouseY - cursorY;
             cursorX += dx * 0.2;
             cursorY += dy * 0.2;
-            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+            cursor.style.transform = `translate(calc(${cursorX}px - 50%), calc(${cursorY}px - 50%))`;
             // Arrête la boucle quand le curseur est suffisamment proche de la cible
             if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
                 cursorRafId = requestAnimationFrame(animateCursor);
