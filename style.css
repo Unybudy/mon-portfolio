@@ -33,7 +33,7 @@
     /* Couleurs */
     --bg-color:      #F3F0E7;
     --text-main:     #1A1A1A;
-    --text-muted:    #444444;
+    --text-muted:    #333333;
     --text-dark:     #1A1A1A;
     --accent-color:  #006B5E;
     --card-bg:       #E6E2D6;
@@ -462,6 +462,15 @@ section.hero::after {
     font-size: 2rem;
     color: var(--accent-color);
     margin-bottom: 10px;
+}
+
+.hero-role {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
 }
 
 .hero-text {
@@ -920,12 +929,20 @@ section.hero::after {
     border: 2px solid var(--text-main);
     border-radius: 10px;
     overflow: hidden;
-    background-size: cover;
-    background-position: center;
     cursor: zoom-in;
     will-change: transform;
     position: relative;
     transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.bento-image-grid .grid-item img,
+.veille-gallery .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    pointer-events: none;
 }
 
 /* Overlay sombre + icône zoom au hover */
@@ -1153,8 +1170,7 @@ section.hero::after {
 .veille-gallery .gallery-item {
     flex: 1;
     border-radius: 20px;
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
     filter: grayscale(80%) brightness(0.7);
     cursor: pointer;
     box-shadow: var(--shadow-md);

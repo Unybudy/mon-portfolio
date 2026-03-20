@@ -727,19 +727,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (modal && modalImg) {
             const openModal = (item) => {
-                const bg = window.getComputedStyle(item).backgroundImage;
-                if (bg && bg !== 'none') {
-                    const url = bg.match(/url\(["']?([^"']+)["']?\)/);
-                    if (url && url[1]) {
-                        modal.style.display = 'flex';
-                        modal.style.alignItems = 'center';
-                        modal.style.justifyContent = 'center';
-                        modalImg.src = url[1];
-                        modalImg.alt = item.getAttribute('aria-label') || 'Image en plein écran';
-                        document.body.style.overflow = 'hidden';
-                        if (lenis) lenis.stop();
-                        if (closeModalBtn) closeModalBtn.focus();
-                    }
+                const img = item.querySelector('img');
+                if (img) {
+                    modal.style.display = 'flex';
+                    modal.style.alignItems = 'center';
+                    modal.style.justifyContent = 'center';
+                    modalImg.src = img.src;
+                    modalImg.alt = img.alt || item.getAttribute('aria-label') || 'Image en plein écran';
+                    document.body.style.overflow = 'hidden';
+                    if (lenis) lenis.stop();
+                    if (closeModalBtn) closeModalBtn.focus();
                 }
             };
 
