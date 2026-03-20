@@ -77,6 +77,28 @@ span,
     font-family: var(--font-body);
 }
 
+/* --- UTILITAIRES (remplacements de styles inline) --- */
+.text-light {
+    color: #F3F0E7;
+}
+
+.desktop-spacer {
+    height: 40px;
+}
+
+.resume-title.mt-60 {
+    margin-top: 60px;
+}
+
+.detail-image--stretch {
+    align-items: stretch;
+    display: flex;
+}
+
+.veille-context {
+    margin-bottom: 20px;
+}
+
 /* --- ÉLÉMENTS FLOTTANTS (Canvas & Curseur) --- */
 /* --- PAGE TRANSITION --- */
 .page-transition {
@@ -141,20 +163,6 @@ body.custom-cursor-active .custom-cursor {
     opacity: 0.35;
     pointer-events: none;
 }
-
-/* --- BARRE DE PROGRESSION SCROLL --- */
-#scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
-    width: 0%;
-    background: var(--accent-color);
-    z-index: 1000;
-    transition: width 50ms linear;
-    pointer-events: none;
-}
-
 
 
 /* --- SECTION 1 : HERO (Style Magazine) --- */
@@ -705,8 +713,7 @@ section.hero {
     gap: 15px;
     /* Espace entre les tags */
     width: 100%;
-    margin-bottom: 40px !important;
-    /* Espace SOUS les tags */
+    margin-bottom: 40px;
 }
 
 .detail-text .tag {
@@ -720,7 +727,7 @@ section.hero {
 }
 
 .detail-text p {
-    margin-top: 0 !important;
+    margin-top: 0;
     line-height: 1.65;
 }
 
@@ -1573,6 +1580,7 @@ button,
     background-color: var(--accent-color);
     z-index: 10001;
     transition: width 0.1s linear;
+    pointer-events: none;
 }
 
 /* --- PREFERS-REDUCED-MOTION --- */
