@@ -233,7 +233,7 @@ section.hero {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 40px;
+        gap: 30px;
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
@@ -248,7 +248,8 @@ section.hero {
         transform: translateY(0);
     }
     .nav-links a {
-        font-size: 2rem;
+        font-size: 1.4rem;
+        letter-spacing: 2px;
     }
 }
 
@@ -1144,6 +1145,8 @@ section.hero {
         font-size: 10vw;
         transform: none;
         right: auto;
+        line-height: 1.2;
+        -webkit-text-stroke: 1.5px var(--accent-color);
     }
 
     .top-nav {
@@ -1359,8 +1362,17 @@ section.hero {
         display: none;
     }
 
+    .nav-links a {
+        font-size: 1.2rem;
+    }
+
     .huge-title {
         font-size: 25vw;
+    }
+
+    .outlined-year {
+        font-size: 8vw;
+        -webkit-text-stroke: 1px var(--accent-color);
     }
 
     .hero-intro {
