@@ -241,12 +241,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
        ========================================================================== */
     const backToTopBtn = document.getElementById("backToTop");
     if (backToTopBtn) {
+        let backToTopTicking = false;
         window.addEventListener("scroll", () => {
-            // Afficher le bouton après 500px de scroll
-            if (window.scrollY > 500) {
-                backToTopBtn.classList.add("visible");
-            } else {
-                backToTopBtn.classList.remove("visible");
+            if (!backToTopTicking) {
+                requestAnimationFrame(() => {
+                    if (window.scrollY > 500) {
+                        backToTopBtn.classList.add("visible");
+                    } else {
+                        backToTopBtn.classList.remove("visible");
+                    }
+                    backToTopTicking = false;
+                });
+                backToTopTicking = true;
             }
         });
 
@@ -331,11 +337,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
        ========================================================================== */
     const progressBar = document.getElementById("scroll-progress");
     if (progressBar && !prefersReducedMotion) {
+        let progressTicking = false;
         window.addEventListener("scroll", () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-            progressBar.style.width = progress + "%";
+            if (!progressTicking) {
+                requestAnimationFrame(() => {
+                    const scrollTop = window.scrollY;
+                    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                    progressBar.style.width = progress + "%";
+                    progressTicking = false;
+                });
+                progressTicking = true;
+            }
         });
     }
 
