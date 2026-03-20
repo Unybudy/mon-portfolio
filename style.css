@@ -1609,3 +1609,449 @@ button,
         animation: none;
     }
 }
+
+/* ============================================================
+   ANIMATIONS PREMIUM — AWWWARDS LEVEL
+   ============================================================ */
+
+/* --- PRELOADER ANIMÉ --- */
+.page-transition {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 280px;
+}
+
+.preloader-name {
+    font-family: var(--font-title);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    color: var(--bg-color);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: preloaderNameIn 0.8s var(--ease-out-expo) 0.2s forwards;
+}
+
+@keyframes preloaderNameIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.preloader-bar-wrap {
+    width: 100%;
+    height: 2px;
+    background: rgba(243, 240, 231, 0.2);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.preloader-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--accent-color);
+    border-radius: 2px;
+    transition: width 0.05s linear;
+}
+
+.preloader-counter {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: rgba(243, 240, 231, 0.6);
+    letter-spacing: 3px;
+    font-variant-numeric: tabular-nums;
+}
+
+/* --- CLIP-PATH REVEAL (remplace les fades opacity) --- */
+.reveal-element {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.clip-reveal {
+    overflow: hidden;
+}
+
+.clip-reveal-inner {
+    display: block;
+    transform: translateY(105%);
+    will-change: transform;
+}
+
+/* Textes de section avec ligne décorative */
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.section-label::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--accent-color);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.6s var(--ease-out-expo);
+}
+
+.section-label.is-visible::before {
+    transform: scaleX(1);
+}
+
+/* --- TITRE HERO — SPLIT PAR LIGNES --- */
+.huge-title .char {
+    display: inline-block;
+    transform: translateY(120%) rotate(6deg);
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+/* --- PARALLAX IMAGES --- */
+.parallax-img {
+    will-change: transform;
+    transform-origin: center center;
+}
+
+/* --- PROJECT CARDS — TILT 3D AU HOVER --- */
+.project-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.project-card .card-shine {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at var(--shine-x, 50%) var(--shine-y, 50%),
+        rgba(255,255,255,0.15) 0%,
+        transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.project-card:hover .card-shine {
+    opacity: 1;
+}
+
+/* --- HOVER MAGNÉTIQUE --- */
+.magnetic {
+    display: inline-block;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* --- CURSEUR CUSTOM — ÉTATS ENRICHIS --- */
+.custom-cursor {
+    transition: width 0.4s var(--ease-out-expo),
+                height 0.4s var(--ease-out-expo),
+                background-color 0.3s,
+                border-radius 0.4s var(--ease-out-expo);
+}
+
+.custom-cursor.is-hovering-card {
+    width: 80px;
+    height: 80px;
+    background: var(--accent-color);
+    mix-blend-mode: normal;
+    opacity: 0.9;
+}
+
+.custom-cursor.is-hovering-card::after {
+    content: 'VOIR';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-body);
+    font-size: 0.55rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--bg-color);
+    text-transform: uppercase;
+}
+
+/* --- NAV : APPARITION AU SCROLL --- */
+.top-nav {
+    transform: translateY(0);
+    transition: transform 0.5s var(--ease-out-expo),
+                background-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.top-nav.nav-hidden {
+    transform: translateY(-110%);
+}
+
+.top-nav.nav-scrolled {
+    background-color: rgba(243, 240, 231, 0.95);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+}
+
+/* --- MARQUEE FOOTER --- */
+.footer-marquee {
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid rgba(243, 240, 231, 0.2);
+    border-bottom: 1px solid rgba(243, 240, 231, 0.2);
+    padding: 16px 0;
+    margin-bottom: 40px;
+}
+
+.footer-marquee-track {
+    display: flex;
+    gap: 60px;
+    width: max-content;
+    animation: marqueeScroll 18s linear infinite;
+    white-space: nowrap;
+}
+
+.footer-marquee-track span {
+    font-family: var(--font-title);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(243, 240, 231, 0.5);
+}
+
+.footer-marquee-track span.accent {
+    color: var(--accent-color);
+}
+
+@keyframes marqueeScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* --- PROJECT DETAIL : LIGNE DECORATIVE --- */
+.project-detail {
+    position: relative;
+}
+
+.project-detail::before {
+    content: '';
+    position: absolute;
+    left: 10vw;
+    top: 80px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+    transition: width 1s var(--ease-out-expo);
+}
+
+.project-detail.line-visible::before {
+    width: calc(80vw);
+}
+
+/* --- TAGS HOVER --- */
+.detail-text .tag {
+    transition: background-color 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease;
+    cursor: default;
+}
+
+.detail-text .tag:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border-color: var(--accent-color);
+}
+
+/* --- SCROLL PROGRESS : COULEUR ENRICHIE --- */
+#scroll-progress {
+    background: linear-gradient(90deg, var(--accent-color), #00a88a);
+    height: 3px;
+    box-shadow: 0 0 8px rgba(0, 107, 94, 0.5);
+}
+
+/* --- HERO INTRO : AMÉLIORATION --- */
+.hero-intro {
+    border: 1px solid rgba(0, 107, 94, 0.25);
+    background: rgba(243, 240, 231, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0, 107, 94, 0.08),
+                inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+/* --- SÉPARATEUR SECTIONS PROJETS --- */
+.project-detail {
+    border-bottom: none;
+}
+
+.project-detail + .project-detail {
+    border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+/* --- NUMBER COUNTER ANIMÉ --- */
+.big-num {
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s var(--ease-out-expo);
+}
+
+.project-detail:hover .big-num {
+    color: var(--accent-color);
+    transform: translateX(8px);
+}
+
+/* --- REVEAL LEFT : CLIP-PATH VERSION --- */
+.reveal-left {
+    opacity: 1 !important;
+    transform: none !important;
+    overflow: hidden;
+}
+
+/* --- GRAIN OVERLAY HERO (texture analogique) --- */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+/* --- CONTACT ROW : HOVER ENRICHI --- */
+.contact-row {
+    transition: transform 0.3s var(--ease-out-expo), gap 0.3s ease;
+    position: relative;
+}
+
+.contact-row:hover {
+    transform: translateX(8px);
+    gap: 18px;
+}
+
+/* --- SKILL BADGE : HOVER COULEUR --- */
+.skill-badge {
+    transition: transform 0.3s var(--ease-out-expo),
+                box-shadow 0.3s ease,
+                background-color 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.skill-badge:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border-color: var(--accent-color);
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: var(--shadow-md);
+}
+
+/* --- BACK TO TOP : ENRICHI --- */
+.back-to-top {
+    border: 2px solid var(--bg-color);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                background-color 0.3s,
+                border-color 0.3s,
+                opacity 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-6px) scale(1.1);
+}
+
+/* --- FOOTER LINKS : UNDERLINE SLIDE --- */
+.footer-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s var(--ease-out-expo);
+}
+
+.footer-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* --- VEILLE CARD : ACCENT BAR --- */
+.veille-card {
+    position: relative;
+    padding-left: 0;
+    transition: padding-left 0.4s var(--ease-out-expo),
+                border-bottom-color 0.3s ease;
+}
+
+.veille-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 24px;
+    width: 3px;
+    height: 0;
+    background: var(--accent-color);
+    border-radius: 2px;
+    transition: height 0.4s var(--ease-out-expo);
+}
+
+.veille-card:hover::before {
+    height: calc(100% - 48px);
+}
+
+.veille-card:hover {
+    padding-left: 16px;
+}
+
+/* --- PAGE TRANSITION CLOSE : CLIP-PATH --- */
+.page-transition.is-leaving {
+    clip-path: inset(0 0 0 0);
+    animation: none;
+}
+
+/* --- OUTLINED YEAR : ANIMATE ON LOAD --- */
+.outlined-year {
+    opacity: 0;
+    transform: rotate(-10deg) translateX(20px);
+    transition: opacity 0.8s var(--ease-out-expo),
+                transform 0.8s var(--ease-out-expo);
+}
+
+.outlined-year.is-visible {
+    opacity: 1;
+    transform: rotate(-10deg) translateX(0);
+}
+
+@media (max-width: 1024px) {
+    .outlined-year,
+    .outlined-year.is-visible {
+        transform: none;
+    }
+}
+
+/* --- CANVAS : OPACITÉ RÉDUITE HORS HERO --- */
+#gridCanvas {
+    transition: opacity 1s ease;
+}
+
+#gridCanvas.canvas-faded {
+    opacity: 0.12;
+}

@@ -39,23 +39,31 @@
             top: 10px;
         }
 
-        /* Fallback : cache l'écran de transition après 3s si GSAP ne charge pas */
+        /* Fallback : cache le preloader après 5s si GSAP ne charge pas */
         @keyframes fallbackHide {
             to {
-                transform: scaleY(0);
+                opacity: 0;
                 pointer-events: none;
+                display: none;
             }
         }
 
         .page-transition {
-            animation: fallbackHide 0s 3s forwards;
+            clip-path: inset(0 0 0% 0);
+            animation: fallbackHide 0s 5s forwards;
         }
     </style>
 
 </head>
 
 <body>
-    <div class="page-transition">JEF LY</div>
+    <div class="page-transition">
+        <div class="preloader-content">
+            <span class="preloader-name">JEF LY</span>
+            <div class="preloader-bar-wrap"><div class="preloader-bar"></div></div>
+            <span class="preloader-counter">0%</span>
+        </div>
+    </div>
     <div class="custom-cursor"></div>
 
     <a href="#experiences" class="skip-link">Aller au contenu principal</a>
@@ -699,6 +707,26 @@
 
     <section class="footer" id="contact">
         <div class="footer-top-line"></div>
+
+        <div class="footer-marquee" aria-hidden="true">
+            <div class="footer-marquee-track">
+                <span>Développeur</span><span class="accent">✦</span>
+                <span>Java</span><span class="accent">✦</span>
+                <span>Python</span><span class="accent">✦</span>
+                <span>PHP</span><span class="accent">✦</span>
+                <span>Cybersécurité</span><span class="accent">✦</span>
+                <span>Spring Boot</span><span class="accent">✦</span>
+                <span>Disponible</span><span class="accent">✦</span>
+                <span>Développeur</span><span class="accent">✦</span>
+                <span>Java</span><span class="accent">✦</span>
+                <span>Python</span><span class="accent">✦</span>
+                <span>PHP</span><span class="accent">✦</span>
+                <span>Cybersécurité</span><span class="accent">✦</span>
+                <span>Spring Boot</span><span class="accent">✦</span>
+                <span>Disponible</span><span class="accent">✦</span>
+            </div>
+        </div>
+
         <div class="footer-content">
             <h2 class="footer-title">MERCI !</h2>
             <p class="footer-subtitle"><span aria-hidden="true">✦</span> Travaillons ensemble ! <span
@@ -747,6 +775,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script src="script.js"></script>
 </body>
 
