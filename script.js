@@ -102,59 +102,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const hugeTitle = document.querySelector('.huge-title');
             if (hugeTitle) {
-                // Split le texte en caractères manuellement
-                const html = hugeTitle.innerHTML;
-                // Garde les <br> et le span outlined-year intact
-                const lines = hugeTitle.childNodes;
-                let newHTML = '';
-
-                lines.forEach(node => {
-                    if (node.nodeType === Node.TEXT_NODE) {
-                        const text = node.textContent;
-                        newHTML += [...text].map(char =>
-                            char === ' ' ? ' ' : `<span class="char">${char}</span>`
-                        ).join('');
-                    } else if (node.nodeName === 'BR') {
-                        newHTML += '<br>';
-                    } else {
-                        // Garde le span outlined-year
-                        newHTML += node.outerHTML;
-                    }
-                });
-
-                hugeTitle.innerHTML = newHTML;
-
-                const chars = hugeTitle.querySelectorAll('.char');
-                gsap.to(chars, {
-                    y: 0,
-                    opacity: 1,
-                    rotate: 0,
-                    duration: 1.0,
-                    ease: 'power4.out',
-                    stagger: {
-                        amount: 0.5,
-                        from: 'start'
-                    },
-                    delay: 0.1
-                });
+                // Anime le h1 entier sans toucher au HTML
+                gsap.fromTo(hugeTitle,
+                    { y: 80, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 1.2, ease: 'power4.out', delay: 0.1 }
+                );
 
                 // Année outlined
                 const outlinedYear = hugeTitle.querySelector('.outlined-year');
                 if (outlinedYear) {
-                    setTimeout(() => {
-                        outlinedYear.classList.add('is-visible');
-                    }, 700);
+                    setTimeout(() => outlinedYear.classList.add('is-visible'), 700);
                 }
             }
 
-            // Nav reveal
-            gsap.from('.top-nav', {
-                y: -40,
-                opacity: 0,
-                duration: 1.0,
-                ease: 'power3.out',
-                delay: 0.5
-            });
 
             // Hero intro : clip-path reveal
             const heroIntro = document.querySelector('.hero-intro');
@@ -192,113 +152,81 @@ document.addEventListener("DOMContentLoaded", () => {
                         scrollTrigger: {
                             trigger: el,
                             start: 'top 88%',
-                            toggleActions: 'play none none none'
+                            end: 'top 20%',
+                            toggleActions: 'play none none reverse'
                         }
                     }
                 );
             });
 
-            // Ligne décorative sections projets
+
+            // Ligne décorative : animation entrée section
             gsap.utils.toArray('.project-detail').forEach(section => {
                 ScrollTrigger.create({
                     trigger: section,
                     start: 'top 75%',
+                    end: 'top 20%',
+                    toggleActions: 'play none none reverse',
                     onEnter: () => section.classList.add('line-visible'),
-                    once: true
+                    onLeaveBack: () => section.classList.remove('line-visible')
                 });
             });
 
-            // Reveal sections détail : translateY + fade
-            gsap.utils.toArray('.project-detail').forEach((section, i) => {
-                const header = section.querySelector('.detail-header');
-                const text = section.querySelector('.detail-text');
-                const image = section.querySelector('.detail-image, .detail-image--stretch');
-
-                const tl = gsap.timeline({
+            // Stagger badges compétences (bidirectionnel)
+            gsap.fromTo('.skill-badge',
+                { opacity: 0, scale: 0.7, y: 20, rotate: -4 },
+                {
+                    opacity: 1, scale: 1, y: 0, rotate: 0,
+                    duration: 0.5,
+                    stagger: { amount: 0.5, from: 'center' },
+                    ease: 'back.out(1.7)',
                     scrollTrigger: {
-                        trigger: section,
-                        start: 'top 78%',
-                        toggleActions: 'play none none none'
+                        trigger: '.skills-container',
+                        start: 'top 85%',
+                        end: 'top 20%',
+                        toggleActions: 'play none none reverse'
                     }
-                });
-
-                if (header) {
-                    tl.fromTo(header,
-                        { y: 40, opacity: 0 },
-                        { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }
-                    );
                 }
-                if (text) {
-                    tl.fromTo(text,
-                        { y: 30, opacity: 0 },
-                        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
-                        '-=0.5'
-                    );
-                }
-                if (image) {
-                    tl.fromTo(image,
-                        { y: 50, opacity: 0, scale: 0.97 },
-                        { y: 0, opacity: 1, scale: 1, duration: 1.0, ease: 'power3.out' },
-                        '-=0.5'
-                    );
-                }
-            });
+            );
 
-            // Stagger badges compétences
-            ScrollTrigger.create({
-                trigger: '.skills-container',
-                start: 'top 85%',
-                onEnter: () => {
-                    gsap.from('.skill-badge', {
-                        opacity: 0,
-                        scale: 0.7,
-                        y: 20,
-                        rotate: -4,
-                        duration: 0.5,
-                        stagger: {
-                            amount: 0.5,
-                            from: 'center'
-                        },
-                        ease: 'back.out(1.7)'
-                    });
-                },
-                once: true
-            });
-
-            // Stagger resume items
+            // Stagger resume items (bidirectionnel)
             gsap.utils.toArray('.resume-col').forEach(col => {
                 const items = col.querySelectorAll('.resume-item');
                 if (items.length) {
-                    gsap.from(items, {
-                        opacity: 0,
-                        y: 35,
-                        duration: 0.7,
-                        stagger: 0.15,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: col,
-                            start: 'top 80%',
-                            toggleActions: 'play none none none'
+                    gsap.fromTo(items,
+                        { opacity: 0, y: 35 },
+                        {
+                            opacity: 1, y: 0,
+                            duration: 0.7,
+                            stagger: 0.15,
+                            ease: 'power3.out',
+                            scrollTrigger: {
+                                trigger: col,
+                                start: 'top 80%',
+                                end: 'top 10%',
+                                toggleActions: 'play none none reverse'
+                            }
                         }
-                    });
+                    );
                 }
             });
 
-            // Stagger contact rows
-            ScrollTrigger.create({
-                trigger: '.contact-list',
-                start: 'top 85%',
-                onEnter: () => {
-                    gsap.from('.contact-row', {
-                        opacity: 0,
-                        x: -25,
-                        duration: 0.6,
-                        stagger: 0.12,
-                        ease: 'power3.out'
-                    });
-                },
-                once: true
-            });
+            // Stagger contact rows (bidirectionnel)
+            gsap.fromTo('.contact-row',
+                { opacity: 0, x: -25 },
+                {
+                    opacity: 1, x: 0,
+                    duration: 0.6,
+                    stagger: 0.12,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: '.contact-list',
+                        start: 'top 85%',
+                        end: 'top 20%',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            );
 
             // Footer reveal
             const footerTitle = document.querySelector('.footer h2');
@@ -314,25 +242,29 @@ document.addEventListener("DOMContentLoaded", () => {
                         scrollTrigger: {
                             trigger: '.footer',
                             start: 'top 80%',
-                            toggleActions: 'play none none none'
+                            end: 'top 20%',
+                            toggleActions: 'play none none reverse'
                         }
                     }
                 );
             }
 
             // Footer links stagger
-            gsap.from('.footer-link', {
-                opacity: 0,
-                y: 20,
-                duration: 0.7,
-                stagger: 0.1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.footer-links',
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
+            gsap.fromTo('.footer-link',
+                { opacity: 0, y: 20 },
+                {
+                    opacity: 1, y: 0,
+                    duration: 0.7,
+                    stagger: 0.1,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: '.footer-links',
+                        start: 'top 85%',
+                        end: 'top 20%',
+                        toggleActions: 'play none none reverse'
+                    }
                 }
-            });
+            );
 
             // Canvas : fade au scroll hors hero
             const canvas = document.getElementById('gridCanvas');
@@ -375,6 +307,129 @@ document.addEventListener("DOMContentLoaded", () => {
                     scrub: 1.2,
                     invalidateOnRefresh: true,
                 });
+            });
+        }
+
+        /* ======================================================================
+           5b. ANIMATIONS SUPPLÉMENTAIRES PROJETS
+           ====================================================================== */
+        if (!prefersReducedMotion) {
+
+            // Numéro de projet : scale + couleur au scroll
+            gsap.utils.toArray('.project-detail').forEach(section => {
+                const bigNum = section.querySelector('.big-num');
+                const h2 = section.querySelector('h2');
+                const tags = section.querySelectorAll('.detail-text .tag');
+                const paragraphs = section.querySelectorAll('.detail-text p');
+
+                if (bigNum) {
+                    gsap.fromTo(bigNum,
+                        { scale: 0.5, opacity: 0, x: -30 },
+                        {
+                            scale: 1, opacity: 1, x: 0,
+                            duration: 0.8, ease: 'back.out(1.4)',
+                            scrollTrigger: {
+                                trigger: section,
+                                start: 'top 80%',
+                                end: 'top 20%',
+                                toggleActions: 'play none none reverse'
+                            }
+                        }
+                    );
+                }
+
+                if (h2) {
+                    gsap.fromTo(h2,
+                        { clipPath: 'inset(0 100% 0 0)', opacity: 0 },
+                        {
+                            clipPath: 'inset(0 0% 0 0)', opacity: 1,
+                            duration: 0.9, ease: 'power4.out',
+                            scrollTrigger: {
+                                trigger: section,
+                                start: 'top 78%',
+                                end: 'top 20%',
+                                toggleActions: 'play none none reverse'
+                            }
+                        }
+                    );
+                }
+
+                // Tags : stagger avec rotation légère
+                if (tags.length) {
+                    gsap.fromTo(tags,
+                        { opacity: 0, y: 15, rotate: -3, scale: 0.85 },
+                        {
+                            opacity: 1, y: 0, rotate: 0, scale: 1,
+                            duration: 0.5,
+                            stagger: 0.08,
+                            ease: 'back.out(1.5)',
+                            scrollTrigger: {
+                                trigger: section,
+                                start: 'top 74%',
+                                end: 'top 20%',
+                                toggleActions: 'play none none reverse'
+                            }
+                        }
+                    );
+                }
+
+                // Paragraphes : apparaissent ligne par ligne
+                if (paragraphs.length) {
+                    gsap.fromTo(paragraphs,
+                        { opacity: 0, y: 20 },
+                        {
+                            opacity: 1, y: 0,
+                            duration: 0.6,
+                            stagger: 0.12,
+                            ease: 'power3.out',
+                            scrollTrigger: {
+                                trigger: section,
+                                start: 'top 72%',
+                                end: 'top 20%',
+                                toggleActions: 'play none none reverse'
+                            }
+                        }
+                    );
+                }
+            });
+
+            // Cards bento sommaire : révélation en stagger avec rotation 3D
+            gsap.fromTo('.project-card',
+                { opacity: 0, y: 60, rotateX: 12, scale: 0.92 },
+                {
+                    opacity: 1, y: 0, rotateX: 0, scale: 1,
+                    duration: 0.9,
+                    stagger: { amount: 0.8, from: 'start' },
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: '.projects-container',
+                        start: 'top 85%',
+                        end: 'top 20%',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            );
+
+            // Images grille : révélation décalée par image
+            gsap.utils.toArray('.project-detail').forEach(section => {
+                const gridItems = section.querySelectorAll('.grid-item');
+                if (gridItems.length) {
+                    gsap.fromTo(gridItems,
+                        { opacity: 0, scale: 0.88, y: 30 },
+                        {
+                            opacity: 1, scale: 1, y: 0,
+                            duration: 0.7,
+                            stagger: { amount: 0.4, from: 'random' },
+                            ease: 'power3.out',
+                            scrollTrigger: {
+                                trigger: section,
+                                start: 'top 65%',
+                                end: 'top 20%',
+                                toggleActions: 'play none none reverse'
+                            }
+                        }
+                    );
+                }
             });
         }
 
@@ -492,30 +547,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         /* ======================================================================
-           9. NAV — HIDE ON SCROLL DOWN, SHOW ON SCROLL UP
+           9. NAV — EFFET GLASSMORPHISM AU SCROLL
            ====================================================================== */
         const nav = document.querySelector('.top-nav');
-        let lastScrollY = 0;
         let navTicking = false;
 
         window.addEventListener('scroll', () => {
             if (!navTicking) {
                 requestAnimationFrame(() => {
-                    const currentScrollY = window.scrollY;
-
-                    if (currentScrollY > 100) {
+                    if (window.scrollY > 80) {
                         nav?.classList.add('nav-scrolled');
                     } else {
                         nav?.classList.remove('nav-scrolled');
                     }
-
-                    if (currentScrollY > lastScrollY && currentScrollY > 200) {
-                        nav?.classList.add('nav-hidden');
-                    } else {
-                        nav?.classList.remove('nav-hidden');
-                    }
-
-                    lastScrollY = currentScrollY;
                     navTicking = false;
                 });
                 navTicking = true;
@@ -726,29 +770,33 @@ document.addEventListener("DOMContentLoaded", () => {
            ====================================================================== */
         const mobileBtn = document.querySelector('.mobile-menu-btn');
         if (mobileBtn && navLinks) {
+
+            const closeMenu = () => {
+                navLinks.classList.remove('menu-open');
+                mobileBtn.setAttribute('aria-expanded', false);
+                mobileBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>`;
+                document.body.style.overflow = '';
+                if (lenis) lenis.start();
+            };
+
+            const openMenu = () => {
+                navLinks.classList.add('menu-open');
+                mobileBtn.setAttribute('aria-expanded', true);
+                mobileBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+                document.body.style.overflow = 'hidden';
+                if (lenis) lenis.stop();
+            };
+
             mobileBtn.addEventListener('click', () => {
-                const isOpen = navLinks.classList.toggle('menu-open');
-                mobileBtn.setAttribute('aria-expanded', isOpen);
-                document.body.style.overflow = isOpen ? 'hidden' : '';
-                if (lenis) isOpen ? lenis.stop() : lenis.start();
+                navLinks.classList.contains('menu-open') ? closeMenu() : openMenu();
             });
 
             navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('menu-open');
-                    mobileBtn.setAttribute('aria-expanded', false);
-                    document.body.style.overflow = '';
-                    if (lenis) lenis.start();
-                });
+                link.addEventListener('click', () => closeMenu());
             });
 
             window.addEventListener('resize', () => {
-                if (window.innerWidth > 768 && navLinks.classList.contains('menu-open')) {
-                    navLinks.classList.remove('menu-open');
-                    mobileBtn.setAttribute('aria-expanded', false);
-                    document.body.style.overflow = '';
-                    if (lenis) lenis.start();
-                }
+                if (window.innerWidth > 768) closeMenu();
             });
         }
 
