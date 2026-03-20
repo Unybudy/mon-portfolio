@@ -292,7 +292,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
         const hideModal = () => {
             modal.style.display = "none";
-            document.body.style.overflow = "auto";
+            // Ne réinitialise l'overflow que si le menu mobile n'est pas ouvert
+            if (!navLinks || !navLinks.classList.contains('menu-open')) {
+                document.body.style.overflow = '';
+            }
         };
 
         if (closeModalBtn) closeModalBtn.addEventListener("click", hideModal);
@@ -330,7 +333,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
        9. CUSTOM CURSOR
        ========================================================================== */
     const cursor = document.querySelector('.custom-cursor');
-    if (cursor && !prefersReducedMotion && window.matchMedia("(pointer: fine)").matches) {
+    if (cursor && !prefersReducedMotion && window.matchMedia("(pointer: fine)").matches && !window.matchMedia("(hover: none)").matches) {
         document.body.classList.add('custom-cursor-active');
         
         let mouseX = 0, mouseY = 0;
@@ -366,15 +369,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
         mobileBtn.addEventListener('click', () => {
             const isOpen = navLinks.classList.toggle('menu-open');
             mobileBtn.setAttribute('aria-expanded', isOpen);
-            document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('menu-open');
                 mobileBtn.setAttribute('aria-expanded', false);
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = '';
             });
+        });
+
+        // Réinitialise l'overflow si on passe en desktop avec le menu ouvert
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && navLinks.classList.contains('menu-open')) {
+                navLinks.classList.remove('menu-open');
+                mobileBtn.setAttribute('aria-expanded', false);
+                document.body.style.overflow = '';
+            }
         });
     }
 

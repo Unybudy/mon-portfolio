@@ -348,6 +348,18 @@ section.hero {
 [id] {
     scroll-margin-top: 80px;
 }
+
+@media (max-width: 1024px) {
+    [id] {
+        scroll-margin-top: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    [id] {
+        scroll-margin-top: 60px;
+    }
+}
 .resume-section {
     padding: 100px 5vw;
     border-top: 2px solid var(--text-main);
@@ -780,6 +792,16 @@ section.hero {
     grid-template-rows: 1fr 1fr;
 }
 
+/* Variante 2 cases : 50% 50% */
+.bento-image-grid.bento-2 {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.bento-image-grid.bento-2 .grid-item {
+    height: 100%;
+}
+
+
 .bento-image-grid.bento-4 .grid-item:nth-child(2) {
     grid-column: 2 / 4; /* Image 2 : toute la largeur haute droite */
 }
@@ -1086,8 +1108,8 @@ section.hero {
     }
 
     .top-nav {
-        left: 20px;
-        right: 20px;
+        left: 0;
+        right: 0;
         font-size: 0.8rem;
     }
 
