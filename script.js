@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", (event) => {
 
-    // Vérifier si l'utilisateur préfère les mouvements réduits
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Vérifier si l'utilisateur préfère les mouvements réduits (mis à jour dynamiquement)
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let prefersReducedMotion = reducedMotionQuery.matches;
+    reducedMotionQuery.addEventListener('change', (e) => { prefersReducedMotion = e.matches; });
 
     // Enregistrement des plugins GSAP (Indispensable)
     gsap.registerPlugin(ScrollTrigger);
@@ -346,19 +348,30 @@ document.addEventListener("DOMContentLoaded", (event) => {
         
         let mouseX = 0, mouseY = 0;
         let cursorX = 0, cursorY = 0;
+        let cursorRafId = null;
+
+        const animateCursor = () => {
+            const dx = mouseX - cursorX;
+            const dy = mouseY - cursorY;
+            cursorX += dx * 0.2;
+            cursorY += dy * 0.2;
+            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+            // Arrête la boucle quand le curseur est suffisamment proche de la cible
+            if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+                cursorRafId = requestAnimationFrame(animateCursor);
+            } else {
+                cursorRafId = null;
+            }
+        };
 
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
+            // Relance la boucle seulement si elle est arrêtée
+            if (!cursorRafId) {
+                cursorRafId = requestAnimationFrame(animateCursor);
+            }
         });
-
-        const animateCursor = () => {
-            cursorX += (mouseX - cursorX) * 0.2;
-            cursorY += (mouseY - cursorY) * 0.2;
-            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
-            requestAnimationFrame(animateCursor);
-        };
-        animateCursor();
 
         const interactiveElements = document.querySelectorAll('a, button, .grid-item, .icon-box');
         interactiveElements.forEach(el => {
