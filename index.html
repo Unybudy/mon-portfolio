@@ -60,7 +60,9 @@
     <div class="page-transition">
         <div class="preloader-content">
             <span class="preloader-name">JEF LY</span>
-            <div class="preloader-bar-wrap"><div class="preloader-bar"></div></div>
+            <div class="preloader-bar-wrap">
+                <div class="preloader-bar"></div>
+            </div>
             <span class="preloader-counter">0%</span>
         </div>
     </div>
@@ -84,8 +86,24 @@
         <button class="theme-toggle" id="themeToggle" aria-label="Activer le mode sombre" title="Changer le thème">
             <span class="theme-toggle-track">
                 <span class="theme-toggle-thumb"></span>
-                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <circle cx="12" cy="12" r="5" />
+                    <line x1="12" y1="1" x2="12" y2="3" />
+                    <line x1="12" y1="21" x2="12" y2="23" />
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                    <line x1="1" y1="12" x2="3" y2="12" />
+                    <line x1="21" y1="12" x2="23" y2="12" />
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                </svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
             </span>
         </button>
         <button class="mobile-menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -99,578 +117,663 @@
     </nav>
 
     <main>
-    <section class="hero">
+        <section class="hero">
 
-        <div class="title-container">
-            <h1 class="huge-title">
-                PORT<br>
-                FOLIO
-                <span class="outlined-year">2026</span>
-            </h1>
+            <div class="title-container">
+                <h1 class="huge-title">
+                    PORT<br>
+                    FOLIO
+                    <span class="outlined-year">2026</span>
+                </h1>
+            </div>
+
+            <div class="hero-intro">
+                <p class="intro-hello">Jef Ly — Développeur Full-Stack</p>
+                <p class="hero-role">BTS SIO SLAM · Automatisation · Cybersécurité</p>
+                <p class="hero-text">Passionné par l'automatisation et le développement web. Voici mes projets.</p>
+            </div>
+
+            <div class="scroll-indicator">SCROLL POUR DÉCOUVRIR ↓</div>
+        </section>
+
+        <section class="resume-section" id="experiences">
+            <div class="resume-grid-v2">
+
+                <div class="resume-col">
+                    <h3 class="resume-title reveal-left"><span aria-hidden="true">✦</span> EXPERIENCES</h3>
+
+                    <div class="resume-item">
+                        <span class="date">05 janvier au 14 fevrier 2026 (Stage 2ème année)</span>
+                        <h4>DÉVELOPPEUR JAVA</h4>
+                        <span class="company">Sparow IT - Semoy</span>
+                        <p>Développement d'un outil d'automatisation pour la suppression d'artefacts Nexus. Java, Spring
+                            Boot, Maven, JUnit, Log4j.</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <span class="date">26 mai au 04 juillet 2025 (Stage 1ère année)</span>
+                        <h4>DÉVELOPPEUR PYTHON</h4>
+                        <span class="company">SOGÉCAP - Orléans</span>
+                        <p>Développement d'outils d'automatisation pour la gestion d'incidents. Scripting Python, API
+                            Jira,
+                            analyse de données.</p>
+                    </div>
+                </div>
+
+                <div class="resume-col">
+                    <div class="desktop-spacer"></div>
+
+                    <h3 class="resume-title reveal-left"><span aria-hidden="true">✦</span> FORMATIONS</h3>
+
+                    <div class="resume-item">
+                        <span class="date">2024 - 2026</span>
+                        <h4>BTS SIO (OPTION SLAM)</h4>
+                        <span class="company">Lycée Benjamin Franklin</span>
+                        <p>Solutions Logicielles et Applications Métiers. Apprentissage du développement web, mobile et
+                            bases de données.</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <span class="date">2021 - 2024</span>
+                        <h4>LICENCE 1 INFO</h4>
+                        <span class="company">Université d'Orléans</span>
+                        <p>Mathématiques et bases de l'algorithmique.</p>
+                    </div>
+
+                    <div class="resume-item">
+                        <span class="date">2019 - 2021</span>
+                        <h4>BAC STI2D</h4>
+                        <span class="company">Lycée Benjamin Franklin</span>
+                        <p>Mention Bien. Option Systèmes d'Information et Numérique.</p>
+                    </div>
+                </div>
+
+                <div class="resume-col">
+
+                    <h3 class="resume-title reveal-left"><span aria-hidden="true">✦</span> APTITUDES</h3>
+                    <div class="skills-container">
+                        <span class="skill-badge">JAVA / SPRING</span>
+                        <span class="skill-badge">PHP / SYMFONY</span>
+                        <span class="skill-badge">PYTHON</span>
+                        <span class="skill-badge">JAVASCRIPT</span>
+                        <span class="skill-badge">SQL / MARIADB</span>
+                        <span class="skill-badge">HTML / CSS</span>
+                        <span class="skill-badge">TESTS JUNIT</span>
+                        <span class="skill-badge">GIT / GITHUB</span>
+                        <span class="skill-badge">MÉTHODE AGILE</span>
+                    </div>
+
+                    <h3 class="resume-title reveal-left mt-60"><span aria-hidden="true">✦</span> CONTACT
+                    </h3>
+                    <div class="contact-list">
+
+                        <a href="mailto:jef.ly@netocentre.fr" class="contact-row">
+                            <div class="icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg>
+                            </div>
+                            <span class="contact-text">jef.ly@netocentre.fr</span>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/jef-l-0093b1327" target="_blank" rel="noopener noreferrer"
+                            class="contact-row">
+                            <div class="icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                    <rect x="2" y="9" width="4" height="12" />
+                                    <circle cx="4" cy="4" r="2" />
+                                </svg>
+                            </div>
+                            <span class="contact-text">LinkedIn</span>
+                        </a>
+
+                        <a href="cv-jef-ly.pdf" target="_blank" class="contact-row">
+                            <div class="icon-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="12" y1="18" x2="12" y2="12" />
+                                    <line x1="9" y1="15" x2="12" y2="18" />
+                                    <line x1="15" y1="15" x2="12" y2="18" />
+                                </svg>
+                            </div>
+                            <span class="contact-text">Voir mon CV</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <div class="projects-wrapper" id="sommaire">
+            <div class="projects-header">SOMMAIRE DES PROJETS <span class="arrow">→</span><span class="scroll-hint"
+                    aria-hidden="true">SCROLL →→</span></div>
+
+            <div class="projects-container">
+                <a href="#p1" class="project-card bento-tall"
+                    style="background-image: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), url('imagesparowit/2.webp'); background-size: cover; background-position: center;">
+                    <div class="card-header"><span class="project-number">.01</span>
+                        <div class="tags"><span class="tag">STAGE 2A</span></div>
+                    </div>
+                    <h3 class="project-title text-light">Nexus Automations</h3>
+                    <p class="project-desc text-light">Développement Java & Automatisation.</p>
+                </a>
+                <a href="#p2" class="project-card bento-big"
+                    style="background-image: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), url('imagesogecap/4.png'); background-size: cover; background-position: center;">
+                    <div class="card-header"><span class="project-number">.02</span>
+                        <div class="tags"><span class="tag">STAGE 1A</span><span class="tag">PYTHON</span></div>
+                    </div>
+                    <h3 class="project-title text-light">Jira Flow Automation</h3>
+                    <p class="project-desc text-light">Optimisation de flux pour SOGECAP.</p>
+                </a>
+                <a href="#p3" class="project-card bento-square"
+                    style="background-image: url('imageatelierscertif/1.webp'); background-size: cover; background-position: center; border: none; box-shadow: inset 0 0 0 2000px rgba(243,240,231,0.85);">
+                    <div class="card-header"><span class="project-number">.03</span>
+                        <div class="tags"><span class="tag">AUTO-FORMATION</span><span class="tag">DEV</span></div>
+                    </div>
+                    <h3 class="project-title">Ateliers Certif.</h3>
+                    <p class="project-desc">Parcours d'auto-formation OpenClassrooms.</p>
+                </a>
+                <a href="#p4" class="project-card bento-tall"
+                    style="background-image: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), url('imagecoffeeshop/1.webp'); background-size: cover; background-position: center;">
+                    <div class="card-header"><span class="project-number">.04</span>
+                        <div class="tags"><span class="tag">WORDPRESS</span></div>
+                    </div>
+                    <h3 class="project-title text-light">Coffee Shop</h3>
+                    <p class="project-desc text-light">Boutique en ligne fictive dédiée au café.</p>
+                </a>
+                <a href="#p5" class="project-card bento-wide"
+                    style="background-image: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), url('imagegsbsecureapp/2.png'); background-size: cover; background-position: center;">
+                    <div class="card-header"><span class="project-number">.05</span>
+                        <div class="tags"><span class="tag">PHP/SQL</span></div>
+                    </div>
+                    <h3 class="project-title text-light">GSB : Secure App</h3>
+                    <p class="project-desc text-light">Sécurisation critique et architecture MVC.</p>
+                </a>
+                <a href="#p6" class="project-card bento-square"
+                    style="background-image: url('imageveille/1.png'); background-size: cover; background-position: center; border: none; box-shadow: inset 0 0 0 2000px rgba(243,240,231,0.85);">
+                    <div class="card-header"><span class="project-number">.06</span>
+                        <div class="tags"><span class="tag">VEILLE</span></div>
+                    </div>
+                    <h3 class="project-title">Tech Watch</h3>
+                    <p class="project-desc">Curation et innovation technologique.</p>
+                </a>
+                <a href="#p7" class="project-card bento-wide"
+                    style="background-image: url('imageportfolio/1.jpg'); background-size: cover; background-position: center; border: none; box-shadow: inset 0 0 0 2000px rgba(243,240,231,0.85);">
+                    <div class="card-header"><span class="project-number">.07</span>
+                        <div class="tags"><span class="tag">DESIGN</span></div>
+                    </div>
+                    <h3 class="project-title">Digital Identity</h3>
+                    <p class="project-desc">Personal Branding et UI/UX.</p>
+                </a>
+                <a href="#p8" class="project-card bento-square dashed-border"
+                    style="background-image: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), url('imageandroid/2.png'); background-size: cover; background-position: center;">
+                    <div class="card-header"><span class="project-number">.08</span>
+                        <div class="tags"><span class="tag">ANDROID</span></div>
+                    </div>
+                    <h3 class="project-title text-light">Android Lab</h3>
+                    <p class="project-desc text-light">Développement Mobile natif.</p>
+                </a>
+            </div>
         </div>
 
-        <div class="hero-intro">
-            <p class="intro-hello">Jef Ly — Développeur Full-Stack</p>
-            <p class="hero-role">BTS SIO SLAM · Automatisation · Cybersécurité</p>
-            <p class="hero-text">Passionné par l'automatisation et le développement web. Voici mes projets.</p>
+        <div class="details-wrapper">
+            <section class="project-detail reveal-element" id="p1">
+                <div class="detail-header"><span class="big-num">.01</span>
+                    <h2>Nexus Automator</h2>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-text">
+                        <div class="tags">
+                            <span class="tag">STAGE 2A</span>
+                            <span class="tag">DÉVELOPPEMENT JAVA</span>
+                            <span class="tag">AUTOMATISATION</span>
+                        </div>
+                        <p><strong>Contexte :</strong> Mission réalisée au sein de Sparow IT pour
+                            optimiser l'espace de stockage d'entreprise en automatisant la gestion des dépôts.</p>
+                        <p><strong>Contribution :</strong> Conception complète d'un outil CLI et asynchrone pour cibler,
+                            analyser et nettoyer efficacement les anciens artefacts sur serveurs Nexus Repository
+                            Manager.
+                        </p>
+                        <p><strong>Approche Technique :</strong> Architecture basée sur Spring Boot WebFlux pour des
+                            requêtes non-bloquantes, Spring Shell pour la ligne de commande, et sécurisation via
+                            Testcontainers et JUnit.</p>
+                    </div>
+                    <div class="detail-image">
+                        <div class="bento-image-grid bento-4">
+                            <div class="grid-item item-tall" role="button" tabindex="0"
+                                aria-label="Voir l'image Sparow IT 1 en plein écran"><img src="imagesparowit/1.webp"
+                                    alt="Nexus Automator — capture 1" loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Sparow IT 2 en plein écran"><img src="imagesparowit/2.webp"
+                                    alt="Nexus Automator — capture 2" loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Sparow IT 3 en plein écran"><img src="imagesparowit/3.webp"
+                                    alt="Nexus Automator — capture 3" loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Sparow IT 4 en plein écran"><img src="imagesparowit/4.webp"
+                                    alt="Nexus Automator — capture 4" loading="lazy"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-detail reverse reveal-element" id="p2">
+                <div class="detail-header"><span class="big-num">.02</span>
+                    <h2>Jira Flow Automation</h2>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-text">
+                        <div class="tags">
+                            <span class="tag">PYTHON SCRIPTING</span>
+                            <span class="tag">API REST</span>
+                            <span class="tag">OPTIMISATION</span>
+                        </div>
+                        <p><strong>Contexte :</strong> Projet mené lors de mon stage de première année à la DSI de
+                            SOGÉCAP
+                            pour désengorger le traitement des incidents informatiques.</p>
+                        <p><strong>Contribution :</strong> Développement d'une interface logicielle capable d'extraire,
+                            d'analyser et de filtrer intelligemment le flux entrant via l'API JIRA, en détectant
+                            automatiquement les doublons.</p>
+                        <p><strong>Approche Technique :</strong> Scripting en Python pur générant des synthèses de
+                            données
+                            via Excel pour fournir un outil d'aide à la décision structuré et actionnable aux chefs de
+                            projet.</p>
+                    </div>
+                    <div class="detail-image">
+                        <div class="bento-image-grid bento-4">
+                            <div class="grid-item item-tall" role="button" tabindex="0"
+                                aria-label="Voir l'image Jira Flow Automation 1 en plein écran"><img
+                                    src="imagesogecap/1.png" alt="Jira Flow Automation — capture 1" loading="lazy">
+                            </div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Jira Flow Automation 2 en plein écran"><img
+                                    src="imagesogecap/2.png" alt="Jira Flow Automation — capture 2" loading="lazy">
+                            </div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Jira Flow Automation 3 en plein écran"><img
+                                    src="imagesogecap/3.png" alt="Jira Flow Automation — capture 3" loading="lazy">
+                            </div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Jira Flow Automation 4 en plein écran"><img
+                                    src="imagesogecap/4.png" alt="Jira Flow Automation — capture 4" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-detail reveal-element" id="p3">
+                <div class="detail-header"><span class="big-num">.03</span>
+                    <h2>Ateliers Certifications</h2>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-text">
+                        <div class="tags">
+                            <span class="tag">AUTO-FORMATION</span>
+                            <span class="tag">DÉVELOPPEMENT</span>
+                            <span class="tag">OPENCLASSROOMS</span>
+                        </div>
+                        <p><strong>Contexte :</strong> Parcours certifiant OpenClassrooms mené en fil rouge durant ma
+                            seconde année de BTS SIO pour élargir mon spectre de compétences.</p>
+                        <p><strong>Contribution :</strong> Assimilation approfondie de concepts liés au développement
+                            logiciel, allant au-delà de la simple exécution de code pour embrasser les bonnes pratiques
+                            d'architecture.</p>
+                        <p><strong>Approche :</strong> Une montée en compétence ciblée qui structure mon approche
+                            analytique
+                            de l'informatique et consolide mes fondations théoriques pour le marché professionnel.</p>
+                    </div>
+                    <div class="detail-image">
+                        <div class="bento-image-grid grid-uniform">
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Ateliers Certifications 1 en plein écran"><img
+                                    src="imageatelierscertif/1.webp" alt="Ateliers Certifications — capture 1"
+                                    loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Ateliers Certifications 2 en plein écran"><img
+                                    src="imageatelierscertif/2.webp" alt="Ateliers Certifications — capture 2"
+                                    loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Ateliers Certifications 3 en plein écran"><img
+                                    src="imageatelierscertif/3.webp" alt="Ateliers Certifications — capture 3"
+                                    loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Ateliers Certifications 4 en plein écran"><img
+                                    src="imageatelierscertif/4.webp" alt="Ateliers Certifications — capture 4"
+                                    loading="lazy"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-detail reverse reveal-element" id="p4">
+                <div class="detail-header"><span class="big-num">.04</span>
+                    <h2>Coffee Shop</h2>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-text">
+                        <div class="tags">
+                            <span class="tag">CMS WORDPRESS</span>
+                            <span class="tag">E-COMMERCE</span>
+                            <span class="tag">INTEGRATION</span>
+                        </div>
+                        <p><strong>Contexte :</strong> Projet de démonstration autour de la création complète d'une
+                            plateforme marchande fictive dans l'univers du café pour masteriser les CMS.</p>
+                        <p><strong>Contribution :</strong> Déploiement d'une structure catalogue optimisée, et gestion
+                            du
+                            cycle de vie des commandes de la sélection jusqu'au panier dynamique.</p>
+                        <p><strong>Approche Technique :</strong> Utilisation avancée de l'écosystème WordPress et des
+                            plugins e-commerce pour délivrer une interface utilisateur fluide, esthétique et hautement
+                            fonctionnelle.</p>
+                    </div>
+                    <div class="detail-image">
+                        <div class="bento-image-grid bento-4">
+                            <div class="grid-item item-tall" role="button" tabindex="0"
+                                aria-label="Voir l'image Coffee Shop 1 en plein écran"><img src="imagecoffeeshop/1.webp"
+                                    alt="Coffee Shop — capture 1" loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Coffee Shop 2 en plein écran"><img src="imagecoffeeshop/2.webp"
+                                    alt="Coffee Shop — capture 2" loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Coffee Shop 3 en plein écran"><img src="imagecoffeeshop/3.webp"
+                                    alt="Coffee Shop — capture 3" loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Coffee Shop 4 en plein écran"><img src="imagecoffeeshop/4.webp"
+                                    alt="Coffee Shop — capture 4" loading="lazy"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-detail reveal-element" id="p5">
+                <div class="detail-header"><span class="big-num">.05</span>
+                    <h2>GSB : Secure App</h2>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-text">
+                        <div class="tags">
+                            <span class="tag">BACK-END PHP/SQL</span>
+                            <span class="tag">CYBERSÉCURITÉ</span>
+                            <span class="tag">MVC</span>
+                        </div>
+                        <p><strong>Contexte :</strong> Refonte complète du système de suivi d'activité pour les
+                            visiteurs
+                            médicaux du laboratoire Galaxy Swiss Bourdin.</p>
+                        <p><strong>Contribution :</strong> Migration intégrale du code vers une architecture MVC stricte
+                            et
+                            remédiation des failles critiques (Injections SQL, balises XSS, CSRF).</p>
+                        <p><strong>Approche Technique :</strong> Développement PHP Backend natif avec un travail
+                            drastique
+                            sur l'assainissement et la validation des données d'entrée pour blinder l'application face
+                            aux
+                            intrusions.</p>
+                    </div>
+                    <div class="detail-image">
+                        <div class="bento-image-grid bento-4">
+                            <div class="grid-item item-tall" role="button" tabindex="0"
+                                aria-label="Voir l'image GSB Secure App 1 en plein écran"><img
+                                    src="imagegsbsecureapp/1.png" alt="GSB Secure App — capture 1" loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image GSB Secure App 2 en plein écran"><img
+                                    src="imagegsbsecureapp/2.png" alt="GSB Secure App — capture 2" loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image GSB Secure App 3 en plein écran"><img
+                                    src="imagegsbsecureapp/3.png" alt="GSB Secure App — capture 3" loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image GSB Secure App 4 en plein écran"><img
+                                    src="imagegsbsecureapp/4.png" alt="GSB Secure App — capture 4" loading="lazy"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-detail reverse reveal-element" id="p6">
+                <div class="detail-header"><span class="big-num">.06</span>
+                    <h2>Tech Watch</h2>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-text">
+                        <div class="tags">
+                            <span class="tag">CURATION</span>
+                            <span class="tag">INNOVATION</span>
+                            <span class="tag">STRATÉGIE</span>
+                        </div>
+                        <p class="veille-context">
+                            <strong>Contexte :</strong> L'industrie du développement évolue à un rythme effréné. Ce
+                            projet
+                            de veille formalise mon processus continu d'apprentissage technologique.<br><br>
+                            <strong>Approche :</strong> Curation manuelle de sources à haute valeur ajoutée, analyse des
+                            failles émergentes et des nouveaux paradigmes de programmation (IA, Cybersécurité, Langages)
+                            pour conserver une vision d'avance sur les standards de l'industrie.
+                        </p>
+
+                        <div class="ma-veille">
+                            <h2><span aria-hidden="true">✦</span> Ma Veille Technologique</h2>
+
+                            <div class="veille-card">
+                                <div class="veille-header">
+                                    <span class="veille-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                            <polyline points="9 12 11 14 15 10" />
+                                        </svg></span>
+                                    <div>
+                                        <h3>Datacenters : l'infrastructure spatiale</h3>
+                                        <div class="source-container">
+                                            <span class="veille-type podcast">Podcast</span>
+                                            <span class="veille-source">Les Cast Codeurs — Fév 2026</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>Une écoute fascinante sur le concept fou de déporter nos datacenters en orbite ! On y
+                                    aborde les défis thermiques, la latence satellite et la souveraineté. Une vraie
+                                    ouverture d'esprit sur le cloud de demain.</p>
+                                <a href="https://podcasts.apple.com/fr/podcast/datacenters-carrier-class-dans-lespace/id312239675?i=1000749941298"
+                                    target="_blank" class="veille-link">Écouter le podcast →</a>
+                            </div>
+
+                            <div class="veille-card">
+                                <div class="veille-header">
+                                    <span class="veille-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                        </svg></span>
+                                    <div>
+                                        <h3>L’IA générative face aux cyberattaques</h3>
+                                        <div class="source-container">
+                                            <span class="veille-type article">Rapport CTI</span>
+                                            <span class="veille-source">CERT-FR (ANSSI) — Fév 2026</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>Un rapport incontournable de l'ANSSI. J'y ai découvert comment l'IA est détournée
+                                    pour
+                                    orchestrer des compromissions complexes, mais aussi comment elle devient un bouclier
+                                    actif pour la défense système.</p>
+                                <a href="https://cert.ssi.gouv.fr/cti/CERTFR-2026-CTI-001/" target="_blank"
+                                    class="veille-link">Lire le rapport →</a>
+                            </div>
+
+                            <div class="veille-card">
+                                <div class="veille-header">
+                                    <span class="veille-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polygon points="5 3 19 12 5 21 5 3" />
+                                        </svg></span>
+                                    <div>
+                                        <h3>Pourquoi les devs fuient vers Rust ?</h3>
+                                        <div class="source-container">
+                                            <span class="veille-type video">Vidéo</span>
+                                            <span class="veille-source">Underscore_ — Janv 2026</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>Analyse passionnante qui décortique pourquoi les mastodontes de la Tech abandonnent
+                                    C/C++. J'ai été marqué par l'impact incroyable du "Borrow Checker" sur la sécurité
+                                    mémoire et la fiabilité applicative.</p>
+                                <a href="https://www.youtube.com/watch?v=hbHgIzIbzmQ" target="_blank"
+                                    class="veille-link">Voir la vidéo →</a>
+                            </div>
+
+                            <div class="veille-card">
+                                <div class="veille-header">
+                                    <span class="veille-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="16 18 22 12 16 6" />
+                                            <polyline points="8 6 2 12 8 18" />
+                                        </svg></span>
+                                    <div>
+                                        <h3>Des Objets, pas des Data Classes !</h3>
+                                        <div class="source-container">
+                                            <span class="veille-type article">Tutoriel</span>
+                                            <span class="veille-source">Ippon Technologies — Avr 2020</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>Une véritable piqûre de rappel sur la POO ! Cette lecture m'a fait réaliser l'erreur
+                                    commune de traiter les objets comme de simples conteneurs de données
+                                    (getters/setters)
+                                    au lieu d'y encapsuler la logique métier.</p>
+                                <a href="https://ippon.developpez.com/tutoriels/java/objets-pas-classesdonnees/"
+                                    target="_blank" class="veille-link">Lire l'article →</a>
+                            </div>
+
+                            <div class="veille-card">
+                                <div class="veille-header">
+                                    <span class="veille-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
+                                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="3" y="11" width="18" height="11" rx="2" />
+                                            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                            <circle cx="12" cy="16" r="1" />
+                                        </svg></span>
+                                    <div>
+                                        <h3>L'approche MVC : Le Retour Théorique</h3>
+                                        <div class="source-container">
+                                            <span class="veille-type article">Article</span>
+                                            <span class="veille-source">Developpez.com — Août 2019</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>Un classique technique indémodable. Cet article m'a permis de consolider mes bases
+                                    sur
+                                    l'architecture Modèle-Vue-Contrôleur en PHP. Séparer l'affichage de la logique de
+                                    données est aujourd'hui mon réflexe naturel.</p>
+                                <a href="https://php.developpez.com/actu/274116/Programmation-en-PHP-moins-Developpement-selon-l-approche-MVC-Modele-moins-Vue-moins-Controleur-moins-Le-retour-moins-Theorie-par-rawsrc/"
+                                    target="_blank" class="veille-link">Lire l'article →</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Images Veille Accordion (Ajouté) -->
+                    <div class="detail-image detail-image--stretch">
+                        <div class="veille-gallery">
+                            <div class="gallery-item" role="button" tabindex="0"
+                                aria-label="Voir l'image de veille 1 en plein écran"><img src="imageveille/1.png"
+                                    alt="Veille technologique — capture 1" loading="lazy"></div>
+                            <div class="gallery-item" role="button" tabindex="0"
+                                aria-label="Voir l'image de veille 2 en plein écran"><img src="imageveille/2.png"
+                                    alt="Veille technologique — capture 2" loading="lazy"></div>
+                            <div class="gallery-item" role="button" tabindex="0"
+                                aria-label="Voir l'image de veille 3 en plein écran"><img src="imageveille/3.png"
+                                    alt="Veille technologique — capture 3" loading="lazy"></div>
+                            <div class="gallery-item" role="button" tabindex="0"
+                                aria-label="Voir l'image de veille 4 en plein écran"><img src="imageveille/4.png"
+                                    alt="Veille technologique — capture 4" loading="lazy"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-detail reveal-element" id="p7">
+                <div class="detail-header"><span class="big-num">.07</span>
+                    <h2>Digital Identity</h2>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-text">
+                        <div class="tags">
+                            <span class="tag">DÉVELOPPEMENT WEB</span>
+                            <span class="tag">UI/UX DESIGN</span>
+                            <span class="tag">PORTFOLIO</span>
+                        </div>
+                        <p><strong>Contexte :</strong> Création de la vitrine numérique que vous êtes en train
+                            d'explorer,
+                            pensée comme une preuve de concept esthétique et technique.</p>
+                        <p><strong>Contribution :</strong> Design de l'interface globale, intégration responsive et
+                            élaboration d'une identité visuelle immersive pour mettre en valeur mes travaux.</p>
+                        <p><strong>Approche Technique :</strong> Code développé (vibe coding) à l'aide de l'IA (Claude
+                            Code
+                            et Antigravity)
+                            combinant HTML Sémantique, CSS moderne et
+                            micro-animations GSAP pour garantir une fluidité d'expérience optimale.</p>
+                    </div>
+                    <div class="detail-image">
+                        <div class="bento-image-grid bento-4">
+                            <div class="grid-item item-tall" role="button" tabindex="0"
+                                aria-label="Voir l'image Digital Identity 1 en plein écran"><img
+                                    src="imageportfolio/1.jpg" alt="Digital Identity — capture 1" loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Digital Identity 2 en plein écran"><img
+                                    src="imageportfolio/2.png" alt="Digital Identity — capture 2" loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Digital Identity 3 en plein écran"><img
+                                    src="imageportfolio/3.png" alt="Digital Identity — capture 3" loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Digital Identity 4 en plein écran"><img
+                                    src="imageportfolio/4.png" alt="Digital Identity — capture 4" loading="lazy"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-detail reverse reveal-element" id="p8">
+                <div class="detail-header"><span class="big-num">.08</span>
+                    <h2>Android Lab</h2>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-text">
+                        <div class="tags">
+                            <span class="tag">DÉVELOPPEMENT MOBILE</span>
+                            <span class="tag">ANDROID JAVA</span>
+                            <span class="tag">R&D</span>
+                        </div>
+                        <p><strong>Contexte :</strong> Exploration de l'écosystème mobile natif, anticipant la
+                            transition de
+                            mes compétences backend vers le frontend embarqué.</p>
+                        <p><strong>Objectif :</strong> Concevoir et déployer une première application Android robuste
+                            intégrant la gestion des états, du cycle de vie et de l'interface utilisateur tactile.</p>
+                        <p><strong>Approche Technique :</strong> Utilisation d'Android Studio et de l'environnement Java
+                            natif pour des performances optimales. (Expérimentations en cours...)</p>
+                    </div>
+                    <div class="detail-image">
+                        <div class="bento-image-grid bento-2">
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Android Lab 1 en plein écran"><img src="imageandroid/1.png"
+                                    alt="Android Lab — capture 1" loading="lazy"></div>
+                            <div class="grid-item" role="button" tabindex="0"
+                                aria-label="Voir l'image Android Lab 2 en plein écran"><img src="imageandroid/2.png"
+                                    alt="Android Lab — capture 2" loading="lazy"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
-
-        <div class="scroll-indicator">SCROLL POUR DÉCOUVRIR ↓</div>
-    </section>
-
-    <section class="resume-section" id="experiences">
-        <div class="resume-grid-v2">
-
-            <div class="resume-col">
-                <h3 class="resume-title reveal-left"><span aria-hidden="true">✦</span> EXPERIENCES</h3>
-
-                <div class="resume-item">
-                    <span class="date">05 janvier au 14 fevrier 2026 (Stage 2ème année)</span>
-                    <h4>DÉVELOPPEUR JAVA</h4>
-                    <span class="company">Sparow IT - Semoy</span>
-                    <p>Développement d'un outil d'automatisation pour la suppression d'artefacts Nexus. Java, Spring
-                        Boot, Maven, JUnit, Log4j.</p>
-                </div>
-
-                <div class="resume-item">
-                    <span class="date">26 mai au 04 juillet 2025 (Stage 1ère année)</span>
-                    <h4>DÉVELOPPEUR PYTHON</h4>
-                    <span class="company">SOGÉCAP - Orléans</span>
-                    <p>Développement d'outils d'automatisation pour la gestion d'incidents. Scripting Python, API Jira,
-                        analyse de données.</p>
-                </div>
-            </div>
-
-            <div class="resume-col">
-                <div class="desktop-spacer"></div>
-
-                <h3 class="resume-title reveal-left"><span aria-hidden="true">✦</span> FORMATIONS</h3>
-
-                <div class="resume-item">
-                    <span class="date">2024 - 2026</span>
-                    <h4>BTS SIO (OPTION SLAM)</h4>
-                    <span class="company">Lycée Benjamin Franklin</span>
-                    <p>Solutions Logicielles et Applications Métiers. Apprentissage du développement web, mobile et
-                        bases de données.</p>
-                </div>
-
-                <div class="resume-item">
-                    <span class="date">2021 - 2024</span>
-                    <h4>LICENCE 1 INFO</h4>
-                    <span class="company">Université d'Orléans</span>
-                    <p>Mathématiques et bases de l'algorithmique.</p>
-                </div>
-
-                <div class="resume-item">
-                    <span class="date">2019 - 2021</span>
-                    <h4>BAC STI2D</h4>
-                    <span class="company">Lycée Benjamin Franklin</span>
-                    <p>Mention Bien. Option Systèmes d'Information et Numérique.</p>
-                </div>
-            </div>
-
-            <div class="resume-col">
-
-                <h3 class="resume-title reveal-left"><span aria-hidden="true">✦</span> APTITUDES</h3>
-                <div class="skills-container">
-                    <span class="skill-badge">JAVA / SPRING</span>
-                    <span class="skill-badge">PHP / SYMFONY</span>
-                    <span class="skill-badge">PYTHON</span>
-                    <span class="skill-badge">JAVASCRIPT</span>
-                    <span class="skill-badge">SQL / MARIADB</span>
-                    <span class="skill-badge">HTML / CSS</span>
-                    <span class="skill-badge">TESTS JUNIT</span>
-                    <span class="skill-badge">GIT / GITHUB</span>
-                    <span class="skill-badge">MÉTHODE AGILE</span>
-                </div>
-
-                <h3 class="resume-title reveal-left mt-60"><span aria-hidden="true">✦</span> CONTACT
-                </h3>
-                <div class="contact-list">
-
-                    <a href="mailto:jef.ly@netocentre.fr" class="contact-row">
-                        <div class="icon-box">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="2" y="4" width="20" height="16" rx="2" />
-                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                            </svg>
-                        </div>
-                        <span class="contact-text">jef.ly@netocentre.fr</span>
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/jef-l-0093b1327" target="_blank" rel="noopener noreferrer"
-                        class="contact-row">
-                        <div class="icon-box">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                                <rect x="2" y="9" width="4" height="12" />
-                                <circle cx="4" cy="4" r="2" />
-                            </svg>
-                        </div>
-                        <span class="contact-text">LinkedIn</span>
-                    </a>
-
-                    <a href="cv-jef-ly.pdf" target="_blank" class="contact-row">
-                        <div class="icon-box">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-                                <polyline points="14 2 14 8 20 8" />
-                                <line x1="12" y1="18" x2="12" y2="12" />
-                                <line x1="9" y1="15" x2="12" y2="18" />
-                                <line x1="15" y1="15" x2="12" y2="18" />
-                            </svg>
-                        </div>
-                        <span class="contact-text">Voir mon CV</span>
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <div class="projects-wrapper" id="sommaire">
-        <div class="projects-header">SOMMAIRE DES PROJETS <span class="arrow">→</span><span class="scroll-hint"
-                aria-hidden="true">SCROLL →→</span></div>
-
-        <div class="projects-container">
-            <a href="#p1" class="project-card bento-tall"
-                style="background-image: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), url('imagesparowit/2.webp'); background-size: cover; background-position: center;">
-                <div class="card-header"><span class="project-number">.01</span>
-                    <div class="tags"><span class="tag">STAGE 2A</span></div>
-                </div>
-                <h3 class="project-title text-light">Nexus Automations</h3>
-                <p class="project-desc text-light">Développement Java & Automatisation.</p>
-            </a>
-            <a href="#p2" class="project-card bento-big"
-                style="background-image: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), url('imagesogecap/4.png'); background-size: cover; background-position: center;">
-                <div class="card-header"><span class="project-number">.02</span>
-                    <div class="tags"><span class="tag">STAGE 1A</span><span class="tag">PYTHON</span></div>
-                </div>
-                <h3 class="project-title text-light">Jira Flow Automation</h3>
-                <p class="project-desc text-light">Optimisation de flux pour SOGECAP.</p>
-            </a>
-            <a href="#p3" class="project-card bento-square"
-                style="background-image: url('imageatelierscertif/1.webp'); background-size: cover; background-position: center; border: none; box-shadow: inset 0 0 0 2000px rgba(243,240,231,0.85);">
-                <div class="card-header"><span class="project-number">.03</span>
-                    <div class="tags"><span class="tag">AUTO-FORMATION</span><span class="tag">DEV</span></div>
-                </div>
-                <h3 class="project-title">Ateliers Certif.</h3>
-                <p class="project-desc">Parcours d'auto-formation OpenClassrooms.</p>
-            </a>
-            <a href="#p4" class="project-card bento-tall"
-                style="background-image: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), url('imagecoffeeshop/1.webp'); background-size: cover; background-position: center;">
-                <div class="card-header"><span class="project-number">.04</span>
-                    <div class="tags"><span class="tag">WORDPRESS</span></div>
-                </div>
-                <h3 class="project-title text-light">Coffee Shop</h3>
-                <p class="project-desc text-light">Boutique en ligne fictive dédiée au café.</p>
-            </a>
-            <a href="#p5" class="project-card bento-wide"
-                style="background-image: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), url('imagegsbsecureapp/2.png'); background-size: cover; background-position: center;">
-                <div class="card-header"><span class="project-number">.05</span>
-                    <div class="tags"><span class="tag">PHP/SQL</span></div>
-                </div>
-                <h3 class="project-title text-light">GSB : Secure App</h3>
-                <p class="project-desc text-light">Sécurisation critique et architecture MVC.</p>
-            </a>
-            <a href="#p6" class="project-card bento-square"
-                style="background-image: url('imageveille/1.png'); background-size: cover; background-position: center; border: none; box-shadow: inset 0 0 0 2000px rgba(243,240,231,0.85);">
-                <div class="card-header"><span class="project-number">.06</span>
-                    <div class="tags"><span class="tag">VEILLE</span></div>
-                </div>
-                <h3 class="project-title">Tech Watch</h3>
-                <p class="project-desc">Curation et innovation technologique.</p>
-            </a>
-            <a href="#p7" class="project-card bento-wide"
-                style="background-image: url('imageportfolio/1.jpg'); background-size: cover; background-position: center; border: none; box-shadow: inset 0 0 0 2000px rgba(243,240,231,0.85);">
-                <div class="card-header"><span class="project-number">.07</span>
-                    <div class="tags"><span class="tag">DESIGN</span></div>
-                </div>
-                <h3 class="project-title">Digital Identity</h3>
-                <p class="project-desc">Personal Branding et UI/UX.</p>
-            </a>
-            <a href="#p8" class="project-card bento-square dashed-border"
-                style="background-image: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), url('imageandroid/2.png'); background-size: cover; background-position: center;">
-                <div class="card-header"><span class="project-number">.08</span>
-                    <div class="tags"><span class="tag">ANDROID</span></div>
-                </div>
-                <h3 class="project-title text-light">Android Lab</h3>
-                <p class="project-desc text-light">Développement Mobile natif.</p>
-            </a>
-        </div>
-    </div>
-
-    <div class="details-wrapper">
-        <section class="project-detail reveal-element" id="p1">
-            <div class="detail-header"><span class="big-num">.01</span>
-                <h2>Nexus Automator</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags">
-                        <span class="tag">STAGE 2A</span>
-                        <span class="tag">DÉVELOPPEMENT JAVA</span>
-                        <span class="tag">AUTOMATISATION</span>
-                    </div>
-                    <p><strong>Contexte :</strong> Mission réalisée au sein du pôle infrastructure de Sparow IT pour
-                        optimiser l'espace de stockage d'entreprise en automatisant la gestion des dépôts.</p>
-                    <p><strong>Contribution :</strong> Conception complète d'un outil CLI et asynchrone pour cibler,
-                        analyser et nettoyer efficacement les anciens artefacts sur serveurs Nexus Repository Manager.
-                    </p>
-                    <p><strong>Approche Technique :</strong> Architecture basée sur Spring Boot WebFlux pour des
-                        requêtes non-bloquantes, Spring Shell pour la ligne de commande, et sécurisation via
-                        Testcontainers et JUnit.</p>
-                </div>
-                <div class="detail-image">
-                    <div class="bento-image-grid bento-4">
-                        <div class="grid-item item-tall" role="button" tabindex="0" aria-label="Voir l'image Sparow IT 1 en plein écran"><img src="imagesparowit/1.webp" alt="Nexus Automator — capture 1" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Sparow IT 2 en plein écran"><img src="imagesparowit/2.webp" alt="Nexus Automator — capture 2" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Sparow IT 3 en plein écran"><img src="imagesparowit/3.webp" alt="Nexus Automator — capture 3" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Sparow IT 4 en plein écran"><img src="imagesparowit/4.webp" alt="Nexus Automator — capture 4" loading="lazy"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail reverse reveal-element" id="p2">
-            <div class="detail-header"><span class="big-num">.02</span>
-                <h2>Jira Flow Automation</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags">
-                        <span class="tag">PYTHON SCRIPTING</span>
-                        <span class="tag">API REST</span>
-                        <span class="tag">OPTIMISATION</span>
-                    </div>
-                    <p><strong>Contexte :</strong> Projet mené lors de mon stage de première année à la DSI de SOGÉCAP
-                        pour désengorger le traitement des incidents informatiques.</p>
-                    <p><strong>Contribution :</strong> Développement d'une interface logicielle capable d'extraire,
-                        d'analyser et de filtrer intelligemment le flux entrant via l'API JIRA, en détectant
-                        automatiquement les doublons.</p>
-                    <p><strong>Approche Technique :</strong> Scripting en Python pur générant des synthèses de données
-                        via Excel pour fournir un outil d'aide à la décision structuré et actionnable aux chefs de
-                        projet.</p>
-                </div>
-                <div class="detail-image">
-                    <div class="bento-image-grid bento-4">
-                        <div class="grid-item item-tall" role="button" tabindex="0" aria-label="Voir l'image Jira Flow Automation 1 en plein écran"><img src="imagesogecap/1.png" alt="Jira Flow Automation — capture 1" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Jira Flow Automation 2 en plein écran"><img src="imagesogecap/2.png" alt="Jira Flow Automation — capture 2" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Jira Flow Automation 3 en plein écran"><img src="imagesogecap/3.png" alt="Jira Flow Automation — capture 3" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Jira Flow Automation 4 en plein écran"><img src="imagesogecap/4.png" alt="Jira Flow Automation — capture 4" loading="lazy"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail reveal-element" id="p3">
-            <div class="detail-header"><span class="big-num">.03</span>
-                <h2>Ateliers Certifications</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags">
-                        <span class="tag">AUTO-FORMATION</span>
-                        <span class="tag">DÉVELOPPEMENT</span>
-                        <span class="tag">OPENCLASSROOMS</span>
-                    </div>
-                    <p><strong>Contexte :</strong> Parcours certifiant OpenClassrooms mené en fil rouge durant ma
-                        seconde année de BTS SIO pour élargir mon spectre de compétences.</p>
-                    <p><strong>Contribution :</strong> Assimilation approfondie de concepts liés au développement
-                        logiciel, allant au-delà de la simple exécution de code pour embrasser les bonnes pratiques
-                        d'architecture.</p>
-                    <p><strong>Approche :</strong> Une montée en compétence ciblée qui structure mon approche analytique
-                        de l'informatique et consolide mes fondations théoriques pour le marché professionnel.</p>
-                </div>
-                <div class="detail-image">
-                    <div class="bento-image-grid grid-uniform">
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Ateliers Certifications 1 en plein écran"><img src="imageatelierscertif/1.webp" alt="Ateliers Certifications — capture 1" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Ateliers Certifications 2 en plein écran"><img src="imageatelierscertif/2.webp" alt="Ateliers Certifications — capture 2" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Ateliers Certifications 3 en plein écran"><img src="imageatelierscertif/3.webp" alt="Ateliers Certifications — capture 3" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Ateliers Certifications 4 en plein écran"><img src="imageatelierscertif/4.webp" alt="Ateliers Certifications — capture 4" loading="lazy"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail reverse reveal-element" id="p4">
-            <div class="detail-header"><span class="big-num">.04</span>
-                <h2>Coffee Shop</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags">
-                        <span class="tag">CMS WORDPRESS</span>
-                        <span class="tag">E-COMMERCE</span>
-                        <span class="tag">INTEGRATION</span>
-                    </div>
-                    <p><strong>Contexte :</strong> Projet de démonstration autour de la création complète d'une
-                        plateforme marchande fictive dans l'univers du café pour masteriser les CMS.</p>
-                    <p><strong>Contribution :</strong> Déploiement d'une structure catalogue optimisée, et gestion du
-                        cycle de vie des commandes de la sélection jusqu'au panier dynamique.</p>
-                    <p><strong>Approche Technique :</strong> Utilisation avancée de l'écosystème WordPress et des
-                        plugins e-commerce pour délivrer une interface utilisateur fluide, esthétique et hautement
-                        fonctionnelle.</p>
-                </div>
-                <div class="detail-image">
-                    <div class="bento-image-grid bento-4">
-                        <div class="grid-item item-tall" role="button" tabindex="0" aria-label="Voir l'image Coffee Shop 1 en plein écran"><img src="imagecoffeeshop/1.webp" alt="Coffee Shop — capture 1" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Coffee Shop 2 en plein écran"><img src="imagecoffeeshop/2.webp" alt="Coffee Shop — capture 2" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Coffee Shop 3 en plein écran"><img src="imagecoffeeshop/3.webp" alt="Coffee Shop — capture 3" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Coffee Shop 4 en plein écran"><img src="imagecoffeeshop/4.webp" alt="Coffee Shop — capture 4" loading="lazy"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail reveal-element" id="p5">
-            <div class="detail-header"><span class="big-num">.05</span>
-                <h2>GSB : Secure App</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags">
-                        <span class="tag">BACK-END PHP/SQL</span>
-                        <span class="tag">CYBERSÉCURITÉ</span>
-                        <span class="tag">MVC</span>
-                    </div>
-                    <p><strong>Contexte :</strong> Refonte complète du système de suivi d'activité pour les visiteurs
-                        médicaux du laboratoire Galaxy Swiss Bourdin.</p>
-                    <p><strong>Contribution :</strong> Migration intégrale du code vers une architecture MVC stricte et
-                        remédiation des failles critiques (Injections SQL, balises XSS, CSRF).</p>
-                    <p><strong>Approche Technique :</strong> Développement PHP Backend natif avec un travail drastique
-                        sur l'assainissement et la validation des données d'entrée pour blinder l'application face aux
-                        intrusions.</p>
-                </div>
-                <div class="detail-image">
-                    <div class="bento-image-grid bento-4">
-                        <div class="grid-item item-tall" role="button" tabindex="0" aria-label="Voir l'image GSB Secure App 1 en plein écran"><img src="imagegsbsecureapp/1.png" alt="GSB Secure App — capture 1" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image GSB Secure App 2 en plein écran"><img src="imagegsbsecureapp/2.png" alt="GSB Secure App — capture 2" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image GSB Secure App 3 en plein écran"><img src="imagegsbsecureapp/3.png" alt="GSB Secure App — capture 3" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image GSB Secure App 4 en plein écran"><img src="imagegsbsecureapp/4.png" alt="GSB Secure App — capture 4" loading="lazy"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail reverse reveal-element" id="p6">
-            <div class="detail-header"><span class="big-num">.06</span>
-                <h2>Tech Watch</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags">
-                        <span class="tag">CURATION</span>
-                        <span class="tag">INNOVATION</span>
-                        <span class="tag">STRATÉGIE</span>
-                    </div>
-                    <p class="veille-context">
-                        <strong>Contexte :</strong> L'industrie du développement évolue à un rythme effréné. Ce projet
-                        de veille formalise mon processus continu d'apprentissage technologique.<br><br>
-                        <strong>Approche :</strong> Curation manuelle de sources à haute valeur ajoutée, analyse des
-                        failles émergentes et des nouveaux paradigmes de programmation (IA, Cybersécurité, Langages)
-                        pour conserver une vision d'avance sur les standards de l'industrie.
-                    </p>
-
-                    <div class="ma-veille">
-                        <h2><span aria-hidden="true">✦</span> Ma Veille Technologique</h2>
-
-                        <div class="veille-card">
-                            <div class="veille-header">
-                                <span class="veille-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                        <polyline points="9 12 11 14 15 10" />
-                                    </svg></span>
-                                <div>
-                                    <h3>Datacenters : l'infrastructure spatiale</h3>
-                                    <div class="source-container">
-                                        <span class="veille-type podcast">Podcast</span>
-                                        <span class="veille-source">Les Cast Codeurs — Fév 2026</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <p>Une écoute fascinante sur le concept fou de déporter nos datacenters en orbite ! On y
-                                aborde les défis thermiques, la latence satellite et la souveraineté. Une vraie
-                                ouverture d'esprit sur le cloud de demain.</p>
-                            <a href="https://podcasts.apple.com/fr/podcast/datacenters-carrier-class-dans-lespace/id312239675?i=1000749941298"
-                                target="_blank" class="veille-link">Écouter le podcast →</a>
-                        </div>
-
-                        <div class="veille-card">
-                            <div class="veille-header">
-                                <span class="veille-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                    </svg></span>
-                                <div>
-                                    <h3>L’IA générative face aux cyberattaques</h3>
-                                    <div class="source-container">
-                                        <span class="veille-type article">Rapport CTI</span>
-                                        <span class="veille-source">CERT-FR (ANSSI) — Fév 2026</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <p>Un rapport incontournable de l'ANSSI. J'y ai découvert comment l'IA est détournée pour
-                                orchestrer des compromissions complexes, mais aussi comment elle devient un bouclier
-                                actif pour la défense système.</p>
-                            <a href="https://cert.ssi.gouv.fr/cti/CERTFR-2026-CTI-001/" target="_blank"
-                                class="veille-link">Lire le rapport →</a>
-                        </div>
-
-                        <div class="veille-card">
-                            <div class="veille-header">
-                                <span class="veille-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polygon points="5 3 19 12 5 21 5 3" />
-                                    </svg></span>
-                                <div>
-                                    <h3>Pourquoi les devs fuient vers Rust ?</h3>
-                                    <div class="source-container">
-                                        <span class="veille-type video">Vidéo</span>
-                                        <span class="veille-source">Underscore_ — Janv 2026</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <p>Analyse passionnante qui décortique pourquoi les mastodontes de la Tech abandonnent
-                                C/C++. J'ai été marqué par l'impact incroyable du "Borrow Checker" sur la sécurité
-                                mémoire et la fiabilité applicative.</p>
-                            <a href="https://www.youtube.com/watch?v=hbHgIzIbzmQ" target="_blank"
-                                class="veille-link">Voir la vidéo →</a>
-                        </div>
-
-                        <div class="veille-card">
-                            <div class="veille-header">
-                                <span class="veille-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="16 18 22 12 16 6" />
-                                        <polyline points="8 6 2 12 8 18" />
-                                    </svg></span>
-                                <div>
-                                    <h3>Des Objets, pas des Data Classes !</h3>
-                                    <div class="source-container">
-                                        <span class="veille-type article">Tutoriel</span>
-                                        <span class="veille-source">Ippon Technologies — Avr 2020</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <p>Une véritable piqûre de rappel sur la POO ! Cette lecture m'a fait réaliser l'erreur
-                                commune de traiter les objets comme de simples conteneurs de données (getters/setters)
-                                au lieu d'y encapsuler la logique métier.</p>
-                            <a href="https://ippon.developpez.com/tutoriels/java/objets-pas-classesdonnees/"
-                                target="_blank" class="veille-link">Lire l'article →</a>
-                        </div>
-
-                        <div class="veille-card">
-                            <div class="veille-header">
-                                <span class="veille-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="3" y="11" width="18" height="11" rx="2" />
-                                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                                        <circle cx="12" cy="16" r="1" />
-                                    </svg></span>
-                                <div>
-                                    <h3>L'approche MVC : Le Retour Théorique</h3>
-                                    <div class="source-container">
-                                        <span class="veille-type article">Article</span>
-                                        <span class="veille-source">Developpez.com — Août 2019</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <p>Un classique technique indémodable. Cet article m'a permis de consolider mes bases sur
-                                l'architecture Modèle-Vue-Contrôleur en PHP. Séparer l'affichage de la logique de
-                                données est aujourd'hui mon réflexe naturel.</p>
-                            <a href="https://php.developpez.com/actu/274116/Programmation-en-PHP-moins-Developpement-selon-l-approche-MVC-Modele-moins-Vue-moins-Controleur-moins-Le-retour-moins-Theorie-par-rawsrc/"
-                                target="_blank" class="veille-link">Lire l'article →</a>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- Images Veille Accordion (Ajouté) -->
-                <div class="detail-image detail-image--stretch">
-                    <div class="veille-gallery">
-                        <div class="gallery-item" role="button" tabindex="0" aria-label="Voir l'image de veille 1 en plein écran"><img src="imageveille/1.png" alt="Veille technologique — capture 1" loading="lazy"></div>
-                        <div class="gallery-item" role="button" tabindex="0" aria-label="Voir l'image de veille 2 en plein écran"><img src="imageveille/2.png" alt="Veille technologique — capture 2" loading="lazy"></div>
-                        <div class="gallery-item" role="button" tabindex="0" aria-label="Voir l'image de veille 3 en plein écran"><img src="imageveille/3.png" alt="Veille technologique — capture 3" loading="lazy"></div>
-                        <div class="gallery-item" role="button" tabindex="0" aria-label="Voir l'image de veille 4 en plein écran"><img src="imageveille/4.png" alt="Veille technologique — capture 4" loading="lazy"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail reveal-element" id="p7">
-            <div class="detail-header"><span class="big-num">.07</span>
-                <h2>Digital Identity</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags">
-                        <span class="tag">DÉVELOPPEMENT WEB</span>
-                        <span class="tag">UI/UX DESIGN</span>
-                        <span class="tag">PORTFOLIO</span>
-                    </div>
-                    <p><strong>Contexte :</strong> Création de la vitrine numérique que vous êtes en train d'explorer,
-                        pensée comme une preuve de concept esthétique et technique.</p>
-                    <p><strong>Contribution :</strong> Design de l'interface globale, intégration responsive et
-                        élaboration d'une identité visuelle immersive pour mettre en valeur mes travaux.</p>
-                    <p><strong>Approche Technique :</strong> Code développé (vibe coding) à l'aide de l'IA (Claude Code
-                        et Antigravity)
-                        combinant HTML Sémantique, CSS moderne et
-                        micro-animations GSAP pour garantir une fluidité d'expérience optimale.</p>
-                </div>
-                <div class="detail-image">
-                    <div class="bento-image-grid bento-4">
-                        <div class="grid-item item-tall" role="button" tabindex="0" aria-label="Voir l'image Digital Identity 1 en plein écran"><img src="imageportfolio/1.jpg" alt="Digital Identity — capture 1" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Digital Identity 2 en plein écran"><img src="imageportfolio/2.png" alt="Digital Identity — capture 2" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Digital Identity 3 en plein écran"><img src="imageportfolio/3.png" alt="Digital Identity — capture 3" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Digital Identity 4 en plein écran"><img src="imageportfolio/4.png" alt="Digital Identity — capture 4" loading="lazy"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-detail reverse reveal-element" id="p8">
-            <div class="detail-header"><span class="big-num">.08</span>
-                <h2>Android Lab</h2>
-            </div>
-            <div class="detail-content">
-                <div class="detail-text">
-                    <div class="tags">
-                        <span class="tag">DÉVELOPPEMENT MOBILE</span>
-                        <span class="tag">ANDROID JAVA</span>
-                        <span class="tag">R&D</span>
-                    </div>
-                    <p><strong>Contexte :</strong> Exploration de l'écosystème mobile natif, anticipant la transition de
-                        mes compétences backend vers le frontend embarqué.</p>
-                    <p><strong>Objectif :</strong> Concevoir et déployer une première application Android robuste
-                        intégrant la gestion des états, du cycle de vie et de l'interface utilisateur tactile.</p>
-                    <p><strong>Approche Technique :</strong> Utilisation d'Android Studio et de l'environnement Java
-                        natif pour des performances optimales. (Expérimentations en cours...)</p>
-                </div>
-                <div class="detail-image">
-                    <div class="bento-image-grid bento-2">
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Android Lab 1 en plein écran"><img src="imageandroid/1.png" alt="Android Lab — capture 1" loading="lazy"></div>
-                        <div class="grid-item" role="button" tabindex="0" aria-label="Voir l'image Android Lab 2 en plein écran"><img src="imageandroid/2.png" alt="Android Lab — capture 2" loading="lazy"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </div>
 
     </main>
 
