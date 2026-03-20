@@ -435,15 +435,18 @@ section.hero {
 
 /* Aptitudes (Badges Rétro) */
 .skills-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
+    margin-top: 15px;
+    margin-bottom: 40px;
 }
 
 .skill-badge {
     box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
     min-height: 48px;
-    padding: 8px 20px;
     background: #fff;
     border: 2px solid var(--text-main);
     color: var(--text-main);
@@ -465,6 +468,7 @@ section.hero {
     overflow: hidden;
     text-overflow: ellipsis;
     cursor: pointer;
+    line-height: 1;
 }
 
 .skill-badge:hover {
@@ -1103,6 +1107,10 @@ section.hero {
 
 /* --- TABLETTE (≤ 1024px) --- */
 @media (max-width: 1024px) {
+    .skills-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .resume-grid-v2 {
         grid-template-columns: 1fr;
         gap: 40px;
