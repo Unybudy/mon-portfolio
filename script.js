@@ -1,7 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ==========================================================================
-       0. REDUCED MOTION CHECK
+       0. DARK MODE — persistance + préférence système
+       ========================================================================== */
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function applyTheme(dark) {
+        document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        if (themeToggleBtn) {
+            themeToggleBtn.setAttribute('aria-label', dark ? 'Activer le mode clair' : 'Activer le mode sombre');
+        }
+    }
+
+    // Priorité : localStorage > préférence système
+    const saved = localStorage.getItem('theme');
+    applyTheme(saved ? saved === 'dark' : prefersDark.matches);
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            applyTheme(!isDark);
+            localStorage.setItem('theme', !isDark ? 'dark' : 'light');
+        });
+    }
+
+    // Suit les changements système si pas de préférence sauvegardée
+    prefersDark.addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) applyTheme(e.matches);
+    });
+
+    /* ==========================================================================
+       1. REDUCED MOTION CHECK
        ========================================================================== */
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     let prefersReducedMotion = reducedMotionQuery.matches;
