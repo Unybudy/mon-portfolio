@@ -1804,44 +1804,37 @@ section.hero::after {
 
     .project-detail.reverse .detail-content .detail-image { order: 0; }
 
-    /* Scroll hint */
-    .scroll-hint { display: none; }
+    /* Scroll hint visible sur mobile pour indiquer de scroller */
+    .scroll-hint { display: inline-block; }
 
-    /* Bento horizontal */
+    /* Bento horizontal (scroll piloté par GSAP sur mobile) */
     .projects-wrapper {
-        height: auto;
-        min-height: 80vh;
-        overflow-x: hidden;
-        padding: 50px 0;
+        height: 100vh;
+        overflow: hidden;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .projects-container {
-        grid-template-rows: repeat(2, 30vh);
-        gap: 20px;
-        padding: 20px 5vw 30px;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        width: 100vw;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .projects-container::-webkit-scrollbar { height: 6px; }
-    .projects-container::-webkit-scrollbar-track { background: transparent; }
-    .projects-container::-webkit-scrollbar-thumb {
-        background: var(--accent-color);
-        border-radius: 10px;
+        grid-template-rows: repeat(2, 32vh);
+        gap: 16px;
+        padding: 0 5vw;
+        overflow: visible;
+        width: max-content;
+        will-change: transform;
     }
 
     .project-card {
-        scroll-snap-align: center;
-        min-width: 280px;
-        padding: 20px;
+        min-width: 260px;
+        padding: 18px;
     }
 
-    .bento-square { width: 300px; }
-    .bento-tall   { width: 320px; }
-    .bento-wide   { width: 450px; }
-    .bento-big    { width: 550px; }
+    .bento-square { width: 260px; }
+    .bento-tall   { width: 280px; }
+    .bento-wide   { width: 380px; }
+    .bento-big    { width: 460px; }
 
     /* Images grille mobile */
     .bento-image-grid,

@@ -316,6 +316,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (container && wrapper) {
             let mm = gsap.matchMedia();
+
+            // Desktop : scroll horizontal pinné
             mm.add('(min-width: 769px)', () => { // 769px = breakpoint mobile (max-width: 768px) + 1
                 if (prefersReducedMotion) return;
 
@@ -335,6 +337,30 @@ document.addEventListener("DOMContentLoaded", () => {
                     pin: true,
                     animation: tween,
                     scrub: 1.2,
+                    invalidateOnRefresh: true,
+                });
+            });
+
+            // Mobile : scroll horizontal piloté par le scroll vertical (pinné)
+            mm.add('(max-width: 768px)', () => {
+                if (prefersReducedMotion) return;
+
+                function getMobileScrollAmount() {
+                    return -(container.scrollWidth - window.innerWidth);
+                }
+
+                const mobileTween = gsap.to(container, {
+                    x: getMobileScrollAmount,
+                    ease: 'none',
+                });
+
+                ScrollTrigger.create({
+                    trigger: '.projects-wrapper',
+                    start: 'top top',
+                    end: () => `+=${container.scrollWidth - window.innerWidth}`,
+                    pin: true,
+                    animation: mobileTween,
+                    scrub: 1,
                     invalidateOnRefresh: true,
                 });
             });
