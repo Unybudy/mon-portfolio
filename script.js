@@ -316,7 +316,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (container && wrapper) {
             let mm = gsap.matchMedia();
-            mm.add('(min-width: 769px)', () => {
+            mm.add('(min-width: 769px)', () => { // 769px = breakpoint mobile (max-width: 768px) + 1
                 if (prefersReducedMotion) return;
 
                 function getScrollAmount() {
@@ -533,14 +533,14 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             // Cursor "VOIR" sur les cards
-            const cursor = document.querySelector('.custom-cursor');
+            const cardCursor = document.querySelector('.custom-cursor');
             document.querySelectorAll('.project-card').forEach(card => {
                 card.addEventListener('mouseenter', () => {
-                    cursor?.classList.add('is-hovering-card');
-                    cursor?.classList.remove('hover');
+                    cardCursor?.classList.add('is-hovering-card');
+                    cardCursor?.classList.remove('hover');
                 });
                 card.addEventListener('mouseleave', () => {
-                    cursor?.classList.remove('is-hovering-card');
+                    cardCursor?.classList.remove('is-hovering-card');
                 });
             });
         }
@@ -749,7 +749,6 @@ document.addEventListener("DOMContentLoaded", () => {
         /* ======================================================================
            14. LIGHTBOX / MODAL
            ====================================================================== */
-        const navLinks = null; // remplacé par drawer mobile indépendant
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('fullImage');
         const closeModalBtn = document.querySelector('.close-modal');

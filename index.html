@@ -20,39 +20,6 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- Skip link for keyboard/screen reader users -->
-    <style>
-        .skip-link {
-            position: absolute;
-            top: -100%;
-            left: 10px;
-            background: var(--accent-color, #006B5E);
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-weight: 700;
-            text-decoration: none;
-            z-index: 10000;
-            transition: top 0.2s;
-        }
-
-        .skip-link:focus {
-            top: 10px;
-        }
-
-        /* Fallback : cache le preloader après 5s si GSAP ne charge pas */
-        @keyframes fallbackHide {
-            to {
-                opacity: 0;
-                pointer-events: none;
-                display: none;
-            }
-        }
-
-        .page-transition {
-            clip-path: inset(0 0 0% 0);
-            animation: fallbackHide 0s 5s forwards;
-        }
-    </style>
 
 </head>
 
@@ -840,7 +807,7 @@
     <!-- Lightbox Modal -->
     <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Image en plein écran">
         <button class="close-modal" aria-label="Fermer">&times;</button>
-        <img class="modal-content" id="fullImage" alt="">
+        <img class="modal-content" id="fullImage" alt="Image en plein écran">
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>

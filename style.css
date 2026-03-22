@@ -141,7 +141,29 @@ p, a, span, .tag {
 
 
 /* ============================================================
-   4. PRELOADER & TRANSITION DE PAGE
+   4. SKIP LINK (accessibilité clavier)
+   ============================================================ */
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 10px;
+    background: var(--accent-color, #006B5E);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-decoration: none;
+    z-index: 10000;
+    transition: top 0.2s;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+/* ============================================================
+   5. PRELOADER & TRANSITION DE PAGE
    ============================================================ */
 
 .page-transition {
@@ -301,6 +323,14 @@ body.custom-cursor-active .custom-cursor {
 /* ============================================================
    7. NAVIGATION
    ============================================================ */
+
+.nav-left {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
 
 .top-nav {
     position: fixed;
@@ -965,6 +995,13 @@ section.hero::after {
     overscroll-behavior-x: contain;
 }
 
+.project-desc {
+    font-size: 0.9rem;
+    opacity: 0.75;
+    margin: 0;
+    line-height: 1.4;
+}
+
 .project-card {
     background-color: var(--bg-color);
     border: 2px solid var(--border-color);
@@ -1431,6 +1468,23 @@ section.hero::after {
 /* ============================================================
    13. FOOTER
    ============================================================ */
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.footer-title {
+    font-family: var(--font-title);
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    color: var(--bg-color);
+    margin: 0;
+}
 
 .footer {
     background-color: var(--text-main);
