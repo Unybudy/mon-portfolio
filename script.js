@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
        1. REDUCED MOTION CHECK
        ========================================================================== */
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let prefersReducedMotion = reducedMotionQuery.matches;
-    reducedMotionQuery.addEventListener('change', (e) => { prefersReducedMotion = e.matches; });
+    let prefersReducedMotion = false; // Forcé à false pour éviter que Windows ne bloque les animations
+    reducedMotionQuery.addEventListener('change', (e) => { /* prefersReducedMotion = e.matches; */ });
 
     /* ==========================================================================
        1. PRELOADER ANIMÉ

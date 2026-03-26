@@ -600,16 +600,16 @@ body.custom-cursor-active .custom-cursor {
     flex-shrink: 0;
     transition: opacity 0.3s ease, stroke 0.3s ease;
     position: relative;
-    z-index: 1;
+    z-index: 3; /* Icones doivent rester au-dessus du thumb */
 }
 
-/* Light mode : soleil visible, lune cachée */
-.theme-toggle .icon-sun  { opacity: 1; }
-.theme-toggle .icon-moon { opacity: 0.3; }
+/* Light mode : le soleil est sous le thumb (donc doit prendre la couleur du fond), la lune est à droite */
+.theme-toggle .icon-sun  { opacity: 1; stroke: var(--bg-color); }
+.theme-toggle .icon-moon { opacity: 0.5; stroke: var(--text-main); }
 
-/* Dark mode : lune visible, soleil caché */
-[data-theme="dark"] .theme-toggle .icon-sun  { opacity: 0.3; }
-[data-theme="dark"] .theme-toggle .icon-moon { opacity: 1; stroke: var(--accent-color); }
+/* Dark mode : la lune est sous le thumb, le soleil est à gauche */
+[data-theme="dark"] .theme-toggle .icon-sun  { opacity: 0.5; stroke: var(--text-main); }
+[data-theme="dark"] .theme-toggle .icon-moon { opacity: 1; stroke: var(--bg-color); }
 
 /* Hover */
 .theme-toggle:hover .theme-toggle-track {
@@ -2000,6 +2000,7 @@ a, button, .project-card, .skill-badge,
    19. PREFERS-REDUCED-MOTION
    ============================================================ */
 
+/*
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -2009,3 +2010,4 @@ a, button, .project-card, .skill-badge,
 
     #gridCanvas { display: none; }
 }
+*/
